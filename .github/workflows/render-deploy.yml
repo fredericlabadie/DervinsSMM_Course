@@ -24,16 +24,13 @@ jobs:
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
 
-      - name: Inject HF token
-        run: sed -i 's/__HF_TOKEN_PLACEHOLDER__/${{ secrets.HF_TOKEN }}/g' smm_guide.qmd
-
       - name: Render site
-        run: quarto render smm_guide.qmd --to html
+        run: quarto render
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: _site
 
   deploy:
     needs: build
