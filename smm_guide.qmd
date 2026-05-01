@@ -1,7 +1,7 @@
 ---
 title: "Brenda Dervin's Sense-Making Methodology"
-subtitle: "A Structured Refresher & Applied Practice Guide"
-author: "Personal Study Edition"
+subtitle: "A Practitioner's Guide — Theory, Method, and Applied Analytics"
+author: "Frederic Labadie"
 date: last-modified
 format:
   html:
@@ -182,6 +182,18 @@ table.compare td:first-child { font-weight: 600; color: #0d6e56; font-family: 'J
 - **As a printable PDF** → render with `quarto render smm_guide.qmd --to pdf`
 - **As a fieldwork handbook** → print Section 10 (Fieldwork Template) separately
 - **Flashcards** → click to flip in HTML; both Q and A print automatically in PDF
+:::
+
+::: {.callout-tip appearance="minimal"}
+**Why I built this**
+
+Dervin's Sense-Making Methodology is the qualitative counterpart to the quantitative analytics work I do every day. The telemetry tells me *what* happened — where users dropped off, which variant won, which segment converts. SMM gives me the framework for understanding *why* — what gap the user was experiencing, what bridge they were trying to construct, and why the product did or didn't help them across it.
+
+I couldn't find a resource with the theoretical rigour intact that was also practically oriented toward the work I actually do: analytics, UX telemetry, A/B testing, measurement planning. So I built one.
+
+The talk this connects to: **Finding the Hypothesis When You Only Know the Question** — on the relationship between quantitative analytics and qualitative gap diagnosis.
+
+*Frederic Labadie — Senior Data Analyst & Analytics Architect, Amsterdam*
 :::
 
 ---
@@ -457,6 +469,87 @@ Dervin's signature technique. It anchors the conversation in a specific, concret
 **SMM question:** "What is the gap? What situation am I in? What bridges are available? What sense might I need to *unmake* first?"
 
 **In practice:** Name the gap precisely before seeking bridges. Is it a decision-gap? A confusion-gap? A barrier-gap? Different gap types require different bridge strategies. Sense-unmaking check: what existing assumptions need dismantling before the gap can be crossed?
+
+## Analytics & Digital Product Work
+
+This is where I actually use SMM day-to-day. Quantitative analytics tells you *what* happened — where users dropped off, which variant won, which segment converts. SMM is the framework I reach for when I need to understand *why*. They are not competing methods; they are sequential ones.
+
+::: {.callout-tip appearance="minimal"}
+**The core problem SMM solves in analytics**
+
+Most analytics practices measure outcomes. A funnel chart shows drop-off at step 3. A heatmap shows where users stop scrolling. But none of this tells you what gap the user was experiencing at that moment — and therefore none of it tells you what bridge to build. SMM is the diagnostic layer that sits underneath quantitative data and makes it actionable.
+:::
+
+| Analytics Signal | What Analytics Tells You | What SMM Asks Next |
+|-----------------|--------------------------|-------------------|
+| 70% drop-off at checkout step 3 | Users are leaving at a specific point | "Walk me through the last time you were trying to complete this purchase and something stopped you. What was happening at that moment?" |
+| A/B test: Variant B wins by 12% | B performs better on the target metric | "What gap were users experiencing that Variant B bridged more effectively? What bridge did B provide that A didn't?" |
+| Feature adoption at 8% after launch | Users are not using the new feature | "Is the gap this feature was designed to bridge actually the gap users have? Or did we design a bridge for an assumed gap?" |
+| Support ticket volume spikes after redesign | Something broke in the user experience | "What sense did users have of the old design that the redesign unmade? What new gaps did we create?" |
+| Session length drops in cohort analysis | Users are spending less time engaged | "What changed in users' situations that shifted which gaps they're bringing to this product?" |
+
+### UX Telemetry + SMM: A Combined Protocol
+
+UX telemetry — event tracking, session replay, heatmaps — gives you behavioural data at scale. SMM gives you the interpretive framework for that data. The combination is more powerful than either alone.
+
+1. **Instrument for gap signals.** Beyond conversion events, instrument for frustration signals — rage clicks, repeated navigation attempts, search queries within the product, back-button behaviour. These are behavioural gap-markers: the telemetry equivalent of "I was lost," "I couldn't find."
+
+2. **Cluster users by gap-signal patterns.** Users who rage-click and back-navigate are experiencing something different from users who quietly exit. The gap taxonomy gives you a theoretically grounded way to segment: barrier gaps vs. confusion gaps vs. decision gaps produce distinct behavioural signatures in telemetry data.
+
+3. **Conduct targeted MMTLI interviews with each cluster.** Sample 5–8 users from each behavioural cluster. The telemetry tells you *where* the gap appeared. The MMTLI tells you its *nature* and what kind of bridge users wanted.
+
+4. **Design bridges for gap types, not for conversion metrics.** A checkout abandonment that stems from a trust gap requires a different bridge than one that stems from a logistics barrier gap. SMM diagnosis specifies what problem the solution must solve.
+
+### Finding the Hypothesis When You Only Know the Question
+
+::: {.callout-important appearance="minimal"}
+This is a talk concept I am developing for the Amsterdam data and analytics community — for the Netherlands dbt Meetup and DDMA Digital Analytics Summit audiences.
+
+**The core argument:** Data analytics and qualitative user research are not competing methods. They are sequential ones. Analytics surfaces the fact of a gap. SMM provides the methodology for diagnosing its nature. You cannot design a bridge without knowing the gap type. A decision gap, a confusion gap, and a barrier gap at the same funnel step require entirely different interventions.
+:::
+
+| What Analytics Gives You | What You Still Need | What SMM Provides |
+|--------------------------|--------------------|--------------------|
+| Conversion rate at step 3: 31% | Why 69% leave at this specific step | Gap taxonomy for diagnosing the nature of the discontinuity |
+| Session replay showing rage clicks | What the user was trying to accomplish | MMTLI protocol for surfacing the gap in its situational context |
+| A/B test winner: Variant B +14% | What gap Variant B bridges more effectively | Bridge theory for explaining *why* the winning variant won |
+| Cohort retention drops at week 3 | What changes in the user's situation | Situational analysis — how do sense-making conditions shift over time? |
+
+## Practice Projects
+
+The best way to develop SMM fluency is to apply it to familiar contexts where you already have intuitions. Each project takes 30–90 minutes and produces something usable or showable.
+
+### P1 — Gap-Map a Funnel You Know
+
+Take any multi-step funnel — a checkout flow, an onboarding sequence, a sign-up form. Identify the three steps with the highest drop-off. For each step, generate three hypotheses about the gap type using the taxonomy (decision, barrier, confusion, role, spin-out, washout). Then write one MMTLI-style question you would ask a user to test each hypothesis.
+
+**Output:** A gap hypothesis map with testable questions attached to each funnel step.
+**Time:** 45–60 minutes.
+**SMM concept exercised:** Gap taxonomy + neutral questioning.
+
+### P2 — Rewrite a Survey Using SMM Principles
+
+Take any survey — NPS, post-purchase, employee engagement. Read each question and identify whether it is asking about a situation, gap, bridge, or outcome — and whether it is presupposing a bridge type. Rewrite five questions using SMM-neutral framing. Compare the original and rewritten versions: which would produce more actionable data?
+
+**Output:** Original vs. SMM-rewritten question set with rationale.
+**Time:** 30–45 minutes.
+**SMM concept exercised:** Neutral questioning + S-G-B-O structure.
+
+### P3 — Apply the MMTLI to Your Own Recent Decision
+
+Think of a significant decision you made in the last three months. Apply the MMTLI protocol to yourself: situate it, walk through it step by step, identify every gap you encountered (by type), name every bridge you used, and trace the outcomes. Most people are surprised by how many gaps they crossed unconsciously and how diverse their bridge types were.
+
+**Output:** Annotated personal narrative with S-G-B-O coding.
+**Time:** 30 minutes writing, 15 minutes coding.
+**SMM concept exercised:** Full MMTLI + gap identification + bridge typing.
+
+### P4 — A/B Test Post-Mortem
+
+Take any A/B test result. The standard analysis ends at "variant B won by X%." Apply SMM: What gap did each variant offer a bridge for? Was the winning variant providing a more effective bridge for the same gap, or was it bridging a different gap entirely? This reframe often reveals why a winning test still produces unexpectedly modest business results — because you measured bridge adoption, not gap resolution.
+
+**Output:** Gap-bridge analysis of test variants; reframed hypothesis.
+**Time:** 45 minutes.
+**SMM concept exercised:** Bridge theory + sense-unmaking + outcome typing.
 
 ---
 
@@ -881,6 +974,182 @@ Each day, spend 5 minutes on this ritual:
 | Dervin & Nilan (1986) — *Annual Review of Information Science* | Landmark paradigm critique — establishes the shift from topic-based to gap-based research |
 | Dervin (1998) — "Sense-Making Theory and Practice" | Mature statement — introduces sense-unmaking; feminist and power dimensions |
 | Dervin (1999) — "On Studying Information Seeking Methodologically" | Deepest methodological discussion — best source on MMTLI design and analysis |
+
+---
+
+# SMM Question Rewriter {#rewriter}
+
+Paste any survey, UX interview, or research question and this tool rewrites it using Sense-Making principles — surfacing the gap, removing bridge presuppositions, and anchoring in a specific moment rather than a general pattern.
+
+::: {.callout-note appearance="minimal"}
+**When to use this:** Survey design before fieldwork. UX interview guide review. A/B test hypothesis sharpening. Anywhere you are about to ask a human a question and want to make sure you are asking about their gap rather than your assumed topic.
+:::
+
+```{=html}
+<div style="background:#fff;border:1px solid #d4d0c8;border-radius:10px;padding:28px;margin:24px 0;">
+
+  <div style="margin-bottom:16px;">
+    <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#0d6e56;margin-bottom:8px;">Your question</label>
+    <textarea id="rw-input" placeholder="e.g. 'Did you find the information you were looking for?' or 'How satisfied were you with the checkout process?'" style="width:100%;min-height:88px;border:1px solid #d4d0c8;border-radius:6px;padding:12px 14px;font-family:'Source Serif 4',Georgia,serif;font-size:14px;line-height:1.6;resize:vertical;color:#111;outline:none;background:#fffef7;"></textarea>
+  </div>
+
+  <div style="margin-bottom:20px;">
+    <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#0d6e56;margin-bottom:8px;">Context</label>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;" id="ctx-buttons">
+      <button class="rw-ctx active" onclick="setCtx(this,'UX research interview')">UX Interview</button>
+      <button class="rw-ctx" onclick="setCtx(this,'customer survey')">Survey</button>
+      <button class="rw-ctx" onclick="setCtx(this,'A/B test hypothesis')">A/B Testing</button>
+      <button class="rw-ctx" onclick="setCtx(this,'analytics investigation')">Analytics</button>
+      <button class="rw-ctx" onclick="setCtx(this,'employee or stakeholder interview')">Stakeholder</button>
+      <button class="rw-ctx" onclick="setCtx(this,'general qualitative research')">General</button>
+    </div>
+  </div>
+
+  <button id="rw-btn" onclick="rewriteQuestion()" style="background:#0d6e56;color:#fff;border:none;border-radius:6px;padding:11px 24px;font-family:'JetBrains Mono',monospace;font-size:.7rem;font-weight:500;letter-spacing:.1em;cursor:pointer;text-transform:uppercase;">Rewrite with SMM →</button>
+
+  <div id="rw-loading" style="display:none;margin-top:20px;padding:14px 16px;background:#f7f9f8;border-left:3px solid #0d6e56;border-radius:0 6px 6px 0;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#0d6e56;">Analysing gap structure and rewriting...</div>
+  <div id="rw-result" style="display:none;margin-top:20px;"></div>
+  <div id="rw-error" style="display:none;margin-top:20px;padding:14px 16px;background:#fdf2ef;border-left:3px solid #b94a28;border-radius:0 6px 6px 0;font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#b94a28;"></div>
+
+</div>
+
+<style>
+.rw-ctx {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 4px;
+  border: 1px solid #d4d0c8;
+  background: #fff;
+  color: #888;
+  cursor: pointer;
+  transition: all .12s;
+}
+.rw-ctx.active, .rw-ctx:hover {
+  background: #f0f7f4;
+  border-color: #0d6e56;
+  color: #0d6e56;
+}
+.rw-block {
+  background: #f7f9f8;
+  border: 1px solid #d4d0c8;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.rw-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .6rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #0d6e56;
+  margin-bottom: 5px;
+  display: block;
+}
+.rw-text {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.65;
+}
+.rw-badge {
+  display: inline-block;
+  background: #f0f7f4;
+  color: #0d6e56;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .6rem;
+  letter-spacing: .08em;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid #0d6e56;
+  margin-left: 8px;
+}
+</style>
+
+<script>
+let rwCtx = 'UX research interview';
+function setCtx(btn, ctx) {
+  document.querySelectorAll('.rw-ctx').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  rwCtx = ctx;
+}
+async function rewriteQuestion() {
+  const input = document.getElementById('rw-input').value.trim();
+  if (!input) return;
+  const btn = document.getElementById('rw-btn');
+  const loading = document.getElementById('rw-loading');
+  const result = document.getElementById('rw-result');
+  const error = document.getElementById('rw-error');
+  btn.disabled = true; btn.textContent = 'Rewriting...';
+  loading.style.display = 'block'; result.style.display = 'none'; error.style.display = 'none';
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: `You are an expert in Brenda Dervin's Sense-Making Methodology. Rewrite a question from ${rwCtx} using SMM principles: ask about a specific moment not general patterns; surface the gap not topics or satisfaction; do not presuppose bridge type; use neutral questioning; frame around verbs not nouns. Return ONLY valid JSON: {"diagnosis":"What is wrong with the original (2-3 sentences)","rewritten":"The SMM-rewritten question","gapType":"Gap type this surfaces (Decision/Barrier/Confusion/Role/Spin-out/Washout/Multiple)","explanation":"Why this produces better data (2-3 sentences)"}`,
+        messages: [{ role: 'user', content: `Original question: "${input}"` }]
+      })
+    });
+    const data = await res.json();
+    const parsed = JSON.parse(data.content[0].text.replace(/```json|```/g,'').trim());
+    result.innerHTML = `
+      <div class="rw-block"><div class="rw-label">What's wrong with the original</div><div class="rw-text">${parsed.diagnosis}</div></div>
+      <div class="rw-block" style="background:#f0f7f4;border-color:#0d6e56;"><div class="rw-label">SMM rewrite <span class="rw-badge">${parsed.gapType} gap</span></div><div class="rw-text" style="font-style:italic;">"${parsed.rewritten}"</div></div>
+      <div class="rw-block"><div class="rw-label">Why this produces better data</div><div class="rw-text">${parsed.explanation}</div></div>`;
+    result.style.display = 'block';
+  } catch(err) {
+    error.textContent = 'Something went wrong: ' + (err.message || 'API error — check network connection.');
+    error.style.display = 'block';
+  } finally {
+    loading.style.display = 'none'; btn.disabled = false; btn.textContent = 'Rewrite with SMM →';
+  }
+}
+</script>
+```
+
+What makes an SMM question different:
+
+| Original Question | SMM Rewrite | What Changed |
+|------------------|-------------|--------------|
+| "Did you find the information you needed?" | "Tell me about a moment when you weren't sure what to do next. What were you trying to figure out?" | Removes "information" assumption; asks about a specific moment; opens gap to any bridge type |
+| "How satisfied were you with checkout?" | "Was there any point during checkout where something stopped you or made you uncertain? What happened?" | Moves from satisfaction rating to gap identification; surfaces actual friction |
+| "What features do you want?" | "Think about the last time you got stuck in this product. What were you trying to do, and what would have helped you get past that moment?" | Replaces abstract preference with specific gap-bridging need |
+
+---
+
+# About {#about}
+
+## Why I Built This
+
+Dervin's Sense-Making Methodology is the qualitative counterpart to the quantitative analytics work I do every day. The telemetry tells me *what* happened. SMM gives me the framework for understanding *why* — what gap the user was experiencing, what bridge they were trying to construct, and why the product did or didn't help them across it.
+
+Most analytics practices are measurement frameworks. Conversion rate, session length, feature adoption, cohort retention. These are all *outcomes* in SMM's framework. They tell you that a gap existed and whether a bridge was crossed. They do not tell you what the gap was, what kind of bridge users were looking for, or why the bridge worked for some users and not others.
+
+::: {.callout-important appearance="minimal"}
+**The moment I reach for SMM**
+
+Every time I have a quantitative finding I cannot explain. A segment that converts at half the rate of every other segment. A feature that 91% of users never touch despite being prominently placed. An A/B test that wins statistically but produces no downstream business impact. These are situations where telemetry has identified a gap but cannot diagnose its nature. SMM is the diagnostic framework for moving from "something is happening here" to "here is what the user is experiencing and what kind of bridge would actually help."
+:::
+
+## Where This Shows Up in My Work
+
+**Measurement planning.** Before any analytics implementation, I use the S-G-B-O framework to define what we are actually trying to measure. Not "we want to track page views" — but "users are in situation X, they encounter gap Y, what bridge does the product offer, and what outcome do we want to measure?" This produces a measurement plan that is theoretically grounded, not just technically complete.
+
+**Interview design for UX research.** When I design research interviews alongside quantitative work, I use MMTLI structure. The quantitative data tells me *where* to look; the MMTLI tells me *how to ask* about what I find there. The neutral questioning technique is particularly important in analytics contexts — it is easy to contaminate an interview by presupposing that "information" was the bridge users were looking for.
+
+**Explaining why winning A/B tests sometimes don't move the business needle.** Variant B won because it better bridged the gap users had at that step. But if the real business problem is that users are arriving with the wrong gap entirely — a problem that no variant in the test addressed — then all you have done is optimise the bridge for the wrong discontinuity. SMM provides the language for this diagnosis.
+
+**Sense-unmaking in data culture work.** When I build analytics infrastructure at organisations that have been operating without it, the hardest part is never technical. It is dismantling the existing sense structures that leaders have built about how their business works — usually based on incomplete or distorted data. Dervin's sense-unmaking concept is exactly what describes this: before new sense can be made, old sense must be deliberately dismantled.
+
+## About the Author
+
+**Frederic Labadie** is a senior data analyst and analytics architect based in Amsterdam. Primary stack: BigQuery, GA4, dbt, Amplitude, GTM (client + server-side). SMM is the qualitative complement to quantitative analytics work — the framework for diagnosing gap types when the numbers surface a problem but can't explain its nature.
+
+[LinkedIn](https://www.linkedin.com/in/fredericlabadie) · [GitHub](https://github.com/fredericlabadie) · [Writers Room](https://writersroom.fredericlabadie.com) · [VibeReader](https://vibereader.fredericlabadie.com)
 
 ---
 
