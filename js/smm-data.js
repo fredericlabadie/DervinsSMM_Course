@@ -142,7 +142,7 @@ window.SMM_SECTIONS = [
 // One "teaching moment" per module so the page can preview depth without dumping content.
 window.SMM_MODULE_PREVIEWS = {
   core: {
-    learn: ['Origins (1972) and the post-positivist turn', 'The S-G-B-O scaffold and why it\u2019s recursive', 'Six structural gap types and how to spot each'],
+    learn: ['Origins (early 1970s) and the post-positivist turn', 'The S-G-B-O scaffold and why it\u2019s recursive', 'Six structural gap types and how to spot each'],
     moment: { kind: 'definition', term: 'Sense-Making', body: 'Verbing, not noun. The continuous activity of constructing bridges across discontinuities to move through time-space.' },
     duration: '40 min',
   },

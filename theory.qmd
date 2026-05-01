@@ -87,7 +87,7 @@ pagetitle: "Theory — The Central Metaphor"
   <!-- Abstract front-matter card -->
   <div class="abstract-card corner-brackets">
     <span class="bracket-bl"></span><span class="bracket-br"></span>
-    <span class="key">SUBJECT</span><span class="val">Brenda Dervin · Sense-Making Methodology (1972–)</span>
+    <span class="key">SUBJECT</span><span class="val">Brenda Dervin · Sense-Making Methodology (early 1970s–)</span>
     <span class="key">UNIT</span><span class="val">The gap — specific discontinuity, specific person, specific moment</span>
     <span class="key">METHOD</span><span class="val">Micro-Moment Time-Line Interview · neutral questioning</span>
     <span class="key">USE</span><span class="val">Survey design · UX research · funnel diagnosis · A/B post-mortem</span>
@@ -104,7 +104,7 @@ pagetitle: "Theory — The Central Metaphor"
       <span class="plate-title">The seven assumptions</span>
     </summary>
     <div class="plate-body">
-      <p>These are not optional background — they are constitutive of the methodology. Every design decision in SMM research follows from them.</p>
+      <p>These are not optional background — they are constitutive of the methodology. Every design decision in SMM research follows from them. <em>Synthesised across Dervin (1983, 1992, 1998) — not a direct enumeration from any single paper.</em></p>
 
       <div class="assumption">
         <span class="a-num">Assumption 01</span>
@@ -272,19 +272,82 @@ pagetitle: "Theory — The Central Metaphor"
   <details class="plate">
     <summary>
       <span class="plate-n">Plate VII</span>
-      <span class="plate-title">Primary sources</span>
+      <span class="plate-title">Bibliography & recommended reading</span>
     </summary>
     <div class="plate-body">
+      <p>Dervin's core works, in order of where to start. All citations should be verified against library databases before formal use — full publication details are given where confirmed.</p>
+
+      <div class="smm-callout-box" style="margin-bottom:20px;">
+        <strong>Start here</strong>
+        Dervin, B. (1992). "From the mind's eye of the user: The sense-making qualitative-quantitative methodology." In J. D. Glazier & R. R. Powell (Eds.), <em>Qualitative Research in Information Management</em> (pp. 61–84). Englewood, CO: Libraries Unlimited. — The most accessible single-paper introduction. Full S-G-B-O articulation, methodological implications, and examples. If you read one thing, read this.
+      </div>
+
       <table class="compare-table">
-        <thead><tr><th>Work</th><th>Why Read It</th></tr></thead>
+        <thead><tr><th>Work</th><th>Where to Find It</th><th>What It Contributes</th></tr></thead>
         <tbody>
-          <tr><td>Dervin (1983)</td><td>"Information as a User Construct" — foundational statement; introduces gap-bridge metaphor; critique of transmission model</td></tr>
-          <tr><td>Dervin (1992)</td><td>"From the Mind's Eye of the User" — <strong>best single overview</strong>; full S-G-B-O articulation; methodological implications. Start here.</td></tr>
-          <tr><td>Dervin & Nilan (1986)</td><td><em>Annual Review of Information Science</em> — landmark paradigm critique; establishes the shift from topic-based to gap-based research</td></tr>
-          <tr><td>Dervin (1998)</td><td>"Sense-Making Theory and Practice" — mature statement; introduces sense-unmaking; feminist and power dimensions</td></tr>
-          <tr><td>Dervin (1999)</td><td>"On Studying Information Seeking Methodologically" — deepest methodological discussion; best source on MMTLI design and analysis</td></tr>
+          <tr>
+            <td>Dervin, B. (1983)</td>
+            <td>"Information as a user construct: The relevance of perceived information needs to synthesis and interpretation." In S. Ward & L. Reed (Eds.), <em>Knowledge Structure and Use</em>. Philadelphia: Temple University Press.</td>
+            <td>Foundational statement. Introduces the gap-bridge metaphor and the critique of the transmission model. The paper that established SMM as a distinct paradigm.</td>
+          </tr>
+          <tr>
+            <td>Dervin, B., & Nilan, M. (1986)</td>
+            <td>"Information needs and uses." <em>Annual Review of Information Science and Technology</em>, 21, 3–33.</td>
+            <td>Landmark paradigm critique. Establishes the shift from topic-based to gap-based research across the field. Places SMM in the broader context of information science's methodological turn.</td>
+          </tr>
+          <tr>
+            <td>Dervin, B. (1992)</td>
+            <td>See callout above.</td>
+            <td><strong>Best single overview.</strong> Full S-G-B-O articulation. Start here.</td>
+          </tr>
+          <tr>
+            <td>Dervin, B. (1998)</td>
+            <td>"Sense-making theory and practice: An overview of user interests in knowledge seeking and use." <em>Journal of Knowledge Management</em>, 2(2), 36–46.</td>
+            <td>Mature statement of the framework. Introduces sense-unmaking explicitly. Connects SMM to power, feminist epistemology, and critical theory. The paper where Dervin sharpens her edge.</td>
+          </tr>
+          <tr>
+            <td>Dervin, B. (1999)</td>
+            <td>"On studying information seeking methodologically: The implications of connecting metatheory to method." <em>Information Processing & Management</em>, 35(6), 727–750.</td>
+            <td>The deepest methodological discussion. Best single source on MMTLI design, neutral questioning, and qualitative analysis protocol. Essential for anyone designing SMM research.</td>
+          </tr>
+          <tr>
+            <td>Dervin, B., & Foreman-Wernet, L. (Eds.) (2003)</td>
+            <td><em>Sense-Making Methodology Reader: Selected Writings of Brenda Dervin</em>. Cresskill, NJ: Hampton Press.</td>
+            <td>The essential collection. Gathers Dervin's key papers across three decades with editorial commentary. If you want the full arc of the methodology's development, this is the single volume to own.</td>
+          </tr>
         </tbody>
       </table>
+
+      <div style="margin-top:28px;padding-top:20px;border-top:1px dotted rgba(160,106,58,.3);">
+        <p style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#a06a3a;margin-bottom:12px;">Contextual reading — beyond Dervin</p>
+
+        <table class="compare-table">
+          <thead><tr><th>Work</th><th>Why It Matters</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Weick, K. E. (1995). <em>Sensemaking in Organizations</em>. Thousand Oaks, CA: Sage.</td>
+              <td>The organisational sensemaking counterpart to Dervin's individual framework. Essential for understanding what SMM is not — retrospective, collective, enacted — and where the two frameworks complement rather than compete.</td>
+            </tr>
+            <tr>
+              <td>Savolainen, R. (1993). "The sense-making theory: Reviewing the interests of a user-centered approach to information seeking and use." <em>Information Processing & Management</em>, 29(1), 13–28.</td>
+              <td>The best secondary literature overview of SMM for practitioners new to the information science context. Places Dervin relative to Wilson and other information behaviour theorists.</td>
+            </tr>
+            <tr>
+              <td>Wilson, T. D. (1997). "Information behaviour: An interdisciplinary perspective." <em>Information Processing & Management</em>, 33(4), 551–572.</td>
+              <td>The broadest map of information behaviour research. Situates SMM within the wider field and helps practitioners understand which problems SMM is and isn't designed to solve.</td>
+            </tr>
+            <tr>
+              <td>Chatman, E. A. (1991). "Life in a small world: Applicability of gratification theory to information-seeking behavior." <em>Journal of the American Society for Information Science</em>, 42(6), 438–449.</td>
+              <td>Complements Dervin's framework with research on information poverty and how social context shapes what gaps people even allow themselves to have. Important for research involving marginalised or resource-constrained populations.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="smm-callout-box warn" style="margin-top:20px;">
+        <strong>Note on citation accuracy</strong>
+        These citations have been compiled from published secondary sources and should be verified against library databases (JSTOR, ACM Digital Library, Google Scholar) before formal academic use. Volume and page numbers are given where confirmed; treat others as indicative.
+      </div>
     </div>
   </details>
 
