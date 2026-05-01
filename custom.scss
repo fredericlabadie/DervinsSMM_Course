@@ -1060,43 +1060,6 @@ body {
   }
 }
 
-// ── HF TOKEN MODAL ───────────────────────────────
-.hf-token-prompt {
-  background: rgba(232,238,216,.8);
-  border: 1px solid $rule;
-  border-radius: 8px;
-  padding: 18px;
-  margin-bottom: 18px;
-  .hf-label {
-    font-family: $mono-font;
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    color: $copper-deep;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    display: block;
-  }
-  .hf-desc {
-    font-family: $serif-font;
-    font-size: 13px;
-    color: $ink-soft;
-    margin-bottom: 10px;
-    line-height: 1.5;
-    a { color: $copper-deep; text-decoration: underline; }
-  }
-  input[type="password"] {
-    width: 100%;
-    padding: 8px 12px;
-    border: 1px solid $rule;
-    border-radius: 6px;
-    background: $paper;
-    font-family: $mono-font;
-    font-size: 12px;
-    color: $ink;
-    outline: none;
-    &:focus { border-color: $copper; }
-  }
-}
 
 // ── COLLAPSIBLE PLATES (progressive disclosure) ──
 details.plate {
