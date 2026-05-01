@@ -1,7 +1,13 @@
 project:
   type: website
   output-dir: _site
-
+  render:
+    - index.qmd
+    - bridge.qmd
+    - theory.qmd
+    - method.qmd
+    - fieldwork.qmd
+    
 website:
   title: "Sense-Making Methodology"
   site-url: "https://smm.fredericlabadie.com"
