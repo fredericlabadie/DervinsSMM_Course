@@ -344,6 +344,12 @@ pagetitle: "Theory — The Central Metaphor"
         </table>
       </div>
 
+      <div style="margin-top:32px;padding:24px 28px;border:1px solid rgba(160,106,58,.4);background:rgba(12,20,16,.04);position:relative;">
+        <div style="position:absolute;top:-10px;left:24px;background:#dde0cf;padding:0 10px;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#a06a3a;">In memoriam</div>
+        <p style="font-family:'Cormorant Garamond','EB Garamond',Georgia,serif;font-size:20px;font-style:italic;font-weight:500;color:#0c1410;line-height:1.3;margin:0 0 12px;">Brenda Dervin<span style="font-style:normal;font-size:14px;font-family:'IBM Plex Mono',monospace;letter-spacing:.08em;color:#a06a3a;margin-left:14px;">1938 – 2023</span></p>
+        <p style="font-family:'IBM Plex Serif',Georgia,serif;font-size:14px;line-height:1.7;color:#3a4a3f;margin:0;">Distinguished Professor of Social and Behavioral Sciences and Journalism at Ohio State University. She developed Sense-Making Methodology over fifty years of research into how people construct understanding across the discontinuities of lived experience. The methodology outlasted every institutional context it was built in and remains in active use in information science, UX research, communication studies, and organisational analysis. This site is dedicated to keeping her work in the hands of practitioners who need it.</p>
+      </div>
+
       <div class="smm-callout-box warn" style="margin-top:20px;">
         <strong>Note on citation accuracy</strong>
         These citations have been compiled from published secondary sources and should be verified against library databases (JSTOR, ACM Digital Library, Google Scholar) before formal academic use. Volume and page numbers are given where confirmed; treat others as indicative.
