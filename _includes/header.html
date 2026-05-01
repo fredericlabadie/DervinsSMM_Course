@@ -1,0 +1,54 @@
+<!-- Persistent herbarium header — relocated to body root by script -->
+<div class="smm-header" id="smm-header">
+  <div class="h-brand">
+    <div class="h-stamp">
+      <svg width="14" height="14" viewBox="0 0 32 32" fill="none"><path d="M16 2 C 8 8, 6 18, 16 30 C 26 18, 24 8, 16 2 Z" stroke="#a06a3a" stroke-width="1.2"/><path d="M16 4 L 16 28" stroke="#a06a3a" stroke-width="0.8"/></svg>
+      HERBAL · ANNO MMXXVI · LABADIE
+    </div>
+    <a href="index.html" class="h-title">Sense-Making Methodology</a>
+  </div>
+
+  <nav id="smm-nav">
+    <a href="bridge.html" data-page="bridge">Bridge</a>
+    <a href="theory.html" data-page="theory">Theory</a>
+    <a href="method.html" data-page="method">Method</a>
+    <a href="index.html" data-page="index">Practice</a>
+    <a href="fieldwork.html" data-page="fieldwork">Fieldwork</a>
+  </nav>
+
+  <div class="h-meta">
+    <span class="label">Edition</span><span>I · MMXXVI</span>
+    <span class="label">Folio</span><span>SMM-PR-2026</span>
+  </div>
+
+  <div class="header-orn"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // 1. Relocate header to first child of body
+  var header = document.getElementById('smm-header');
+  if (header) document.body.insertBefore(header, document.body.firstChild);
+
+  // 2. Relocate footer to last child of body
+  var footer = document.querySelector('.smm-footer');
+  if (footer) document.body.appendChild(footer);
+
+  // 3. Relocate callout band right after header
+  var callout = document.getElementById('smm-callout');
+  if (callout && header) header.insertAdjacentElement('afterend', callout);
+
+  // 4. Highlight active nav item
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  var page = path.replace('.html','') || 'index';
+  document.querySelectorAll('#smm-nav a').forEach(function(a) {
+    if (a.getAttribute('data-page') === page) a.classList.add('active');
+  });
+
+  // 5. Flatten Quarto containers
+  var qc = document.getElementById('quarto-content');
+  if (qc) { qc.style.display = 'block'; qc.style.padding = '0'; qc.style.margin = '0'; }
+  var mc = document.getElementById('quarto-document-content');
+  if (mc) { mc.style.maxWidth = 'none'; mc.style.padding = '0'; mc.style.margin = '0'; }
+});
+</script>
