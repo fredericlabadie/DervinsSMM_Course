@@ -54,9 +54,8 @@
     };
   }
 
-  // HuggingFace Inference API call
-  const HF_MODEL = 'HuggingFaceH4/zephyr-7b-beta';
-  const HF_URL = 'https://api-inference.huggingface.co/models/' + HF_MODEL;
+  // Proxy call via writersroom.fredericlabadie.com
+  const PROXY_URL = 'https://writersroom.fredericlabadie.com/api/rewrite';
 
   function buildSystemPrompt() {
     const gapList = (window.SMM_GAPS || []).map(g => g.label + ': ' + g.desc).join('; ');
@@ -76,28 +75,21 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
 {"diagnosis":["...","...","..."],"rewrite":"...","gap":"decision|barrier|problematic|role|spinout|washout","why":"...","diff":[{"kind":"cut","text":"..."},{"kind":"add","text":"..."},{"kind":"add","text":"..."}]}`;
   }
 
-  async function callHuggingFace(question, token) {
+  async function callProxy(question) {
     const prompt = '<|system|>\n' + buildSystemPrompt() + '\n<|user|>\n' + question + '\n<|assistant|>\n';
-    const res = await fetch(HF_URL, {
+    const res = await fetch(PROXY_URL, {
       method: 'POST',
-      headers: {
-        'Authorization': 'Bearer ' + token,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        inputs: prompt,
-        parameters: { max_new_tokens: 800, temperature: 0.3, return_full_text: false },
-      }),
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt }),
     });
     if (!res.ok) {
       const err = await res.text();
-      throw new Error('HuggingFace API error: ' + res.status + ' ' + err);
+      throw new Error('Rewriter API error: ' + res.status + ' ' + err);
     }
     const data = await res.json();
     const text = Array.isArray(data) ? data[0].generated_text : data.generated_text || '';
-    // Extract JSON from response
     const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) throw new Error('Could not parse JSON from model response');
+    if (!jsonMatch) throw new Error('Could not parse response from model');
     return JSON.parse(jsonMatch[0]);
   }
 
@@ -125,43 +117,6 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
   window.initSMMRewriter = function(containerId) {
     const root = document.getElementById(containerId);
     if (!root) return;
-
-    let hfToken = localStorage.getItem('smm_hf_token') || '';
-    let useAI = !!hfToken;
-
-    // ── Token prompt ──
-    const tokenWrap = el('div', 'hf-token-prompt');
-    tokenWrap.id = 'hf-token-section';
-    const tLabel = el('span', 'hf-label', { text: 'AI-Powered Rewriting (Optional)' });
-    const tDesc = el('div', 'hf-desc', {
-      html: 'Enter a free <a href="https://huggingface.co/settings/tokens" target="_blank">HuggingFace token</a> for AI-powered rewrites. Without a token, the rewriter uses built-in examples and heuristic matching.'
-    });
-    const tInput = el('input', null, { type: 'password', placeholder: 'hf_...' });
-    tInput.value = hfToken;
-    const tRow = el('div', 'rewriter-controls');
-    tRow.style.marginTop = '8px';
-    const tSave = el('button', 'btn-ghost-smm', { text: hfToken ? '✓ TOKEN SAVED' : 'SAVE TOKEN' });
-    const tStatus = el('span', 'rewriter-label', { text: '' });
-    tStatus.style.fontSize = '10px';
-    tRow.append(tSave, tStatus);
-    tokenWrap.append(tLabel, tDesc, tInput, tRow);
-
-    tSave.onclick = function() {
-      const v = tInput.value.trim();
-      if (v) {
-        localStorage.setItem('smm_hf_token', v);
-        hfToken = v;
-        useAI = true;
-        tSave.textContent = '✓ TOKEN SAVED';
-        tStatus.textContent = 'AI rewriting enabled';
-      } else {
-        localStorage.removeItem('smm_hf_token');
-        hfToken = '';
-        useAI = false;
-        tSave.textContent = 'SAVE TOKEN';
-        tStatus.textContent = 'Using built-in examples';
-      }
-    };
 
     // ── Input section ──
     const shell = el('div', 'rewriter-shell');
@@ -196,7 +151,7 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
     const output = el('div', 'rewriter-output');
     output.id = 'rewriter-output';
 
-    shell.append(inputWrap, tokenWrap, output);
+    shell.append(inputWrap, output);
     root.appendChild(shell);
 
     textarea.addEventListener('input', () => { btnRun.disabled = !textarea.value.trim(); });
@@ -227,9 +182,9 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
         const local = findLocalRewrite(q);
         if (local) {
           result = local;
-        } else if (useAI && hfToken) {
-          // Call HuggingFace
-          const aiResult = await callHuggingFace(q, hfToken);
+        } else {
+          // Call proxy
+          const aiResult = await callProxy(q);
           result = {
             original: q,
             diagnosis: aiResult.diagnosis || [],
@@ -238,14 +193,11 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
             why: aiResult.why || '',
             diff: aiResult.diff || [{ kind: 'cut', text: q }, { kind: 'add', text: aiResult.rewrite }],
           };
-        } else {
-          result = buildFallbackRewrite(q);
         }
       } catch (err) {
         console.error('Rewriter error:', err);
         result = buildFallbackRewrite(q);
-        // Show error hint
-        const errHint = el('div', 'rewriter-label', { text: 'AI unavailable — showing heuristic rewrite. ' + err.message });
+        const errHint = el('div', 'rewriter-label', { text: 'AI unavailable — showing heuristic rewrite.' });
         errHint.style.cssText = 'color:#7c2424;font-size:10px;margin-bottom:8px';
         output.appendChild(errHint);
       }
