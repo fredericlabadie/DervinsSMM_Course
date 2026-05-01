@@ -1,0 +1,179 @@
+---
+pagetitle: "Method — The Six Gaps"
+---
+
+```{=html}
+<div class="page-head">
+  <div class="page-eyebrow">
+    <svg width="48" height="48" viewBox="0 0 64 64" fill="none"><path d="M 32 6 L 32 58" stroke="#a06a3a" stroke-width="1"/><path d="M 32 14 Q 38 12 46 10" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="46" cy="10" rx="6" ry="2.5" transform="rotate(-25 46 10)" stroke="#a06a3a" stroke-width="0.8" fill="none"/><path d="M 32 22 Q 26 20 18 18" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="18" cy="18" rx="6" ry="2.5" transform="rotate(25 18 18)" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="32" cy="8" rx="3" ry="5" stroke="#a06a3a" stroke-width="0.8" fill="none"/></svg>
+    <span>§ Method · Materia</span>
+  </div>
+  <div>
+    <h1 class="page-title">The six gaps</h1>
+    <p class="page-dek">Every discontinuity has a shape. Naming the shape is half the bridge. Six structural figures, drawn from the field as one would press a specimen.</p>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <div class="gap-cards">
+    <!-- I. Decision -->
+    <div class="gap-card corner-brackets"><span class="bracket-bl"></span><span class="bracket-br"></span>
+      <div class="card-roman">· I ·</div>
+      <div class="card-specimen"><svg width="64" height="64" viewBox="0 0 64 64" stroke="#6d3acd" stroke-width="0.9" fill="none"><path d="M 32 60 L 32 36" stroke-width="1.4"/><path d="M 32 36 L 14 12" stroke-width="1.2"/><path d="M 32 36 L 50 12" stroke-width="1.2"/><ellipse cx="14" cy="12" rx="6" ry="3" transform="rotate(-30 14 12)"/><ellipse cx="50" cy="12" rx="6" ry="3" transform="rotate(30 50 12)"/><ellipse cx="32" cy="36" rx="3" ry="2"/></svg></div>
+      <div class="card-name">Decision</div><div class="card-latin">Salvia officinalis</div><div class="ornament-rule-sm"></div>
+      <div class="card-desc">Facing a choice; unclear how to decide</div><div class="card-sig">"I needed to choose between…"</div>
+    </div>
+    <!-- II. Barrier -->
+    <div class="gap-card corner-brackets"><span class="bracket-bl"></span><span class="bracket-br"></span>
+      <div class="card-roman">· II ·</div>
+      <div class="card-specimen"><svg width="64" height="64" viewBox="0 0 64 64" stroke="#b94a28" stroke-width="0.9" fill="none"><path d="M 4 50 Q 32 30, 60 50" stroke-width="1.3"/><line x1="10" y1="38" x2="10" y2="32"/><line x1="32" y1="38" x2="32" y2="32"/><line x1="54" y1="38" x2="54" y2="32"/><ellipse cx="32" cy="20" rx="4" ry="2.5"/></svg></div>
+      <div class="card-name">Barrier</div><div class="card-latin">Rubus fruticosus</div><div class="ornament-rule-sm"></div>
+      <div class="card-desc">External obstacle blocking movement</div><div class="card-sig">"I couldn't get access to…"</div>
+    </div>
+    <!-- III. Problematic -->
+    <div class="gap-card corner-brackets"><span class="bracket-bl"></span><span class="bracket-br"></span>
+      <div class="card-roman">· III ·</div>
+      <div class="card-specimen"><svg width="64" height="64" viewBox="0 0 64 64" stroke="#a8324d" stroke-width="0.9" fill="none"><path d="M 32 60 L 32 28 Q 32 18, 38 14" stroke-width="1.3"/><ellipse cx="40" cy="13" rx="6" ry="4" transform="rotate(-20 40 13)"/><path d="M 40 13 L 44 8 M 40 13 L 36 7"/><ellipse cx="22" cy="38" rx="8" ry="2.5" transform="rotate(-30 22 38)"/></svg></div>
+      <div class="card-name">Problematic</div><div class="card-latin">Atropa belladonna</div><div class="ornament-rule-sm"></div>
+      <div class="card-desc">Something wrong but unclear what</div><div class="card-sig">"Something felt off but I couldn't name it…"</div>
+    </div>
+    <!-- IV. Role -->
+    <div class="gap-card corner-brackets"><span class="bracket-bl"></span><span class="bracket-br"></span>
+      <div class="card-roman">· IV ·</div>
+      <div class="card-specimen"><svg width="64" height="64" viewBox="0 0 64 64" stroke="#2a6f97" stroke-width="0.9" fill="none"><circle cx="32" cy="28" r="4" fill="#2a6f97" fill-opacity=".25"/><ellipse cx="32" cy="16" rx="4" ry="7"/><ellipse cx="22" cy="22" rx="4" ry="7" transform="rotate(60 22 22)"/><ellipse cx="42" cy="22" rx="4" ry="7" transform="rotate(300 42 22)"/><path d="M 32 32 L 32 60" stroke-width="1.2"/></svg></div>
+      <div class="card-name">Role</div><div class="card-latin">Calendula officinalis</div><div class="ornament-rule-sm"></div>
+      <div class="card-desc">Unclear how to behave in a role/situation</div><div class="card-sig">"I didn't know what I was supposed to do…"</div>
+    </div>
+    <!-- V. Spin-out -->
+    <div class="gap-card corner-brackets"><span class="bracket-bl"></span><span class="bracket-br"></span>
+      <div class="card-roman">· V ·</div>
+      <div class="card-specimen"><svg width="64" height="64" viewBox="0 0 64 64" stroke="#a87a1f" stroke-width="0.9" fill="none"><path d="M 10 60 Q 16 35, 22 8"/><path d="M 26 60 Q 34 35, 40 8"/><path d="M 42 60 Q 49.5 35, 55.5 8"/></svg></div>
+      <div class="card-name">Spin-out</div><div class="card-latin">Stipa tenuissima</div><div class="ornament-rule-sm"></div>
+      <div class="card-desc">Total disorientation; no clear question</div><div class="card-sig">"I had no idea where to start…"</div>
+    </div>
+    <!-- VI. Washout -->
+    <div class="gap-card corner-brackets"><span class="bracket-bl"></span><span class="bracket-br"></span>
+      <div class="card-roman">· VI ·</div>
+      <div class="card-specimen"><svg width="64" height="64" viewBox="0 0 64 64" stroke="#0d6e56" stroke-width="0.9" fill="none"><path d="M 4 44 Q 16 40, 32 44 T 60 44"/><path d="M 4 50 Q 16 46, 32 50 T 60 50"/><path d="M 4 56 Q 16 52, 32 56 T 60 56"/><ellipse cx="32" cy="30" rx="14" ry="6"/><ellipse cx="32" cy="30" rx="6" ry="3" fill="#0d6e56" fill-opacity=".2"/></svg></div>
+      <div class="card-name">Washout</div><div class="card-latin">Eichhornia crassipes</div><div class="ornament-rule-sm"></div>
+      <div class="card-desc">Information received but doesn't address the gap</div><div class="card-sig">"I got a lot but none of it helped…"</div>
+    </div>
+  </div>
+
+  <!-- CTA Band -->
+  <div class="cta-band">
+    <div><div class="eye">Try it now</div><div class="cta-title">Paste a question — see which gap it presupposes.</div></div>
+    <a href="index.html">Open the rewriter →</a>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- DEEP CONTENT                                       -->
+  <!-- ═══════════════════════════════════════════════════ -->
+
+  <!-- MMTLI Protocol -->
+  <details class="plate">
+    <summary>
+      <span class="plate-n">Plate III</span>
+      <span class="plate-title">The Micro-Moment Time-Line Interview</span>
+    </summary>
+    <div class="plate-body">
+      <p>Dervin's signature technique. The MMTLI anchors the conversation in a specific, concrete moment — preventing the retrospective abstraction and generalisation that plague most interviews. SMM research asks participants about <em>verbs</em>, not nouns. Not "what topic did you need information about?" but "what question were you trying to answer?"</p>
+
+      <div class="protocol-step"><span class="step-num">1</span><div><div class="step-name">Situating move</div><div class="step-prompt">"Tell me about a specific time when you had to [navigate X / deal with Y]. Not in general — a specific moment."</div></div></div>
+      <div class="protocol-step"><span class="step-num">2</span><div><div class="step-name">Step-through</div><div class="step-prompt">"Walk me through what happened, step by step, from the beginning."</div><p style="font-size:13px;color:#3a4a3f;margin:4px 0 0">The interviewer constructs a mental timeline of the narrative.</p></div></div>
+      <div class="protocol-step"><span class="step-num">3</span><div><div class="step-name">Gap probe</div><div class="step-prompt">"At this point, what questions did you have? What was confusing? What were you trying to figure out?"</div></div></div>
+      <div class="protocol-step"><span class="step-num">4</span><div><div class="step-name">Bridge probe</div><div class="step-prompt">"What helped you with that? What did you find or use? What did you draw on?"</div></div></div>
+      <div class="protocol-step"><span class="step-num">5</span><div><div class="step-name">Outcome probe</div><div class="step-prompt">"How did that help — or not help? What were you able to do as a result? What happened next?"</div></div></div>
+      <div class="protocol-step"><span class="step-num">6</span><div><div class="step-name">Hurt probe</div><div class="step-prompt">"Was there anything that got in the way? Anything that made it harder or more confusing?"</div></div></div>
+
+      <div class="smm-callout-box">
+        <strong>Why probe for hurts</strong>
+        Bridges often fail or generate worse gaps. Asking only about successes produces asymmetric data that misrepresents how sense-making actually works. The hurt probe is what makes SMM diagnostically honest.
+      </div>
+    </div>
+  </details>
+
+  <!-- Neutral Questioning -->
+  <details class="plate">
+    <summary>
+      <span class="plate-n">Plate IV</span>
+      <span class="plate-title">Neutral questioning</span>
+    </summary>
+    <div class="plate-body">
+      <p>Neutral questioning avoids presupposing the gap type, bridge type, or outcome type — letting respondents name their own experience rather than conforming to researcher categories. This is the operational principle that the <a href="index.html" style="color:#7a4d22;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Question Rewriter</a> applies.</p>
+
+      <table class="neutral-table">
+        <thead><tr><th>Avoid (non-neutral)</th><th>Use (neutral)</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>"What information did you need?"</td><td>"What questions did you have at that point?"</td><td>Avoids presupposing information as the only bridge resource</td></tr>
+          <tr><td>"Did the library help you?"</td><td>"What helped you move forward?"</td><td>Avoids privileging formal information systems</td></tr>
+          <tr><td>"Was the information useful?"</td><td>"How did that help — or not help?"</td><td>Opens space for both helpful and unhelpful outcomes</td></tr>
+          <tr><td>"What topic were you researching?"</td><td>"What were you trying to do or figure out?"</td><td>Frames inquiry around the gap, not the topic</td></tr>
+          <tr><td>"Did you understand it?"</td><td>"What made sense? What remained confusing?"</td><td>Separates understanding from use</td></tr>
+        </tbody>
+      </table>
+
+      <div class="smm-callout-box warn">
+        <strong>Common mistake: topic-based coding</strong>
+        Coding by topic ("questions about pricing") rather than gap type ("decision-gap requiring comparison") collapses back into traditional information-needs categorisation. The gap taxonomy exists specifically to prevent this.
+      </div>
+    </div>
+  </details>
+
+  <!-- Analysis Protocol -->
+  <details class="plate">
+    <summary>
+      <span class="plate-n">Plate V</span>
+      <span class="plate-title">Analysis protocol</span>
+    </summary>
+    <div class="plate-body">
+      <table class="compare-table">
+        <thead><tr><th>Stage</th><th>Method</th><th>What You're Looking For</th></tr></thead>
+        <tbody>
+          <tr><td>Transcript coding</td><td>Open coding for S-G-B-O markers; in-vivo codes for gap types</td><td>Where in the transcript do gaps, bridges, and outcomes appear?</td></tr>
+          <tr><td>Gap taxonomy</td><td>Code gaps by type (decision, barrier, spin-out, etc.)</td><td>What kinds of discontinuity are most common?</td></tr>
+          <tr><td>Bridge mapping</td><td>Map which bridge types address which gap types</td><td>Are bridges matched to gaps? Any gaps systematically under-bridged?</td></tr>
+          <tr><td>Outcome analysis</td><td>Code as: helps, hurts, new gaps; classify use types</td><td>What is the downstream effect of different bridge types?</td></tr>
+          <tr><td>Comparative</td><td>Compare S-G-B-O patterns across participants/groups</td><td>What structural patterns appear across individual stories?</td></tr>
+        </tbody>
+      </table>
+
+      <div class="smm-callout-box">
+        <strong>Identifying gaps in narratives</strong>
+        Read transcripts and ask continuously: <em>"At this point, what does this person not yet know, feel, or understand that they need in order to move forward?"</em> The answer at each point is the gap. Mark every instance of "I didn't know," "I wasn't sure," "I was confused" — and especially every "but" or "however," which often signals gap-bridge failure.
+      </div>
+    </div>
+  </details>
+
+  <!-- Analytics & Digital Product -->
+  <details class="plate">
+    <summary>
+      <span class="plate-n">Plate VI</span>
+      <span class="plate-title">Analytics and digital product work</span>
+    </summary>
+    <div class="plate-body">
+      <p>This is where I actually use SMM day-to-day. Quantitative analytics tells you <em>what</em> happened — where users dropped off, which variant won, which segment converts. SMM is the framework I reach for when I need to understand <em>why</em>. They are not competing methods; they are sequential ones.</p>
+
+      <p>Most analytics practices measure outcomes. A funnel chart shows drop-off at step 3. A heatmap shows where users stop scrolling. But none of this tells you what gap the user was experiencing at that moment — and therefore none of it tells you what bridge to build. SMM is the diagnostic layer that sits underneath quantitative data and makes it actionable.</p>
+
+      <table class="analytics-table">
+        <thead><tr><th>Analytics Signal</th><th>What Analytics Tells You</th><th>What SMM Asks Next</th></tr></thead>
+        <tbody>
+          <tr><td>70% drop-off at checkout step 3</td><td>Users are leaving at a specific point</td><td>"Walk me through the last time you were trying to complete this purchase and something stopped you. What was happening at that moment?"</td></tr>
+          <tr><td>A/B test: Variant B wins by 12%</td><td>B performs better on the target metric</td><td>"What gap were users experiencing that Variant B bridged more effectively? What bridge did B provide that A didn't?"</td></tr>
+          <tr><td>Feature adoption at 8% after launch</td><td>Users are not using the new feature</td><td>"Is the gap this feature was designed to bridge actually the gap users have? Or did we design a bridge for an assumed gap?"</td></tr>
+          <tr><td>Support ticket spike after redesign</td><td>Something broke in the user experience</td><td>"What sense did users have of the old design that the redesign unmade? What new gaps did we create?"</td></tr>
+          <tr><td>Session length drops in cohort</td><td>Users are spending less time engaged</td><td>"What changed in users' situations that shifted which gaps they're bringing to this product?"</td></tr>
+        </tbody>
+      </table>
+
+      <div class="smm-callout-box">
+        <strong>The core argument</strong>
+        Data analytics and qualitative user research are not competing methods. They are sequential ones. Analytics surfaces the fact of a gap. SMM provides the methodology for diagnosing its nature. You cannot design a bridge without knowing the gap type. A decision gap, a confusion gap, and a barrier gap at the same funnel step require entirely different interventions.
+      </div>
+    </div>
+  </details>
+
+</div>
+```

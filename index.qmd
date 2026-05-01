@@ -1,0 +1,113 @@
+---
+pagetitle: "Practice — SMM Question Rewriter"
+---
+
+```{=html}
+<div class="smm-callout" id="smm-callout">
+  <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><path d="M 32 6 L 32 58" stroke="#a06a3a" stroke-width="1"/><ellipse cx="32" cy="8" rx="3" ry="5" stroke="#a06a3a" stroke-width="0.8" fill="none"/></svg>
+  <span class="callout-new">New here?</span>
+  <span>Start with <a href="bridge.html">Bridge ↗</a> for a one-minute orientation, or <a href="theory.html">Theory ↗</a> for the full picture.</span>
+  <button class="dismiss" onclick="this.parentElement.style.display='none'; localStorage.setItem('smm_callout_dismissed','1');" aria-label="Dismiss">✕</button>
+</div>
+<script>if (localStorage.getItem('smm_callout_dismissed')) document.getElementById('smm-callout').style.display = 'none';</script>
+
+<div class="practice-wrap">
+  <div class="practice-head">
+    <div>
+      <span class="practice-eye">§ Practice · The Instrument</span>
+      <h1 class="practice-title">Question Rewriter</h1>
+    </div>
+    <div class="practice-help">Don't know what a "gap" is yet? <a href="theory.html">Read Theory →</a></div>
+  </div>
+
+  <div class="rewriter-card" style="position:relative">
+    <div class="corner-stamp">
+      <svg width="11" height="11" viewBox="0 0 32 32" fill="none"><line x1="22" y1="3" x2="14" y2="14" stroke="#f5f1e3" stroke-width="1.2" stroke-linecap="round"/><circle cx="22" cy="3.5" r="1.5" fill="#f5f1e3"/><path d="M 5 15 L 27 15 L 24 26 Q 16 30 8 26 Z" stroke="#f5f1e3" stroke-width="1.2" fill="none"/></svg>
+      <span>· INSTRUMENT ·</span>
+    </div>
+    <div id="smm-rewriter-root"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- DEEP CONTENT: Active recall below the rewriter     -->
+  <!-- ═══════════════════════════════════════════════════ -->
+
+  <details class="plate" style="margin-top:48px">
+    <summary><span class="plate-n">Plate II</span><span class="plate-title">Flashcards — test your recall</span></summary>
+    <div class="plate-body">
+      <p>Click any card to reveal the answer.</p>
+      <div class="fc-grid" id="fc-container"></div>
+      <script>
+      (function() {
+        var cards = [
+          { q: "What is the root metaphor of SMM?", a: "A person moving through time-space encounters a gap and must construct a bridge to continue forward. Every element of SMM flows from this spatial-temporal image." },
+          { q: "Define 'gap' in Dervin's framework.", a: "The discontinuity that interrupts forward movement — a question, confusion, barrier, dilemma. Not a failure; the engine of sense-making." },
+          { q: "How does a 'bridge' differ from 'information'?", a: "A bridge is any resource constructed to cross a gap: ideas, memories, emotions, social connections, procedures, or information. Information is one bridge type among many." },
+          { q: "What are the four S-G-B-O elements?", a: "Situation (context), Gap (discontinuity), Bridge (constructed crossing), Outcome/Use (what results). The framework is recursive — outcomes create new situations." },
+          { q: "What is sense-unmaking?", a: "Dismantling existing sense structures. Required for unlearning, transformation, and critical thought. Not failure — a constitutive part of the process." },
+          { q: "Why does SMM insist on specific moments?", a: "Because sense-making is always situated in a specific time-space context. General questions abstract away the situational ground that constitutes the sense-making." },
+          { q: "What is neutral questioning?", a: "Questions avoiding presupposition of gap type, bridge type, or outcome type — letting respondents name their own experience rather than conforming to researcher categories." },
+          { q: "Name four gap types in Dervin's taxonomy.", a: "Decision (choosing between paths), Barrier (external obstacle), Spin-out (total disorientation), Washout (information received but unhelpful)." },
+          { q: "What is the MMTLI?", a: "Micro-Moment Time-Line Interview. Six steps: situate, step-through, probe gaps, probe bridges, probe outcomes, probe hurts." },
+          { q: "How does SMM differ from the transmission model?", a: "Transmission: information exists independently as an object. SMM: information is constructed in the act of bridging — always relational, situational, never free-standing." },
+          { q: "What does 'outcome' include beyond 'was it bridged'?", a: "Helps (forward movement), Hurts (movement blocked), New gaps (requiring more bridging), and Use types: deciding, acting, connecting, evaluating, feeling." },
+          { q: "Why probe for hurts as well as helps?", a: "Bridges often fail or generate worse gaps. Asking only about successes produces asymmetric data that misrepresents how sense-making actually works." },
+          { q: "What does 'universality of procedure, uniqueness of instance' mean?", a: "Everyone sense-makes (universal procedure), but the specific sense any person makes is unique to their situation, history, and moment." },
+          { q: "Why is 'situation' constitutive?", a: "It determines what counts as a gap, what bridges are available, and what outcomes are possible. Not background — it is the operative ground of all sense-making." },
+          { q: "What is the core design principle SMM implies?", a: "Design for gap-bridging, not message-sending. Ask 'what gaps does our audience have?' not 'what do we want to tell them?'" },
+          { q: "How does sense-unmaking relate to power?", a: "Dominant groups impose sense structures. Marginalised groups must unmake imposed sense to survive and resist. Sense-unmaking is both cognitive and political." },
+        ];
+        var container = document.getElementById('fc-container');
+        cards.forEach(function(card, i) {
+          var fc = document.createElement('div');
+          fc.className = 'fc';
+          fc.innerHTML = '<div class="fc-inner"><div class="fc-front"><div><div class="fc-num">Card ' + String(i+1).padStart(2,'0') + '</div><div class="fc-q">' + card.q + '</div></div><div class="fc-hint">click to reveal →</div></div><div class="fc-back"><div class="fc-a">' + card.a + '</div><div class="fc-hint">← click to flip back</div></div></div>';
+          fc.addEventListener('click', function() { fc.classList.toggle('flipped'); });
+          container.appendChild(fc);
+        });
+      })();
+      </script>
+    </div>
+  </details>
+
+  <details class="plate">
+    <summary><span class="plate-n">Plate III</span><span class="plate-title">Test questions</span></summary>
+    <div class="plate-body">
+      <p>Click each question to reveal the answer.</p>
+
+      <details class="tq"><summary><div class="tq-num">1</div>A UX researcher says: "Users need information about pricing, features, and comparisons." What would Dervin critique and how would she reframe this?</summary><div class="tq-body">This replicates topic-based, transmission-model thinking. Dervin would critique: (1) "information needs" abstracts from situation; (2) it presupposes information as the only bridge; (3) it describes content rather than gap type. SMM reframe: conduct MMTLI interviews about specific moments — identify gap types, map bridge attempts (including non-informational ones), analyse outcomes. "Pricing information need" becomes: "decision-gap requiring comparison to choose between plans — bridges attempted: pricing page scan (hurt: confusing), social query (helped), support call (mixed)."</div></details>
+
+      <details class="tq"><summary><div class="tq-num">2</div>Explain why 'outcome' in SMM is more analytically powerful than 'satisfaction' or 'usability'.</summary><div class="tq-body">Satisfaction/usability measure reaction to an artifact in isolation. SMM outcome is tied to the specific gap: (1) Helps — what movement was enabled; (2) Hurts — how the bridge failed or worsened the situation; (3) New gaps — secondary discontinuities created; (4) Use types — what the person actually did differently. A highly "satisfying" document may bridge no actual gaps; a frustrating search experience may ultimately help enormously. SMM makes effectiveness situated and causal, not preferential.</div></details>
+
+      <details class="tq"><summary><div class="tq-num">3</div>A communications director says: "We sent detailed strategy communications but employees are still confused." Apply SMM to diagnose this.</summary><div class="tq-body">The director applied a transmission model: encode → send → assume comprehension. SMM diagnosis: employees' actual gaps (What does this mean for my role? / Why is this better than before? / Who can I trust?) were never diagnosed. The communication was designed around what leadership wanted to transmit, not around gap types employees actually have. Fix: MMTLI-style interviews asking about specific moments of uncertainty. Identify gap types. Design communications as bridges for those gaps — organised by gap, not by leadership's topic preferences.</div></details>
+
+      <details class="tq"><summary><div class="tq-num">4</div>What problem does SMM's sense-unmaking concept create for knowledge management systems?</summary><div class="tq-body">KM systems assume knowledge is a capturable, retrievable object — a transmission model. Sense-unmaking reveals: (1) Knowledge is a bridge constructed for a specific gap in a specific situation — a document that bridges one gap may fail entirely in another context; (2) Transformation requires dismantling existing "knowledge," which a deposit-and-retrieve system cannot facilitate. SMM-informed KM would index resources by gap type, surface assumption-challenging materials, and build processes for questioning existing organisational sense.</div></details>
+
+      <details class="tq"><summary><div class="tq-num">5</div>Design an SMM study of how expats navigate healthcare in a new country.</summary><div class="tq-body">MMTLI interviews anchored in a specific recent healthcare-seeking moment. Step through from initial need to resolution. Gap probes at each step: role gaps (how to register?), decision gaps (which specialist?), barrier gaps (language, system structure), trust gaps (who is reliable here?). Bridge analysis: internet searches, expat communities, calling home, GP visits, trial and error. Output: a gap map organised by gap type, enabling communications and services to bridge actual gaps — not assumed "information needs."</div></details>
+    </div>
+  </details>
+
+  <details class="plate">
+    <summary><span class="plate-n">Plate IV</span><span class="plate-title">Key principles and common mistakes</span></summary>
+    <div class="plate-body">
+      <div class="smm-callout-box">
+        <strong>Seven principles</strong>
+        Study <em>gaps</em>, not needs. Study <em>movement</em>, not static states. Study <em>specific episodes</em>, not abstract patterns. Study <em>bridges</em> (any type), not content delivery. Study <em>outcomes in both directions</em> — helps and hurts. Always situate: specific moment, specific person, specific context. Design for gap-bridging, not message-sending.
+      </div>
+
+      <div class="smm-callout-box warn"><strong>Equating bridge with information</strong> Information is one bridge type among many. Bridges can also be emotional, social, procedural, or drawn from memory. Privileging information replicates the transmission model inside SMM's frame.</div>
+
+      <div class="smm-callout-box warn"><strong>Abstracting from situation</strong> Asking "what do users generally need?" rather than "what did this person need in this moment?" evacuates the methodology's explanatory power.</div>
+
+      <div class="smm-callout-box warn"><strong>Ignoring sense-unmaking</strong> Treating SMM as purely constructive misses resistance, confusion, and transformative learning — contexts where old sense must be dismantled before new sense can be made.</div>
+
+      <div class="smm-callout-box warn"><strong>Only probing positive outcomes</strong> Asking only "what helped?" misses bridge failures and hurts — often the most diagnostically valuable data.</div>
+    </div>
+  </details>
+
+</div>
+
+<script src="js/smm-data.js"></script>
+<script src="js/smm-rewriter.js"></script>
+<script>window.initSMMRewriter('smm-rewriter-root');</script>
+```

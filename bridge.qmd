@@ -1,0 +1,62 @@
+---
+pagetitle: "Bridge — Orientation"
+---
+
+```{=html}
+<div class="page-head">
+  <div class="page-eyebrow">
+    <svg width="48" height="48" viewBox="0 0 64 64" fill="none"><path d="M 32 6 L 32 58" stroke="#a06a3a" stroke-width="1"/><path d="M 32 14 Q 38 12 46 10" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="46" cy="10" rx="6" ry="2.5" transform="rotate(-25 46 10)" stroke="#a06a3a" stroke-width="0.8" fill="none"/><path d="M 32 22 Q 26 20 18 18" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="18" cy="18" rx="6" ry="2.5" transform="rotate(25 18 18)" stroke="#a06a3a" stroke-width="0.8" fill="none"/><path d="M 32 30 Q 38 28 46 26" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="46" cy="26" rx="6" ry="2.5" transform="rotate(-25 46 26)" stroke="#a06a3a" stroke-width="0.8" fill="none"/><path d="M 32 38 Q 26 36 18 34" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="18" cy="34" rx="6" ry="2.5" transform="rotate(25 18 34)" stroke="#a06a3a" stroke-width="0.8" fill="none"/><path d="M 32 46 Q 38 44 46 42" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="46" cy="42" rx="6" ry="2.5" transform="rotate(-25 46 42)" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="32" cy="8" rx="3" ry="5" stroke="#a06a3a" stroke-width="0.8" fill="none"/></svg>
+    <span>§ Bridge · Orientation</span>
+  </div>
+  <div>
+    <h1 class="page-title">How to use this site</h1>
+    <p class="page-dek">Sense-Making is a way of asking. This site is a four-stop walk — theory, method, instrument, examples — built around a working tool.</p>
+  </div>
+</div>
+
+<div class="page-body">
+  <div class="bridge-intro">
+    <p class="bridge-lede">
+      Most research questions presuppose the bridge before they have diagnosed the gap. They ask <em>which feature</em> when they should ask <em>what stopped you</em>. They ask <em>why</em> when they should ask <em>walk me through the moment</em>. The cost is data that confirms the question instead of revealing the situation.
+    </p>
+    <p class="bridge-lede">
+      Brenda Dervin spent fifty years building a methodology for this — neutral, time-anchored, gap-first. The site you're on is a reading of her work and a working instrument that applies it. Read at your own pace, or skip to <a href="index.html" style="color:#7a4d22;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">the rewriter</a> and come back.
+    </p>
+  </div>
+
+  <div class="bridge-path">
+    <a href="theory.html" class="bridge-step">
+      <span class="bridge-step-n">I</span>
+      <div>
+        <div class="bridge-step-t">Theory</div>
+        <div class="bridge-step-d">Dervin's central metaphor: a person crossing a gap in space-time. Her insight in one diagram.</div>
+        <div class="bridge-step-go">Read theory →</div>
+      </div>
+    </a>
+    <a href="method.html" class="bridge-step">
+      <span class="bridge-step-n">II</span>
+      <div>
+        <div class="bridge-step-t">Method</div>
+        <div class="bridge-step-d">The six gaps — every research question presupposes one. Learn to name them on sight.</div>
+        <div class="bridge-step-go">Study method →</div>
+      </div>
+    </a>
+    <a href="index.html" class="bridge-step">
+      <span class="bridge-step-n">III</span>
+      <div>
+        <div class="bridge-step-t">Practice</div>
+        <div class="bridge-step-d">Paste any question into the rewriter. See what it presupposes; receive a Sense-Making rewrite.</div>
+        <div class="bridge-step-go">Open instrument →</div>
+      </div>
+    </a>
+    <a href="fieldwork.html" class="bridge-step">
+      <span class="bridge-step-n">IV</span>
+      <div>
+        <div class="bridge-step-t">Fieldwork</div>
+        <div class="bridge-step-d">Worked examples — surveys, interviews, and post-mortems rewritten with the method.</div>
+        <div class="bridge-step-go">See examples →</div>
+      </div>
+    </a>
+  </div>
+</div>
+```

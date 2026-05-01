@@ -1,0 +1,37 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Sense-Making Methodology"
+  site-url: "https://smm.fredericlabadie.com"
+  navbar: false
+  sidebar: false
+  page-navigation: false
+  back-to-top-navigation: false
+  search: false
+
+format:
+  html:
+    theme: [cosmo, custom.scss]
+    toc: false
+    number-sections: false
+    page-layout: full
+    anchor-sections: false
+    smooth-scroll: false
+    code-tools: false
+    grid:
+      body-width: 1200px
+      margin-width: 0px
+      sidebar-width: 0px
+    include-in-header:
+      - text: |
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+          <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    include-before-body: _includes/header.html
+    include-after-body: _includes/footer.html
+
+execute:
+  echo: false
+  warning: false

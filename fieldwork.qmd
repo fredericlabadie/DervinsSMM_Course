@@ -1,0 +1,144 @@
+---
+pagetitle: "Fieldwork — From the Field"
+---
+
+```{=html}
+<div class="page-head">
+  <div class="page-eyebrow">
+    <svg width="48" height="48" viewBox="0 0 32 32" fill="none"><path d="M16 2 C 8 8, 6 18, 16 30 C 26 18, 24 8, 16 2 Z" stroke="#a06a3a" stroke-width="1.2"/><path d="M16 4 L 16 28" stroke="#a06a3a" stroke-width="0.8"/><path d="M 16 7 L 12 9" stroke="#a06a3a" stroke-width="0.6"/><path d="M 16 7 L 20 9" stroke="#a06a3a" stroke-width="0.6"/><path d="M 16 15 L 10 17" stroke="#a06a3a" stroke-width="0.6"/><path d="M 16 15 L 22 17" stroke="#a06a3a" stroke-width="0.6"/><path d="M 16 23 L 10 25" stroke="#a06a3a" stroke-width="0.6"/><path d="M 16 23 L 22 25" stroke="#a06a3a" stroke-width="0.6"/></svg>
+    <span>§ Fieldwork · Examples</span>
+  </div>
+  <div>
+    <h1 class="page-title">From the field</h1>
+    <p class="page-dek">Real questions, rewritten. Worked scenarios. Practice projects. Ethics. Everything needed to move from reading about SMM to doing it.</p>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <div class="field-grid">
+    <div class="field-card"><span class="field-label">Survey · onboarding</span><h3 class="field-title">Why didn't you complete setup?</h3><p class="field-q">"Why didn't you finish setting up your account?"</p><div class="field-divider"></div><p class="field-a">"Walk me through the last screen you saw before you stopped. What were you trying to do? What stopped you?"</p><span class="field-tag">Barrier · Spinout</span></div>
+    <div class="field-card"><span class="field-label">Interview · churn</span><h3 class="field-title">Why did you cancel?</h3><p class="field-q">"What was the main reason you cancelled?"</p><div class="field-divider"></div><p class="field-a">"Tell me about the moment you decided to cancel. Where were you, what were you doing, and what tipped it?"</p><span class="field-tag">Decision · Problematic</span></div>
+    <div class="field-card"><span class="field-label">Post-mortem · A/B</span><h3 class="field-title">Variant B underperformed</h3><p class="field-q">"Why did variant B convert worse?"</p><div class="field-divider"></div><p class="field-a">"For users who saw B and didn't convert — what did they do next, and what were they trying to accomplish when they bounced?"</p><span class="field-tag">Spinout · Washout</span></div>
+    <div class="field-card"><span class="field-label">Research · feature</span><h3 class="field-title">Would you use this?</h3><p class="field-q">"Would you use a feature that did X?"</p><div class="field-divider"></div><p class="field-a">"Tell me about a recent time you needed something like X. Walk me through what you actually did."</p><span class="field-tag">Role · Decision</span></div>
+  </div>
+
+  <div class="field-footer-note">Have a question you'd like rewritten? <a href="index.html">Try the rewriter →</a></div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- DEEP CONTENT                                       -->
+  <!-- ═══════════════════════════════════════════════════ -->
+
+  <!-- Worked Scenarios -->
+  <details class="plate">
+    <summary><span class="plate-n">Plate III</span><span class="plate-title">Worked scenarios</span></summary>
+    <div class="plate-body">
+      <p>Full S-G-B-O analyses of real-world situations. Each shows how the framework diagnoses what a standard analysis would miss.</p>
+
+      <div class="scenario-card">
+        <div class="scenario-head"><span class="scenario-num">01</span><div><div class="scenario-domain">UX Research</div><div class="scenario-title-text">Mobile banking — 40% transfer abandonment</div></div></div>
+        <div class="scenario-grid">
+          <div class="scenario-cell"><span class="scenario-cell-label">Situation</span><p>First-time international transfer attempt on a new mobile app.</p></div>
+          <div class="scenario-cell"><span class="scenario-cell-label">Gap(s)</span><p>Procedural (how to do this?), decision (which transfer type?), barrier (IBAN not to hand), anxiety gap (is this safe?).</p></div>
+          <div class="scenario-cell"><span class="scenario-cell-label">Bridge(s)</span><p>Abandons app; calls bank; searches online; asks a friend; tries again with documents.</p></div>
+          <div class="scenario-cell"><span class="scenario-cell-label">Outcome(s)</span><p>Phone call helps but app trust eroded. New gap: "Why didn't the app tell me what I'd need beforehand?"</p></div>
+        </div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-head"><span class="scenario-num">02</span><div><div class="scenario-domain">Expat Healthcare</div><div class="scenario-title-text">Navigating Dutch GP registration as a new arrival</div></div></div>
+        <div class="scenario-grid">
+          <div class="scenario-cell"><span class="scenario-cell-label">Situation</span><p>New expat in the Netherlands; needs a GP; no prior knowledge of how huisarts system works.</p></div>
+          <div class="scenario-cell"><span class="scenario-cell-label">Gap(s)</span><p>Role gap (what am I supposed to do?), procedure gap (how does registration work?), trust gap (which GP will communicate in English?), barrier gap (practice lists may be full).</p></div>
+          <div class="scenario-cell"><span class="scenario-cell-label">Bridge(s)</span><p>Expat forums, municipality website, colleague advice, trial calls to practices, insurance company FAQ.</p></div>
+          <div class="scenario-cell"><span class="scenario-cell-label">Outcome(s)</span><p>Forums help most. Official sources too generic. New gap after registration: how does the referral system work?</p></div>
+        </div>
+      </div>
+
+      <div class="scenario-card">
+        <div class="scenario-head"><span class="scenario-num">03</span><div><div class="scenario-domain">Strategy</div><div class="scenario-title-text">Post-merger integration — employee resistance</div></div></div>
+        <div class="scenario-grid">
+          <div class="scenario-cell"><span class="scenario-cell-label">Situation</span><p>Employee receiving strategy communications after merger, facing changed teams and leadership.</p></div>
+          <div class="scenario-cell"><span class="scenario-cell-label">Gap(s)</span><p>Role gap (what does this mean for my job?), decision gap (should I look elsewhere?), trust gap (who can I believe?), problematic gap (cultural fit feels wrong).</p></div>
+          <div class="scenario-cell"><span class="scenario-cell-label">Bridge(s)</span><p>Informal peer conversations, reading between lines, LinkedIn scanning, cautious manager conversations.</p></div>
+          <div class="scenario-cell"><span class="scenario-cell-label">Outcome(s)</span><p>Formal communications bridge none of the actual gaps. Informal network is the most effective bridge.</p></div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- Practice Projects -->
+  <details class="plate">
+    <summary><span class="plate-n">Plate IV</span><span class="plate-title">Practice projects</span></summary>
+    <div class="plate-body">
+      <p>The best way to develop SMM fluency is to apply it to familiar contexts where you already have intuitions. Each project takes 30–90 minutes and produces something usable.</p>
+
+      <div class="practice-project">
+        <div class="pp-num">Project 01</div>
+        <h4>Gap-map a funnel you know</h4>
+        <p>Take any multi-step funnel — a checkout flow, an onboarding sequence, a sign-up form. Identify the three steps with the highest drop-off. For each step, generate three hypotheses about the gap type using the taxonomy (decision, barrier, confusion, role, spin-out, washout). Then write one MMTLI-style question you would ask a user to test each hypothesis.</p>
+        <div class="pp-meta"><span><strong>Output:</strong> Gap hypothesis map with testable questions</span><span><strong>Time:</strong> 45–60 min</span><span><strong>Concepts:</strong> Gap taxonomy + neutral questioning</span></div>
+      </div>
+
+      <div class="practice-project">
+        <div class="pp-num">Project 02</div>
+        <h4>Rewrite a survey using SMM principles</h4>
+        <p>Take any survey — NPS, post-purchase, employee engagement. Read each question and identify whether it is asking about a situation, gap, bridge, or outcome — and whether it is presupposing a bridge type. Rewrite five questions using SMM-neutral framing. Compare the original and rewritten versions: which would produce more actionable data?</p>
+        <div class="pp-meta"><span><strong>Output:</strong> Original vs. rewritten question set with rationale</span><span><strong>Time:</strong> 30–45 min</span><span><strong>Concepts:</strong> Neutral questioning + S-G-B-O structure</span></div>
+      </div>
+
+      <div class="practice-project">
+        <div class="pp-num">Project 03</div>
+        <h4>Apply the MMTLI to your own recent decision</h4>
+        <p>Think of a significant decision you made in the last three months. Apply the MMTLI protocol to yourself: situate it, walk through it step by step, identify every gap you encountered (by type), name every bridge you used, and trace the outcomes. Most people are surprised by how many gaps they crossed unconsciously and how diverse their bridge types were.</p>
+        <div class="pp-meta"><span><strong>Output:</strong> Annotated personal narrative with S-G-B-O coding</span><span><strong>Time:</strong> 30 min writing, 15 min coding</span><span><strong>Concepts:</strong> Full MMTLI + gap identification + bridge typing</span></div>
+      </div>
+
+      <div class="practice-project">
+        <div class="pp-num">Project 04</div>
+        <h4>A/B test post-mortem</h4>
+        <p>Take any A/B test result. The standard analysis ends at "variant B won by X%." Apply SMM: What gap did each variant offer a bridge for? Was the winning variant providing a more effective bridge for the same gap, or was it bridging a different gap entirely? This reframe often reveals why a winning test still produces unexpectedly modest business results — because you measured bridge adoption, not gap resolution.</p>
+        <div class="pp-meta"><span><strong>Output:</strong> Gap-bridge analysis of test variants</span><span><strong>Time:</strong> 45 min</span><span><strong>Concepts:</strong> Bridge theory + sense-unmaking + outcome typing</span></div>
+      </div>
+    </div>
+  </details>
+
+  <!-- Ethics -->
+  <details class="plate">
+    <summary><span class="plate-n">Plate V</span><span class="plate-title">Ethics of SMM research</span></summary>
+    <div class="plate-body">
+      <p>SMM positions participants as active sense-makers, not informants. Research design must protect their ability to make sense of the research process itself — informed consent, power transparency, and benefit reciprocity are structural requirements, not procedural formalities.</p>
+
+      <div class="ethics-card">
+        <div class="ethics-head"><strong>01 · Healthcare Navigation Study</strong><p>Interview patients about moments of uncertainty navigating care systems — especially relevant in cross-national or expat contexts.</p></div>
+        <div class="ethics-grid">
+          <div class="ethics-cell"><span class="ethics-label-risk">Ethical Risks</span><ul><li>Recall may surface trauma or fear — prepare de-escalation and local crisis referral options</li><li>Health data carries legal and ethical weight — collect only what illuminates gap types</li><li>Power asymmetry: participants may feel obligated to share more than comfortable</li></ul></div>
+          <div class="ethics-cell"><span class="ethics-label-mit">Mitigations</span><ul><li>Full informed consent with explicit right to stop at any point; no deception</li><li>Anonymise at analysis stage; destroy raw audio after coding</li><li>Co-design consent forms with patient advocates from the community</li></ul></div>
+        </div>
+      </div>
+
+      <div class="ethics-card">
+        <div class="ethics-head"><strong>02 · Workplace Onboarding Friction Map</strong><p>Identify new employee sense-making gaps during onboarding — especially role-gaps and systemic barrier-gaps.</p></div>
+        <div class="ethics-grid">
+          <div class="ethics-cell"><span class="ethics-label-risk">Ethical Risks</span><ul><li>Managerial misuse: findings used to evaluate rather than support employees</li><li>Retaliation risk if negative experiences are traceable to individuals</li><li>Organisational inertia: data collected but never acted on (ethical failure of omission)</li></ul></div>
+          <div class="ethics-cell"><span class="ethics-label-mit">Mitigations</span><ul><li>Contractually establish: data is not used for performance review</li><li>Aggregate all reporting; individuals never identified in outputs</li><li>Establish change commitment before beginning; co-design action plan with HR</li></ul></div>
+        </div>
+      </div>
+
+      <div class="ethics-card">
+        <div class="ethics-head"><strong>03 · Community Crisis Communication Review</strong><p>Analyse how people bridged uncertainty during emergencies — natural disasters, public health crises, civil unrest.</p></div>
+        <div class="ethics-grid">
+          <div class="ethics-cell"><span class="ethics-label-risk">Ethical Risks</span><ul><li>Re-traumatisation through narrative recall of crisis moments</li><li>Community distrust if research extracts without reciprocating</li><li>Over-generalisation from crisis-state to normal conditions</li></ul></div>
+          <div class="ethics-cell"><span class="ethics-label-mit">Mitigations</span><ul><li>Train interviewers in trauma-informed questioning; provide resource sheets</li><li>Return findings to community in accessible form; involve them in interpretation</li><li>Contextualise findings explicitly; label crisis-specific limitations</li></ul></div>
+        </div>
+      </div>
+
+      <div class="smm-callout-box warn">
+        <strong>A method that surfaces moments of disorientation can also be a method that surveils them</strong>
+        The MMTLI elicits vulnerability. Consent must be specific, renewable, and non-coercive. Because the interview follows emergent narratives into unpredictable territory, consent must be renewable as sensitive material emerges — not only at the outset.
+      </div>
+    </div>
+  </details>
+
+</div>
+```

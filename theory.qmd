@@ -1,0 +1,292 @@
+---
+pagetitle: "Theory — The Central Metaphor"
+---
+
+```{=html}
+<div class="page-head">
+  <div class="page-eyebrow">
+    <svg width="48" height="48" viewBox="0 0 32 32" fill="none"><path d="M 16 2 L 16 14" stroke="#a06a3a" stroke-width="1.2"/><path d="M 16 14 Q 10 18, 8 28" stroke="#a06a3a" stroke-width="1" fill="none"/><path d="M 16 14 Q 22 18, 24 28" stroke="#a06a3a" stroke-width="1" fill="none"/><path d="M 16 14 L 16 28" stroke="#a06a3a" stroke-width="1"/><ellipse cx="13" cy="3" rx="2.5" ry="1.5" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="19" cy="3" rx="2.5" ry="1.5" stroke="#a06a3a" stroke-width="0.8" fill="none"/></svg>
+    <span>§ Theory · Foundations</span>
+  </div>
+  <div>
+    <h1 class="page-title">The central metaphor</h1>
+    <p class="page-dek">One picture holds the whole methodology — a person, a moment, a gap, the bridge they build to cross it.</p>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <!-- Pull Quote -->
+  <blockquote class="pull-quote">
+    "Information is not a thing. It is a verb — the moment a person constructs sense across a gap they cannot yet see across."
+    <span class="pull-quote-attr">— after Brenda Dervin, paraphrased</span>
+  </blockquote>
+
+  <!-- Plate I: The Central Metaphor -->
+  <div class="metaphor-wrap">
+    <div class="metaphor-plate">
+      <svg width="12" height="12" viewBox="0 0 64 64" fill="none"><path d="M 32 6 L 32 58" stroke="#7a4d22" stroke-width="1"/><ellipse cx="32" cy="8" rx="3" ry="5" stroke="#7a4d22" stroke-width="0.8" fill="none"/></svg>
+      <span>Plate I · The Central Metaphor</span>
+    </div>
+
+    <svg viewBox="0 0 1000 360" style="width:100%;height:auto;display:block">
+      <defs>
+        <pattern id="dm-stipple" patternUnits="userSpaceOnUse" width="8" height="8">
+          <circle cx="2" cy="2" r="0.6" fill="#a06a3a" opacity="0.5"/><circle cx="6" cy="5" r="0.5" fill="#a06a3a" opacity="0.4"/>
+        </pattern>
+      </defs>
+      <path d="M 0 240 L 220 240 Q 280 240, 320 280 L 360 320 Q 420 350, 500 348 Q 580 350, 640 320 L 680 280 Q 720 240, 780 240 L 1000 240" stroke="#0c1410" stroke-width="2.2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M 220 240 Q 280 240, 320 280 L 360 320 Q 420 350, 500 348 Q 580 350, 640 320 L 680 280 Q 720 240, 780 240 L 780 360 L 220 360 Z" fill="url(#dm-stipple)" opacity="0.7"/>
+      <g stroke="#5a6a55" stroke-width="0.6" fill="none">
+        <path d="M 10 240 q 2 -6, 1 -10"/><path d="M 34 240 q 2 -6, 1 -10"/><path d="M 58 240 q 2 -6, 1 -10"/><path d="M 82 240 q 2 -6, 1 -10"/><path d="M 106 240 q 2 -6, 1 -10"/><path d="M 130 240 q 2 -6, 1 -10"/><path d="M 154 240 q 2 -6, 1 -10"/><path d="M 178 240 q 2 -6, 1 -10"/><path d="M 202 240 q 2 -6, 1 -10"/>
+        <path d="M 790 240 q 2 -6, 1 -10"/><path d="M 814 240 q 2 -6, 1 -10"/><path d="M 838 240 q 2 -6, 1 -10"/><path d="M 862 240 q 2 -6, 1 -10"/><path d="M 886 240 q 2 -6, 1 -10"/><path d="M 910 240 q 2 -6, 1 -10"/><path d="M 934 240 q 2 -6, 1 -10"/><path d="M 958 240 q 2 -6, 1 -10"/><path d="M 982 240 q 2 -6, 1 -10"/>
+      </g>
+      <g stroke="#a06a3a" stroke-width="0.8" fill="none">
+        <path d="M 70 240 q -2 -22, 4 -36"/><ellipse cx="68" cy="218" rx="5" ry="2" transform="rotate(-30 68 218)"/><ellipse cx="78" cy="208" rx="5" ry="2" transform="rotate(30 78 208)"/>
+        <path d="M 920 240 q 2 -22, -4 -36"/><ellipse cx="922" cy="218" rx="5" ry="2" transform="rotate(30 922 218)"/><ellipse cx="912" cy="208" rx="5" ry="2" transform="rotate(-30 912 208)"/>
+      </g>
+      <g stroke="#0c1410" stroke-width="1.6" fill="none" stroke-linecap="round">
+        <circle cx="170" cy="186" r="10" fill="#e3e6d3"/><circle cx="167" cy="184" r="0.9" fill="#0c1410"/><circle cx="173" cy="184" r="0.9" fill="#0c1410"/><path d="M 167 189 q 3 2, 6 0" stroke-width="1"/>
+        <path d="M 170 196 L 170 222"/><path d="M 170 204 L 158 214"/><path d="M 170 204 Q 184 200, 196 198"/><path d="M 170 222 L 162 240"/><path d="M 170 222 L 184 240"/>
+      </g>
+      <path d="M 196 198 Q 500 110, 804 198" stroke="#a06a3a" stroke-width="1.6" fill="none" stroke-dasharray="2 5"/>
+      <circle cx="196" cy="198" r="2.5" fill="#a06a3a"/><circle cx="804" cy="198" r="2.5" fill="#a06a3a"/>
+      <g stroke="#0c1410" stroke-width="1.4" fill="none">
+        <line x1="830" y1="240" x2="830" y2="180"/><path d="M 830 180 L 858 184 L 830 192 Z" fill="#a06a3a" stroke="#a06a3a"/>
+        <line x1="848" y1="240" x2="848" y2="200"/><path d="M 848 200 L 870 204 L 848 210 Z"/>
+      </g>
+      <rect x="406" y="258" width="188" height="40" fill="#e3e6d3" stroke="#a06a3a" stroke-width="0.7"/>
+      <text x="500" y="280" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="24" font-weight="600" fill="#0c1410" letter-spacing="2">gap</text>
+      <text x="500" y="292" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="8.5" font-weight="600" fill="#a06a3a" letter-spacing="1.6">QUESTIONS · CONFUSIONS · MUDDLES</text>
+      <line x1="500" y1="296" x2="500" y2="334" stroke="#a06a3a" stroke-width="0.8" stroke-dasharray="2 3"/><circle cx="500" cy="334" r="2" fill="#a06a3a"/>
+      <g font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="1.5" fill="#a06a3a">
+        <text x="40" y="28">SITUATION</text><line x1="40" y1="34" x2="180" y2="34" stroke="#a06a3a" stroke-width="0.6"/>
+        <text x="40" y="50" font-family="'IBM Plex Serif', serif" font-style="italic" font-size="11" letter-spacing="0" fill="#0c1410">histories · identities</text>
+        <text x="40" y="66" font-family="'IBM Plex Serif', serif" font-style="italic" font-size="11" letter-spacing="0" fill="#0c1410">past + present horizons</text>
+        <text x="40" y="82" font-family="'IBM Plex Serif', serif" font-style="italic" font-size="11" letter-spacing="0" fill="#0c1410">barriers · constraints</text>
+        <path d="M 100 88 Q 110 130, 162 178" stroke="#a06a3a" stroke-width="0.6" fill="none"/>
+        <text x="500" y="28" text-anchor="middle">BRIDGE</text><line x1="430" y1="34" x2="570" y2="34" stroke="#a06a3a" stroke-width="0.6"/>
+        <text x="500" y="50" text-anchor="middle" font-family="'IBM Plex Serif', serif" font-style="italic" font-size="11" letter-spacing="0" fill="#0c1410">cognitions · feelings</text>
+        <text x="500" y="66" text-anchor="middle" font-family="'IBM Plex Serif', serif" font-style="italic" font-size="11" letter-spacing="0" fill="#0c1410">memories · stories</text>
+        <text x="500" y="82" text-anchor="middle" font-family="'IBM Plex Serif', serif" font-style="italic" font-size="11" letter-spacing="0" fill="#0c1410">attitudes · intuitions</text>
+        <path d="M 500 90 L 500 108" stroke="#a06a3a" stroke-width="0.6" fill="none"/><path d="M 496 104 L 500 110 L 504 104" stroke="#a06a3a" stroke-width="0.6" fill="none"/>
+        <text x="960" y="28" text-anchor="end">OUTCOMES</text><line x1="820" y1="34" x2="960" y2="34" stroke="#a06a3a" stroke-width="0.6"/>
+        <text x="960" y="50" text-anchor="end" font-family="'IBM Plex Serif', serif" font-style="italic" font-size="11" letter-spacing="0" fill="#0c1410">helps · hindrances</text>
+        <text x="960" y="66" text-anchor="end" font-family="'IBM Plex Serif', serif" font-style="italic" font-size="11" letter-spacing="0" fill="#0c1410">impacts · consequences</text>
+        <text x="960" y="82" text-anchor="end" font-family="'IBM Plex Serif', serif" font-style="italic" font-size="11" letter-spacing="0" fill="#0c1410">new gaps · new sense</text>
+        <path d="M 900 88 Q 890 130, 840 178" stroke="#a06a3a" stroke-width="0.6" fill="none"/>
+      </g>
+    </svg>
+
+    <div class="metaphor-caption">
+      A person, mid-stride in a moment of space-time, building a bridge across a gap — from situation, through the discontinuity, toward outcome.
+      After Brenda Dervin, <span class="fig-ref">fig. C2.1</span>.
+    </div>
+  </div>
+
+  <!-- Abstract front-matter card -->
+  <div class="abstract-card corner-brackets">
+    <span class="bracket-bl"></span><span class="bracket-br"></span>
+    <span class="key">SUBJECT</span><span class="val">Brenda Dervin · Sense-Making Methodology (1972–)</span>
+    <span class="key">UNIT</span><span class="val">The gap — specific discontinuity, specific person, specific moment</span>
+    <span class="key">METHOD</span><span class="val">Micro-Moment Time-Line Interview · neutral questioning</span>
+    <span class="key">USE</span><span class="val">Survey design · UX research · funnel diagnosis · A/B post-mortem</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- DEEP CONTENT: Collapsible Plates below the fold    -->
+  <!-- ═══════════════════════════════════════════════════ -->
+
+  <!-- Plate III: Seven Philosophical Assumptions -->
+  <details class="plate">
+    <summary>
+      <span class="plate-n">Plate III</span>
+      <span class="plate-title">The seven assumptions</span>
+    </summary>
+    <div class="plate-body">
+      <p>These are not optional background — they are constitutive of the methodology. Every design decision in SMM research follows from them.</p>
+
+      <div class="assumption">
+        <span class="a-num">Assumption 01</span>
+        <span class="a-title">Reality is discontinuous</span>
+        <p>Gaps are not exceptions to be explained away — they are the fundamental condition of human experience. There is no complete knowledge, no final arrival, no state of full information. The person is always mid-crossing.</p>
+      </div>
+      <div class="assumption">
+        <span class="a-num">Assumption 02</span>
+        <span class="a-title">Information is constructed, not found</span>
+        <p>There are no free-standing information objects. Information is always constructed in the act of bridging a gap in a specific situation. The same document bridges a gap for one person and fails entirely for another because their situations differ.</p>
+      </div>
+      <div class="assumption">
+        <span class="a-num">Assumption 03</span>
+        <span class="a-title">Situation is constitutive, not contextual</span>
+        <p>The specific time-space context determines what counts as a gap, what bridges are available, and what outcomes are possible. Situation is not background colour — it is the operative ground of all sense-making activity.</p>
+      </div>
+      <div class="assumption">
+        <span class="a-num">Assumption 04</span>
+        <span class="a-title">People are active sense-makers, not passive receivers</span>
+        <p>The human being is the agent constructing bridges using internal resources (memory, emotion, knowledge) and external resources (information, people, systems). No one receives meaning — they build it.</p>
+      </div>
+      <div class="assumption">
+        <span class="a-num">Assumption 05</span>
+        <span class="a-title">Universal procedure; unique instance</span>
+        <p>Everyone sense-makes (universal), but the specific sense made is irreducibly unique to that person's situation and moment. This is what makes cross-case comparisons by gap type powerful — the structure is shared, the content is individual.</p>
+      </div>
+      <div class="assumption">
+        <span class="a-num">Assumption 06</span>
+        <span class="a-title">Subjectivity is datum, not noise</span>
+        <p>Confusion, emotion, and intuition are what SMM is designed to capture — not artefacts to be controlled for. When a participant says "I felt lost," that is primary data about a spin-out gap, not a measurement error.</p>
+      </div>
+      <div class="assumption">
+        <span class="a-num">Assumption 07</span>
+        <span class="a-title">Both internal and external orders are real</span>
+        <p>Neither pure subjectivism nor pure objectivism is adequate. SMM operates in the space between — the gap is real (external order), but the bridge that crosses it is constructed (internal order). Both matter for design.</p>
+      </div>
+    </div>
+  </details>
+
+  <!-- Plate IV: Sense-Unmaking -->
+  <details class="plate">
+    <summary>
+      <span class="plate-n">Plate IV</span>
+      <span class="plate-title">Sense-unmaking</span>
+    </summary>
+    <div class="plate-body">
+      <p>In her later work (primarily 1990s onward), Dervin added <strong>sense-unmaking</strong> — recognition that people must also <em>dismantle</em> existing sense structures. This is not the failure of sense-making. It is a constitutive part of it.</p>
+
+      <blockquote>People must forget, unlearn, challenge assumptions, and destabilise established understandings before new sense can be made.</blockquote>
+
+      <p>Sense-unmaking is particularly critical for: transformative learning, organisational change, critical consciousness, and creative work. In Dervin's later framework (1998), she connected sense-unmaking explicitly to power — dominant groups impose sense structures, and marginalised groups must unmake imposed sense to survive and resist.</p>
+
+      <p>For analytics practitioners: sense-unmaking is what happens when a redesign breaks established user habits. Users had working sense of the old interface. The redesign unmade that sense, creating new gaps. Support ticket spikes after a product launch are often sense-unmaking events — the telemetry shows the fact, SMM diagnoses the structure.</p>
+
+      <div class="smm-callout-box warn">
+        <strong>Common mistake</strong>
+        Treating SMM as purely constructive misses resistance, confusion, and transformative learning — contexts where old sense must be dismantled before new sense can be made.
+      </div>
+    </div>
+  </details>
+
+  <!-- Plate V: SMM vs. the Transmission Model -->
+  <details class="plate">
+    <summary>
+      <span class="plate-n">Plate V</span>
+      <span class="plate-title">SMM vs. the transmission model</span>
+    </summary>
+    <div class="plate-body">
+      <p>Dervin's core critique: the transmission model assumes meaning inheres in messages — that the same message means the same thing to all receivers. SMM demonstrates empirically this is false. Designing for information transfer is designing for failure.</p>
+
+      <table class="compare-table">
+        <thead><tr><th>Dimension</th><th>Transmission Model</th><th>Sense-Making Methodology</th></tr></thead>
+        <tbody>
+          <tr><td>Ontology</td><td>Information exists independently as an objective thing</td><td>Information is constructed in the act of bridging — always relational</td></tr>
+          <tr><td>Human role</td><td>Passive receiver / decoder</td><td>Active sense-maker constructing bridges</td></tr>
+          <tr><td>Model</td><td>Linear: Source → Message → Channel → Receiver</td><td>Recursive: Situation → Gap → Bridge → Outcome → New Situation</td></tr>
+          <tr><td>Unit of analysis</td><td>The message or information object</td><td>The gap: specific discontinuity in a specific situation</td></tr>
+          <tr><td>Success</td><td>Accurate transmission: did the message arrive intact?</td><td>Effective bridging: did the person cross the gap in a way that helped?</td></tr>
+          <tr><td>Context</td><td>Noise to be reduced</td><td>Constitutive: determines what a gap is and what bridges are possible</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <!-- Plate VI: Comparative Analysis -->
+  <details class="plate">
+    <summary>
+      <span class="plate-n">Plate VI</span>
+      <span class="plate-title">Comparative analysis — SMM and neighbouring frameworks</span>
+    </summary>
+    <div class="plate-body">
+      <p>SMM is not the only sense-making framework, and it is not always the right one. Understanding where it overlaps with and diverges from neighbouring approaches helps practitioners know when to reach for it.</p>
+
+      <table class="compare-table">
+        <thead><tr><th>Framework</th><th>Primary Unit</th><th>Time</th><th>Key Difference</th><th>Best Integration with SMM</th></tr></thead>
+        <tbody>
+          <tr><td>Weickian Sensemaking</td><td>Organisation / collective</td><td>Retrospective</td><td>Organisational, not individual; less methodologically specific</td><td>Weick for collective context (situation); Dervin for individual gap-bridging within it</td></tr>
+          <tr><td>Design Thinking</td><td>Problem-solution cycle</td><td>Prospective</td><td>Generative not diagnostic; "empathy" framing can be shallow</td><td>SMM for rigorous gap diagnosis in DT phases 1–2; DT ideation for designing bridges</td></tr>
+          <tr><td>User Journey Mapping</td><td>Touchpoints across timeline</td><td>Both</td><td>Often persona-based, not grounded in specific moments; atheoretical</td><td>SMM interviews generate empirically grounded data that journey maps then visualise</td></tr>
+          <tr><td>Systems Thinking</td><td>Feedback loops / system structure</td><td>Both</td><td>Macro not micro; individual agency under-theorised</td><td>Systems Thinking for why gaps are endemic; SMM for how individuals navigate them</td></tr>
+          <tr><td>Ethnographic Interviewing</td><td>Cultural practice / thick description</td><td>Synchronic</td><td>Richer cultural context; weaker cross-case comparability</td><td>Ethnographic immersion for situational context; MMTLI for systematic gap-bridge-outcome mapping</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <!-- SGBO Section Head (unchanged from original) -->
+  <div class="sgbo-section-head">
+    <div class="sgbo-n">
+      <svg width="56" height="56" viewBox="0 0 32 32" fill="none"><path d="M 16 2 L 16 14" stroke="#a06a3a" stroke-width="1.2"/><path d="M 16 14 Q 10 18, 8 28" stroke="#a06a3a" stroke-width="1" fill="none"/><path d="M 16 14 Q 22 18, 24 28" stroke="#a06a3a" stroke-width="1" fill="none"/><path d="M 16 14 L 16 28" stroke="#a06a3a" stroke-width="1"/><ellipse cx="13" cy="3" rx="2.5" ry="1.5" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="19" cy="3" rx="2.5" ry="1.5" stroke="#a06a3a" stroke-width="0.8" fill="none"/></svg>
+      <span>§ The Constitution</span>
+    </div>
+    <div>
+      <h2 class="sgbo-title">Situation → Gap → Bridge → Outcome</h2>
+      <div class="sgbo-sub">The four stations of the recursive loop. Outcomes reshape situations; bridges may help, hurt, or grow new gaps.</div>
+    </div>
+  </div>
+
+  <!-- Plate II: The Constitution (dark diagram) -->
+  <div class="diag-wrap">
+    <div class="diag-plate">
+      <svg width="14" height="14" viewBox="0 0 32 32" fill="none"><path d="M 16 2 L 16 14" stroke="#f5f1e3" stroke-width="1.2"/><path d="M 16 14 Q 10 18, 8 28" stroke="#f5f1e3" stroke-width="1" fill="none"/><path d="M 16 14 Q 22 18, 24 28" stroke="#f5f1e3" stroke-width="1" fill="none"/></svg>
+      <span>Plate II · The Constitution</span>
+      <svg width="14" height="14" viewBox="0 0 32 32" fill="none"><path d="M 16 2 L 16 14" stroke="#f5f1e3" stroke-width="1.2"/><path d="M 16 14 Q 10 18, 8 28" stroke="#f5f1e3" stroke-width="1" fill="none"/><path d="M 16 14 Q 22 18, 24 28" stroke="#f5f1e3" stroke-width="1" fill="none"/></svg>
+    </div>
+    <div class="diag-frame">
+      <div class="diag-grid">
+        <div class="diag-station">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="6" stroke="#7ab685" stroke-width="1.2"/><circle cx="16" cy="16" r="3" fill="#7ab685"/><line x1="16" y1="3" x2="16" y2="7" stroke="#7ab685" stroke-width="1"/><line x1="16" y1="25" x2="16" y2="29" stroke="#7ab685" stroke-width="1"/><line x1="3" y1="16" x2="7" y2="16" stroke="#7ab685" stroke-width="1"/><line x1="25" y1="16" x2="29" y2="16" stroke="#7ab685" stroke-width="1"/></svg>
+          <span class="diag-station-n">· I · Situation</span>
+          <span class="diag-station-label" style="color:#7ab685">Where you are</span>
+          <span class="diag-station-desc">Specific time-space context. The ground itself.</span>
+          <div class="diag-hints"><span>· person in a moment</span><span>· what came before</span></div>
+        </div>
+        <div class="diag-station">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><ellipse cx="16" cy="16" rx="6" ry="10" stroke="#d4b86a" stroke-width="1.2"/><line x1="16" y1="6" x2="16" y2="26" stroke="#d4b86a" stroke-width="0.8"/></svg>
+          <span class="diag-station-n">· II · Gap</span>
+          <span class="diag-station-label" style="color:#d4b86a">What stops you</span>
+          <span class="diag-station-desc">The discontinuity. Question, confusion, barrier, dilemma.</span>
+          <div class="diag-hints"><span>· six structural shapes</span><span>· not a failure: the engine</span></div>
+        </div>
+        <div class="diag-station">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 2 C 8 8, 6 18, 16 30 C 26 18, 24 8, 16 2 Z" stroke="#5e9c6f" stroke-width="1.2"/><path d="M16 4 L 16 28" stroke="#5e9c6f" stroke-width="0.8"/></svg>
+          <span class="diag-station-n">· III · Bridge</span>
+          <span class="diag-station-label" style="color:#5e9c6f">What you build</span>
+          <span class="diag-station-desc">Any resource: ideas, memories, people, procedures.</span>
+          <div class="diag-hints"><span>· information is one type</span><span>· not always available</span></div>
+        </div>
+        <div class="diag-station" style="border-right:none">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><circle cx="6" cy="16" r="3" stroke="#a3d4b9" stroke-width="0.8" fill="none"/><path d="M 6 13 a 3 3 0 0 1 0 6 a 1.5 3 0 0 0 0 -6 z" fill="#a3d4b9"/><circle cx="16" cy="16" r="4" stroke="#a3d4b9" stroke-width="1" fill="#a3d4b9" fill-opacity=".18"/><circle cx="26" cy="16" r="3" stroke="#a3d4b9" stroke-width="0.8" fill="none"/><path d="M 26 13 a 3 3 0 0 0 0 6 a 1.5 3 0 0 1 0 -6 z" fill="#a3d4b9"/></svg>
+          <span class="diag-station-n">· IV · Outcome</span>
+          <span class="diag-station-label" style="color:#a3d4b9">What happens</span>
+          <span class="diag-station-desc">Helps · hurts · new gap. Shapes the next situation.</span>
+          <div class="diag-hints"><span>· symmetric data</span><span>· loops back</span></div>
+        </div>
+      </div>
+      <div class="diag-arc">
+        The recursive arc — <span class="neon-hl">sense-unmaking</span>:
+        an outcome may destabilise existing sense, which becomes a new gap. The loop never closes.
+      </div>
+    </div>
+  </div>
+
+  <!-- Plate VII: Primary Sources -->
+  <details class="plate">
+    <summary>
+      <span class="plate-n">Plate VII</span>
+      <span class="plate-title">Primary sources</span>
+    </summary>
+    <div class="plate-body">
+      <table class="compare-table">
+        <thead><tr><th>Work</th><th>Why Read It</th></tr></thead>
+        <tbody>
+          <tr><td>Dervin (1983)</td><td>"Information as a User Construct" — foundational statement; introduces gap-bridge metaphor; critique of transmission model</td></tr>
+          <tr><td>Dervin (1992)</td><td>"From the Mind's Eye of the User" — <strong>best single overview</strong>; full S-G-B-O articulation; methodological implications. Start here.</td></tr>
+          <tr><td>Dervin & Nilan (1986)</td><td><em>Annual Review of Information Science</em> — landmark paradigm critique; establishes the shift from topic-based to gap-based research</td></tr>
+          <tr><td>Dervin (1998)</td><td>"Sense-Making Theory and Practice" — mature statement; introduces sense-unmaking; feminist and power dimensions</td></tr>
+          <tr><td>Dervin (1999)</td><td>"On Studying Information Seeking Methodologically" — deepest methodological discussion; best source on MMTLI design and analysis</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+</div>
+```
