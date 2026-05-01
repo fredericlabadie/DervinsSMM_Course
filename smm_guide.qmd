@@ -1,0 +1,952 @@
+---
+title: "Brenda Dervin's Sense-Making Methodology"
+subtitle: "A Structured Refresher & Applied Practice Guide"
+author: "Personal Study Edition"
+date: last-modified
+format:
+  html:
+    theme: [cosmo, custom.scss]
+    toc: true
+    toc-depth: 3
+    toc-title: "Contents"
+    toc-location: left
+    number-sections: true
+    smooth-scroll: true
+    code-fold: false
+    anchor-sections: true
+    callout-appearance: minimal
+    grid:
+      sidebar-width: 260px
+      body-width: 760px
+  pdf:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    geometry: margin=2.5cm
+    fontsize: 11pt
+    linestretch: 1.4
+    include-in-header:
+      text: |
+        \usepackage{booktabs}
+        \usepackage{microtype}
+execute:
+  echo: false
+  warning: false
+---
+
+```{=html}
+<style>
+/* ── Typography ── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+body { font-family: 'Source Serif 4', Georgia, serif; font-size: 16px; line-height: 1.8; color: #1a1a1a; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; }
+h1 { font-size: 2rem; border-bottom: 2px solid #0d6e56; padding-bottom: .4rem; }
+h2 { font-size: 1.45rem; margin-top: 2rem; }
+h3 { font-size: 1.15rem; color: #2a4a40; }
+code, pre, .sourceCode { font-family: 'JetBrains Mono', monospace; }
+.quarto-title-meta { font-family: 'JetBrains Mono', monospace; font-size: .75rem; letter-spacing: .08em; color: #888; }
+
+/* ── Concept blocks ── */
+.concept-box {
+  background: #f7f9f8;
+  border-left: 3px solid #0d6e56;
+  padding: 14px 18px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+}
+.concept-box.gap  { border-color: #6d3acd; background: #f5f3ff; }
+.concept-box.bridge { border-color: #b94a28; background: #fdf2ef; }
+.concept-box.outcome { border-color: #8a6c0e; background: #fdf8ec; }
+.concept-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: #0d6e56;
+  display: block;
+  margin-bottom: 4px;
+}
+.concept-box.gap .concept-label { color: #6d3acd; }
+.concept-box.bridge .concept-label { color: #b94a28; }
+.concept-box.outcome .concept-label { color: #8a6c0e; }
+.concept-title { font-weight: 700; font-size: 1rem; color: #111; display: block; margin-bottom: 4px; }
+
+/* ── Diagram boxes ── */
+.diagram-box {
+  background: #0f1612;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+.diagram-box pre {
+  color: #b0c4b8;
+  font-size: .72rem;
+  line-height: 1.75;
+  margin: 0;
+  white-space: pre;
+}
+.d-teal  { color: #4ecba0; }
+.d-amber { color: #e8c97a; }
+.d-coral { color: #e8927a; }
+.d-green { color: #8acea8; }
+.d-dim   { color: #445a50; }
+
+/* ── Flashcards ── */
+.fc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; margin: 20px 0; }
+.fc { perspective: 800px; height: 130px; cursor: pointer; }
+.fc-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .45s ease; }
+.fc.flipped .fc-inner { transform: rotateY(180deg); }
+.fc-front, .fc-back { position: absolute; inset: 0; backface-visibility: hidden; border-radius: 8px; padding: 14px 16px; display: flex; flex-direction: column; justify-content: space-between; }
+.fc-front { background: #fff; border: 1px solid #d4d0c8; border-left: 3px solid #0d6e56; }
+.fc-back  { background: #0f1612; transform: rotateY(180deg); }
+.fc-num { font-family: 'JetBrains Mono', monospace; font-size: .6rem; letter-spacing: .12em; color: #aaa; }
+.fc-q { font-size: .85rem; font-weight: 600; color: #111; line-height: 1.4; }
+.fc-a { font-size: .8rem; color: #b0c4b8; line-height: 1.4; }
+.fc-hint { font-family: 'JetBrains Mono', monospace; font-size: .6rem; color: #4ecba0; }
+.fc-back .fc-hint { color: #2a4a40; }
+
+/* ── Test questions ── */
+details.tq { background: #fff; border: 1px solid #d4d0c8; border-radius: 8px; margin: 10px 0; overflow: hidden; }
+details.tq summary { padding: 14px 16px; font-weight: 600; font-size: .9rem; cursor: pointer; display: grid; grid-template-columns: 36px 1fr; gap: 10px; align-items: center; list-style: none; }
+details.tq summary::-webkit-details-marker { display: none; }
+.tq-num { background: #f0ede5; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: #888; }
+details.tq[open] summary { border-bottom: 1px solid #eee; }
+.tq-body { padding: 14px 16px 14px 62px; font-size: .88rem; color: #3d3d3d; line-height: 1.6; }
+
+/* ── Scenario cards ── */
+.scenario { background: #fff; border: 1px solid #d4d0c8; border-radius: 10px; margin: 16px 0; overflow: hidden; }
+.scenario-head { background: #f4f1eb; padding: 12px 16px; border-bottom: 1px solid #d4d0c8; display: flex; gap: 12px; align-items: center; }
+.scenario-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: #ccc; line-height: 1; }
+.scenario-domain { font-family: 'JetBrains Mono', monospace; font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; color: #0d6e56; }
+.scenario-title { font-weight: 700; font-size: .95rem; color: #111; }
+.scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.scenario-cell { padding: 12px 14px; border-right: 1px solid #eee; border-bottom: 1px solid #eee; }
+.scenario-cell:last-child, .scenario-cell:nth-child(even) { border-right: none; }
+.scenario-cell-label { font-family: 'JetBrains Mono', monospace; font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; color: #0d6e56; margin-bottom: 4px; display: block; }
+.scenario-cell p { font-size: .82rem; margin: 0; color: #555; line-height: 1.45; }
+
+/* ── Ethics cards ── */
+.ethics-card { background: #fff; border: 1px solid #d4d0c8; border-radius: 10px; margin: 16px 0; overflow: hidden; }
+.ethics-head { background: #f4f1eb; padding: 12px 16px; border-bottom: 1px solid #d4d0c8; }
+.ethics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+.ethics-cell { padding: 12px 14px; border-right: 1px solid #eee; }
+.ethics-cell:last-child { border-right: none; }
+.ethics-label-risk { font-family: 'JetBrains Mono', monospace; font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; color: #c0392b; margin-bottom: 6px; display: block; }
+.ethics-label-mit { font-family: 'JetBrains Mono', monospace; font-size: .6rem; letter-spacing: .15em; text-transform: uppercase; color: #0d6e56; margin-bottom: 6px; display: block; }
+.ethics-cell li { font-size: .82rem; color: #555; line-height: 1.45; margin-bottom: 4px; }
+
+/* ── Day plan ── */
+.day-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin: 16px 0; }
+.day-card { background: #fff; border: 1px solid #d4d0c8; border-radius: 8px; overflow: hidden; }
+.day-head { background: #0f1612; padding: 8px 6px; text-align: center; }
+.day-n { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 700; color: #4ecba0; line-height: 1; display: block; }
+.day-name { font-family: 'JetBrains Mono', monospace; font-size: .55rem; letter-spacing: .08em; text-transform: uppercase; color: #445a50; }
+.day-body { padding: 8px 8px; }
+.day-theme { font-size: .75rem; font-weight: 700; color: #111; margin-bottom: 5px; }
+.day-task { font-size: .65rem; color: #666; line-height: 1.35; padding: 2px 0; border-bottom: 1px solid #f0ede5; }
+.day-task::before { content: '—'; color: #0d6e56; margin-right: 3px; }
+
+/* ── Fieldwork template ── */
+.field-box { background: #fffef7; border: 1px solid #d4d0c8; border-radius: 10px; padding: 20px 24px; margin: 20px 0; }
+.field-row { margin-bottom: 20px; }
+.field-label { font-family: 'JetBrains Mono', monospace; font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: #0d6e56; display: block; margin-bottom: 6px; }
+.field-prompt { font-size: .85rem; color: #888; font-style: italic; margin-bottom: 4px; }
+.field-line { width: 100%; border: none; border-bottom: 1px solid #d4d0c8; padding: 6px 2px; font-family: 'Source Serif 4', serif; font-size: .9rem; background: transparent; color: #111; outline: none; display: block; margin-bottom: 4px; }
+
+/* ── Comparison table override ── */
+table.compare { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: .85rem; }
+table.compare thead th { background: #0f1612; color: #b0c4b8; font-family: 'JetBrains Mono', monospace; font-size: .65rem; letter-spacing: .1em; text-transform: uppercase; padding: 10px 12px; text-align: left; border: none; }
+table.compare tbody tr:nth-child(odd) { background: #fff; }
+table.compare tbody tr:nth-child(even) { background: #f7f9f8; }
+table.compare td { padding: 9px 12px; border-bottom: 1px solid #eee; vertical-align: top; color: #444; }
+table.compare td:first-child { font-weight: 600; color: #0d6e56; font-family: 'JetBrains Mono', monospace; font-size: .75rem; }
+
+/* ── Print overrides ── */
+@media print {
+  .fc-grid, .fc { display: none; }
+  .fc-grid + * { margin-top: 0; }
+  details.tq { border: 1px solid #ccc; }
+  details.tq summary::after { content: ' [see below]'; font-style: italic; color: #888; }
+  .tq-body { display: block !important; }
+  .day-grid { grid-template-columns: repeat(4, 1fr); }
+}
+</style>
+```
+
+::: {.callout-note appearance="minimal"}
+**How to use this document**
+
+- **As a website** → render with `quarto render smm_guide.qmd --to html`
+- **As a printable PDF** → render with `quarto render smm_guide.qmd --to pdf`
+- **As a fieldwork handbook** → print Section 10 (Fieldwork Template) separately
+- **Flashcards** → click to flip in HTML; both Q and A print automatically in PDF
+:::
+
+---
+
+# Core Class {#core}
+
+## Origins & Intellectual History
+
+Brenda Dervin began developing SMM in the early 1970s during doctoral and early faculty work at Ohio State University, driven by a persistent empirical failure: public information campaigns designed to change behaviour consistently failed to reach target audiences. The dominant explanation — "they didn't receive the message" — seemed inadequate. Dervin's diagnosis: the transmission model itself was wrong.
+
+| Influence | What Dervin Borrowed | What She Transformed |
+|-----------|---------------------|----------------------|
+| Shannon-Weaver | Communication as process | Information as a fixed object that transfers intact |
+| Carter's info-seeking | Users have genuine needs | Needs as static, predictable, topic-based |
+| Phenomenology (Schutz) | Experience is situated, temporal | Observer-independent "reality" |
+| Constructivism (Kelly) | Knowledge is constructed, not received | Learning as passive absorption |
+| Critical theory | Power shapes information access | Value-free, neutral information science |
+| Feminist epistemology | Standpoint and subjectivity matter | Universal, disembodied "objectivity" |
+
+## Seven Philosophical Assumptions
+
+::: {.callout-tip appearance="minimal" icon=false}
+These are not optional background — they are constitutive of the methodology.
+:::
+
+1. **Reality is discontinuous.** Gaps are not exceptions to be explained away — they are the fundamental condition of human experience.
+
+2. **Information is constructed, not found.** There are no free-standing information objects. Information is always constructed in the act of bridging a gap in a specific situation.
+
+3. **Situation is constitutive, not contextual.** The specific time-space context determines what counts as a gap, what bridges are available, and what outcomes are possible.
+
+4. **People are active sense-makers, not passive receivers.** The human being is the agent constructing bridges using internal resources (memory, emotion, knowledge) and external resources (information, people, systems).
+
+5. **Universal procedure; unique instance.** Everyone sense-makes (universal), but the specific sense made is irreducibly unique to that person's situation and moment.
+
+6. **Subjectivity is datum, not noise.** Confusion, emotion, and intuition are what SMM is designed to capture — not artefacts to be controlled for.
+
+7. **Both internal and external orders are real.** Neither pure subjectivism nor pure objectivism is adequate. SMM operates in the space between.
+
+## Key Concepts
+
+```{=html}
+<div class="concept-box">
+  <span class="concept-label">Concept 01</span>
+  <span class="concept-title">Situation</span>
+  The specific time-space context in which a person finds themselves. Situations create, constrain, and define the sense-making that is possible. Not mere background — situation is the operative <em>ground</em> of all sense-making activity.
+</div>
+
+<div class="concept-box gap">
+  <span class="concept-label">Concept 02</span>
+  <span class="concept-title">Gap</span>
+  The discontinuity that interrupts forward movement — a question, confusion, barrier, uncertainty, or absence. Not a failure of the person: the engine of sense-making. Without a gap, no sense-making is needed.
+</div>
+
+<div class="concept-box bridge">
+  <span class="concept-label">Concept 03</span>
+  <span class="concept-title">Bridge</span>
+  The sense constructed to cross the gap. Bridges may be ideas, information found, memories recalled, emotional resolutions, social connections, or procedural steps. Bridges are <em>built</em>, not received. They may succeed, fail, or generate new gaps.
+</div>
+
+<div class="concept-box outcome">
+  <span class="concept-label">Concept 04</span>
+  <span class="concept-title">Outcome / Use</span>
+  What results from bridging. Outcomes include: helps (movement continues), hurts (movement blocked), new gaps (created by the bridge), and specific uses — deciding, acting, connecting, evaluating, feeling. Multiple uses can follow one bridge.
+</div>
+```
+
+## Gap Taxonomy
+
+Dervin developed a rich taxonomy of gap types. Rather than asking users "what information do you need?" (presupposing topic-based needs), SMM asks about the *nature of the discontinuity*.
+
+| Gap Type | Description | Typical Interview Signal |
+|----------|-------------|--------------------------|
+| Decision | Facing a choice; unclear how to decide | "I needed to choose between..." |
+| Barrier | External obstacle blocking movement | "I couldn't get access to..." |
+| Problematic | Something wrong but unclear what | "Something felt off but I couldn't name it..." |
+| Role | Unclear how to behave in a role/situation | "I didn't know what I was supposed to do..." |
+| Spin-out | Total disorientation; no clear question | "I had no idea where to start..." |
+| Washout | Information received but doesn't address the gap | "I got a lot but none of it helped with what I needed..." |
+
+## Sense-Making vs. Sense-Unmaking
+
+In her later work (primarily 1990s onward), Dervin added **sense-unmaking** — recognition that people must also *dismantle* existing sense structures.
+
+::: {.callout-important appearance="minimal"}
+Sense-unmaking is not the failure of sense-making. It is a constitutive part of it. People must forget, unlearn, challenge assumptions, and destabilize established understandings before new sense can be made.
+
+Sense-unmaking is particularly critical for: transformative learning, organizational change, critical consciousness, and creative work.
+:::
+
+## SMM vs. the Transmission Model
+
+| Dimension | Transmission Model | Sense-Making Methodology |
+|-----------|-------------------|--------------------------|
+| Ontology of information | Information exists independently as an objective thing | Information is constructed in the act of bridging — always relational |
+| Role of the human | Passive receiver / decoder | Active sense-maker constructing bridges |
+| Communication model | Linear: Source → Message → Channel → Receiver | Recursive: Situation → Gap → Bridge → Outcome → New Situation |
+| Unit of analysis | The message or information object | The gap: the specific discontinuity in a specific situation |
+| Success criterion | Accurate transmission: did the message arrive intact? | Effective bridging: did the person cross the gap in a way that helped? |
+| Role of context | Noise to be reduced | Constitutive: determines what a gap is and what bridges are possible |
+
+::: {.callout-warning appearance="minimal"}
+**Dervin's core critique:** The transmission model assumes meaning inheres in messages — that the same message means the same thing to all receivers. SMM demonstrates empirically this is false. Designing for information transfer is designing for failure.
+:::
+
+---
+
+# Visual Model {#visual}
+
+## The Root Metaphor
+
+The entire framework flows from a single spatial metaphor: a person moving through time-space encounters a gap — an absence, a question, a barrier. To continue the journey they must construct a bridge. What happens after they cross (or fail to cross) shapes their next situation.
+
+```{=html}
+<div class="diagram-box">
+<pre>
+  <span class="d-teal">SITUATION</span>          <span class="d-amber">GAP</span>              <span class="d-coral">BRIDGE</span>            <span class="d-green">OUTCOME</span>
+  ─────────          ───              ──────            ───────
+  Where you       What stops        What you          What results
+  are now         movement          construct         from crossing
+
+  [Person in]         ???           [Ideas found]     [Helps: moves
+  [time-space]       /   \          [Info sought]      forward     ]
+                    /     \         [Memories]        [Hurts: blocks]
+                   /       \        [Feelings]        [New gap: loops]
+                  /         \       [Connections]
+
+  TIME ─────────────────────────────────────────────────────────────►</pre>
+</div>
+```
+
+## The Formal S-G-B-O Diagram
+
+```{=html}
+<div class="diagram-box">
+<pre>
+                   <span class="d-amber">[ PERSON ]</span>
+                  /            \
+                 /  standing on  \
+                /  edge of gap   \
+               /                  \
+  <span class="d-teal">SITUATION ──►</span>  · · · <span class="d-amber">GAP</span> · · ·  <span class="d-teal">──►</span>  <span class="d-coral">BRIDGE  ──►</span>  <span class="d-green">OUTCOME</span>
+  [What I know]    [What I need]    [What helps]     [Use / Effect]
+  [Where I am]     [What stops me]  [Constructed]    [New Situation]
+
+
+  SENSE-UNMAKING adds a recursive arc:
+
+  <span class="d-green">OUTCOME</span> ─────► may destabilize existing sense ─────► <span class="d-amber">NEW GAP</span>
+                                                           │
+                  Old bridge dismantled ◄──────────────────┘
+                       <span class="d-dim">(sense-unmaking)</span></pre>
+</div>
+```
+
+## The Recursive Loop
+
+SMM is not a linear pipeline. Each outcome creates a new situation (or transforms the current one), generating new gaps. Crucially, some bridges *worsen* the situation — the model is not teleologically optimistic.
+
+```{=html}
+<div class="diagram-box">
+<pre>
+  S ──► G ──► B ──► O <span class="d-green">(help)</span>    ──► <span class="d-teal">New Situation S'</span>
+  S ──► G ──► B ──► O <span class="d-coral">(hurt)</span>    ──► <span class="d-coral">Worse Situation S–</span>
+  S ──► G ──► B ──► O <span class="d-amber">(new gap)</span> ──► <span class="d-amber">Spiral: new G within S</span>
+
+  Multiple simultaneous gaps:
+  S ──► G₁ <span class="d-dim">(decision)</span>  ──► B₁ ──► O₁
+     ──► G₂ <span class="d-dim">(barrier)</span>   ──► B₂ ──► O₂   ← all active at once
+     ──► G₃ <span class="d-dim">(confusion)</span> ──► B₃ ──► O₃</pre>
+</div>
+```
+
+## Gap & Bridge Surface Signals
+
+| Signal Type | Linguistic Markers | Indicates |
+|-------------|-------------------|-----------|
+| Questions | "I didn't know why..." / "I wondered how..." | GAP |
+| Confusions | "It didn't make sense..." / "I was lost..." | GAP |
+| Barriers | "I couldn't get through..." / "They wouldn't let me..." | GAP |
+| Spin-out | "Everything was unclear..." / "I had no idea..." | GAP |
+| External resource | Found a document / asked a person / used a tool | BRIDGE |
+| Internal resource | Remembered something / drew on experience / felt calmer | BRIDGE |
+| Social resource | Got help from someone / connected with a community | BRIDGE |
+| Procedural resource | Followed a process / applied a rule / used a system | BRIDGE |
+
+---
+
+# Methodology in Practice {#method}
+
+::: {.callout-tip appearance="minimal"}
+**Core research commitment:** SMM research asks participants about *verbs*, not nouns. Not "what topic did you need information about?" but "what question were you trying to answer?" This verb-centered stance is what distinguishes SMM from topic-based information-seeking research.
+:::
+
+## The Micro-Moment Time-Line Interview (MMTLI)
+
+Dervin's signature technique. It anchors the conversation in a specific, concrete moment — preventing the retrospective abstraction and generalisation that plague most interviews.
+
+**Step 1 — Situating move**
+: *"Tell me about a specific time when you had to [navigate X / deal with Y]. Not in general — a specific moment."*
+
+**Step 2 — Step-through**
+: *"Walk me through what happened, step by step, from the beginning."* The interviewer constructs a mental timeline of the narrative.
+
+**Step 3 — Gap probe**
+: At each step: *"At this point, what questions did you have? What was confusing? What were you trying to figure out?"*
+
+**Step 4 — Bridge probe**
+: *"What helped you with that? What did you find or use? What did you draw on?"*
+
+**Step 5 — Outcome probe**
+: *"How did that help — or not help? What were you able to do as a result? What happened next?"*
+
+**Step 6 — Hurt probe**
+: *"Was there anything that got in the way? Anything that made it harder or more confusing?"*
+
+## Neutral Questioning
+
+| Avoid (Non-Neutral) | Use (Neutral) | Why |
+|---------------------|---------------|-----|
+| "What information did you need?" | "What questions did you have at that point?" | Avoids presupposing information as the only bridge resource |
+| "Did the library help you?" | "What helped you move forward?" | Avoids privileging formal information systems |
+| "Was the information useful?" | "How did that help — or not help?" | Opens space for both helpful and unhelpful outcomes |
+| "What topic were you researching?" | "What were you trying to do or figure out?" | Frames inquiry around the gap, not the topic |
+| "Did you understand it?" | "What made sense? What remained confusing?" | Separates understanding from use |
+
+## Analysis Protocol
+
+| Stage | Method | What You're Looking For |
+|-------|--------|------------------------|
+| Transcript coding | Open coding for S-G-B-O markers; in-vivo codes for gap types | Where in the transcript do gaps, bridges, and outcomes appear? |
+| Gap taxonomy | Code gaps by type (decision, barrier, spin-out, etc.) | What kinds of discontinuity are most common? |
+| Bridge mapping | Map which bridge types address which gap types | Are bridges matched to gaps? Any gaps systematically under-bridged? |
+| Outcome analysis | Code as: helps, hurts, new gaps; classify use types | What is the downstream effect of different bridge types? |
+| Comparative analysis | Compare S-G-B-O patterns across participants/groups | What structural patterns appear across individual stories? |
+
+::: {.callout-warning appearance="minimal"}
+**Identifying gaps in narratives:** Read transcripts and ask continuously: *"At this point, what does this person not yet know, feel, or understand that they need in order to move forward?"* The answer at each point is the gap. Mark every instance of "I didn't know," "I wasn't sure," "I was confused" — and especially every "but" or "however," which often signals gap-bridge failure.
+:::
+
+---
+
+# Applied Practice {#applied}
+
+## UX Research
+
+**Traditional question:** "Do users find the navigation intuitive?"
+
+**SMM question:** "At what moments do users encounter confusion? What do they reach for to resolve it?"
+
+**In practice:** Conduct MMTLI-style user interviews anchored in the last time they used the product for a specific purpose. Probe for gaps (confusion, questions, frustration) and bridges (what helped, what they turned to). Design output: a gap map of the experience, annotated with bridge types. Design for gap-bridging, not feature delivery.
+
+## Strategy
+
+**Traditional question:** "What message should we send about the strategy?"
+
+**SMM question:** "What gaps does our audience have in this situation — about their role, the change, the future?"
+
+**In practice:** Gap audit through MMTLI interviews with stakeholders. Bridge inventory: what resources (formal and informal) are people already using? Outcome mapping: which bridges help, which hurt? Design communications that address *actual* gaps — not leadership's desired messages.
+
+## Communications
+
+**Traditional question:** "What do we need to tell them?"
+
+**SMM question:** "What gaps do they have, and what bridges would help them cross those gaps?"
+
+**Design principle:** Organise content by gap type, not by topic. A message organised around "decision-gap: should I adopt this?" is more effective than one organised around "here is information about the new system."
+
+## Personal Decision-Making
+
+**Traditional question:** "What are my options?"
+
+**SMM question:** "What is the gap? What situation am I in? What bridges are available? What sense might I need to *unmake* first?"
+
+**In practice:** Name the gap precisely before seeking bridges. Is it a decision-gap? A confusion-gap? A barrier-gap? Different gap types require different bridge strategies. Sense-unmaking check: what existing assumptions need dismantling before the gap can be crossed?
+
+---
+
+# Cliff Notes {#cliff}
+
+## The Model in One Paragraph
+
+> A person moves through time-space in a specific situation. They encounter a gap — a discontinuity in their understanding or ability to move forward. To cross the gap they construct a bridge, drawing on internal resources (memory, emotion, knowledge) and external resources (information, people, systems). The bridge produces an outcome: it helps (movement continues), hurts (movement is blocked), or creates a new gap (requiring more bridging). Sense-unmaking is the complementary practice of dismantling existing bridges when they no longer serve.
+
+## Core Definitions
+
+| Term | Definition |
+|------|-----------|
+| `SMM` | Sense-Making Methodology — Dervin's framework for studying how people construct meaning across discontinuities in time-space |
+| `Situation` | The specific time-space context that constitutes sense-making — not background, but ground |
+| `Gap` | The discontinuity interrupting forward movement; the engine of sense-making |
+| `Bridge` | Any resource constructed to cross a gap: informational, emotional, social, procedural, cognitive |
+| `Outcome / Use` | What results from bridging: helps, hurts, new gaps, and specific uses (deciding, acting, connecting) |
+| `MMTLI` | Micro-Moment Time-Line Interview — Dervin's 6-step interview protocol anchored in a specific moment |
+| `Neutral questioning` | Questions avoiding presupposition of gap type, bridge type, or outcome type |
+| `Sense-unmaking` | Dismantling existing sense structures — required for transformation, learning, and critical thought |
+
+## Key Principles
+
+1. Study **gaps**, not needs
+2. Study **movement**, not static states
+3. Study **specific episodes**, not abstract patterns
+4. Study **bridges** (any type), not content delivery
+5. Study **outcomes in both directions** — helps *and* hurts
+6. Always situate: specific moment, specific person, specific context
+7. Design for gap-bridging, not message-sending
+
+## Common Mistakes
+
+::: {.callout-warning appearance="minimal"}
+**Equating bridge with information.** Information is one bridge type among many. Bridges can also be emotional, social, procedural, or drawn from memory. Privileging information replicates the transmission model inside SMM's frame.
+:::
+
+::: {.callout-warning appearance="minimal"}
+**Abstracting from situation.** Asking "what do users generally need?" rather than "what did this person need in this moment?" evacuates the methodology's explanatory power.
+:::
+
+::: {.callout-warning appearance="minimal"}
+**Ignoring sense-unmaking.** Treating SMM as purely constructive misses resistance, confusion, and transformative learning — contexts where old sense must be dismantled before new sense can be made.
+:::
+
+::: {.callout-warning appearance="minimal"}
+**Topic-based coding.** Coding by topic ("questions about pricing") rather than gap type ("decision-gap requiring comparison") collapses back into traditional information-needs categorisation.
+:::
+
+::: {.callout-warning appearance="minimal"}
+**Only probing positive outcomes.** Asking only "what helped?" misses bridge failures and hurts — often the most diagnostically valuable data.
+:::
+
+---
+
+# Active Recall {#recall}
+
+## Flashcards
+
+*Click any card to reveal the answer. Both question and answer print automatically in PDF.*
+
+```{=html}
+<div class="fc-grid" id="fc-container"></div>
+<script>
+const cards = [
+  { q: "What is the root metaphor of SMM?", a: "A person moving through time-space encounters a gap (discontinuity) and must construct a bridge to continue forward. Every element of SMM flows from this spatial-temporal image." },
+  { q: "Define 'gap' in Dervin's framework.", a: "The discontinuity that interrupts forward movement — a question, confusion, barrier, dilemma, or absence. Not a failure; the engine of sense-making." },
+  { q: "What is a 'bridge' and how does it differ from 'information'?", a: "A bridge is any resource constructed to cross a gap: ideas, memories, emotions, social connections, procedures, or information. Information is just one bridge type among many." },
+  { q: "What are the four S-G-B-O elements?", a: "Situation (context), Gap (discontinuity), Bridge (constructed crossing), Outcome/Use (what results). The framework is recursive — outcomes create new situations." },
+  { q: "What is sense-unmaking?", a: "The deliberate or necessary dismantling of existing sense structures. Required for unlearning, transformation, and critical thought. Not failure — a constitutive part of the process." },
+  { q: "Why does SMM insist on specific moments?", a: "Because sense-making is always situated in a specific time-space context. General questions abstract away from the situational ground that constitutes the sense-making." },
+  { q: "What is neutral questioning?", a: "A technique avoiding presupposition of gap type, bridge type, or outcome type — letting respondents name their own experience rather than conforming to researcher categories." },
+  { q: "Name four gap types in Dervin's taxonomy.", a: "Decision (choosing between paths), Barrier (external obstacle), Spin-out (total disorientation), Washout (information received but unhelpful)." },
+  { q: "What is the MMTLI?", a: "Micro-Moment Time-Line Interview. Six steps: situate, step-through, probe gaps, probe bridges, probe outcomes, probe hurts." },
+  { q: "How does SMM's ontology differ from the transmission model?", a: "Transmission model: information exists independently as an object. SMM: information is constructed in the act of bridging — always relational, situational, never free-standing." },
+  { q: "What does 'outcome' include beyond 'was the gap bridged'?", a: "Helps (forward movement), Hurts (movement blocked), New gaps, and Use types: deciding, acting, connecting, evaluating, feeling." },
+  { q: "Why probe for hurts as well as helps?", a: "Bridges often fail or generate worse gaps. Asking only about successes produces asymmetric data that misrepresents how sense-making actually works." },
+  { q: "What philosophical tradition most informs SMM's situatedness?", a: "Phenomenology (Schutz, Husserl) — experience is always embodied, positioned, temporal. Also constructivism (Kelly) — knowledge is constructed, not received." },
+  { q: "What is the 'conduit metaphor' Dervin critiques?", a: "The view that communication is a pipeline transmitting information intact from sender to receiver. Dervin shows empirically this fails: meaning is made, not transmitted." },
+  { q: "What does 'universality of procedure, uniqueness of instance' mean?", a: "Everyone sense-makes (universal procedure), but the specific sense any person makes is unique to their situation, history, and moment." },
+  { q: "What is 'situation' and why is it constitutive?", a: "The specific time-space context of a person. Constitutive because it determines what counts as a gap, what bridges are available, and what outcomes are possible." },
+  { q: "How does sense-unmaking relate to power?", a: "Dominant groups impose sense structures. Marginalized groups must unmake imposed sense to survive and resist. Sense-unmaking is therefore both cognitive and political." },
+  { q: "What is the key unit of analysis in SMM research?", a: "The gap — the specific discontinuity experienced by a specific person in a specific situation. Not the document, the topic, or the information object." },
+  { q: "Why is gap-type coding superior to topic coding?", a: "Topic coding describes content. Gap-type coding describes the nature of the discontinuity and enables structural cross-domain analysis impossible from topic categorisation." },
+  { q: "What is the core design principle SMM implies for communications?", a: "Design for gap-bridging, not message-sending. Ask 'what gaps does our audience have?' not 'what do we want to tell them?'" },
+];
+
+const container = document.getElementById('fc-container');
+cards.forEach((card, i) => {
+  const fc = document.createElement('div');
+  fc.className = 'fc';
+  fc.innerHTML = `
+    <div class="fc-inner">
+      <div class="fc-front">
+        <div>
+          <div class="fc-num">Card ${String(i+1).padStart(2,'0')}</div>
+          <div class="fc-q">${card.q}</div>
+        </div>
+        <div class="fc-hint">click to reveal →</div>
+      </div>
+      <div class="fc-back">
+        <div class="fc-a">${card.a}</div>
+        <div class="fc-hint">← click to flip back</div>
+      </div>
+    </div>`;
+  fc.addEventListener('click', () => fc.classList.toggle('flipped'));
+  container.appendChild(fc);
+});
+</script>
+```
+
+## Test Questions
+
+*Click each question to reveal the answer.*
+
+```{=html}
+<details class="tq">
+  <summary><div class="tq-num">1</div>A UX researcher says: "Users need information about pricing, features, and comparisons." What would Dervin critique and how would she reframe this?</summary>
+  <div class="tq-body">This replicates topic-based, transmission-model thinking. Dervin would critique: (1) "information needs" abstracts from situation; (2) it presupposes information as the only bridge; (3) it describes content rather than gap type. SMM reframe: conduct MMTLI interviews about specific moments — identify gap types (decision, confusion, barrier), map bridge attempts (including non-informational ones), analyse outcomes. "Pricing information need" becomes: "decision-gap requiring comparison to choose between plans — bridges attempted: pricing page scan (hurt: confusing), social query (helped), support call (mixed outcome)."</div>
+</details>
+
+<details class="tq">
+  <summary><div class="tq-num">2</div>Explain why 'outcome' in SMM is more analytically powerful than 'satisfaction' or 'usability'.</summary>
+  <div class="tq-body">Satisfaction/usability measure reaction to an artifact in isolation. SMM outcome is tied to the specific gap: (1) Helps — what movement was enabled, how; (2) Hurts — how the bridge failed or worsened the situation; (3) New gaps — secondary discontinuities created; (4) Use types — what the person actually did differently. A highly "satisfying" document may bridge no actual gaps; a frustrating search experience may ultimately help enormously. SMM makes effectiveness situated and causal, not preferential.</div>
+</details>
+
+<details class="tq">
+  <summary><div class="tq-num">3</div>A communications director says: "We sent detailed strategy communications but employees are still confused." Apply SMM to diagnose this.</summary>
+  <div class="tq-body">The director applied a transmission model: encode → send → assume comprehension. SMM diagnosis: employees' actual gaps (What does this mean for my role? / Why is this better than before? / Who can I trust?) were never diagnosed. The communication was designed around what leadership wanted to transmit, not around gap types employees actually have. Fix: MMTLI-style interviews or open-ended surveys asking about specific moments of uncertainty. Identify gap types. Design communications as bridges for those gaps — organised by gap, not by leadership's topic preferences.</div>
+</details>
+
+<details class="tq">
+  <summary><div class="tq-num">4</div>What problem does SMM's sense-unmaking concept create for knowledge management systems?</summary>
+  <div class="tq-body">KM systems assume knowledge is a capturable, retrievable object — a transmission model. Sense-unmaking reveals two problems: (1) Knowledge is a bridge constructed for a specific gap in a specific situation — a document that bridges one gap may fail entirely in another context; (2) Transformation requires dismantling existing "knowledge," which a deposit-and-retrieve system cannot facilitate. SMM-informed KM would index resources by gap type, surface assumption-challenging materials, and build processes for questioning existing organisational sense.</div>
+</details>
+
+<details class="tq">
+  <summary><div class="tq-num">5</div>Design an SMM study of how expats navigate healthcare in a new country.</summary>
+  <div class="tq-body">MMTLI interviews anchored in a specific recent healthcare-seeking moment. Step through from initial need to resolution. Gap probes at each step: role gaps (how to register?), decision gaps (which specialist?), barrier gaps (language, system structure), trust gaps (who is reliable here?). Bridge analysis: internet searches, expat communities, calling home, GP visits, trial and error. Output: a gap map organised by gap type, enabling communications and services to bridge actual gaps — not assumed "information needs."</div>
+</details>
+```
+
+## Scenario Applications
+
+```{=html}
+<div class="scenario">
+  <div class="scenario-head">
+    <span class="scenario-num">01</span>
+    <div><div class="scenario-domain">UX Research</div><div class="scenario-title">Mobile banking — 40% transfer abandonment</div></div>
+  </div>
+  <div class="scenario-grid">
+    <div class="scenario-cell"><span class="scenario-cell-label">Situation</span><p>First-time international transfer attempt on a new mobile app.</p></div>
+    <div class="scenario-cell"><span class="scenario-cell-label">Gap(s)</span><p>Procedural (how to do this?), decision (which transfer type?), barrier (IBAN not to hand), anxiety gap (is this safe?).</p></div>
+    <div class="scenario-cell"><span class="scenario-cell-label">Bridge(s)</span><p>Abandons app; calls bank; searches online; asks a friend; tries again with documents.</p></div>
+    <div class="scenario-cell"><span class="scenario-cell-label">Outcome(s)</span><p>Phone call helps but app trust eroded. New gap: "Why didn't the app tell me what I'd need beforehand?"</p></div>
+  </div>
+</div>
+
+<div class="scenario">
+  <div class="scenario-head">
+    <span class="scenario-num">02</span>
+    <div><div class="scenario-domain">Expat Healthcare</div><div class="scenario-title">Navigating Dutch GP registration as a new arrival</div></div>
+  </div>
+  <div class="scenario-grid">
+    <div class="scenario-cell"><span class="scenario-cell-label">Situation</span><p>New expat in the Netherlands; needs a GP; no prior knowledge of how huisarts system works.</p></div>
+    <div class="scenario-cell"><span class="scenario-cell-label">Gap(s)</span><p>Role gap (what am I supposed to do?), procedure gap (how does registration work?), trust gap (which GP will communicate in English?), barrier gap (practice lists may be full).</p></div>
+    <div class="scenario-cell"><span class="scenario-cell-label">Bridge(s)</span><p>Expat forums, municipality website, colleague advice, trial calls to practices, insurance company FAQ.</p></div>
+    <div class="scenario-cell"><span class="scenario-cell-label">Outcome(s)</span><p>Forums help most. Official sources too generic. New gap after registration: how does the referral system work?</p></div>
+  </div>
+</div>
+
+<div class="scenario">
+  <div class="scenario-head">
+    <span class="scenario-num">03</span>
+    <div><div class="scenario-domain">Strategy</div><div class="scenario-title">Post-merger integration — employee resistance</div></div>
+  </div>
+  <div class="scenario-grid">
+    <div class="scenario-cell"><span class="scenario-cell-label">Situation</span><p>Employee receiving strategy communications after merger, facing changed teams and leadership.</p></div>
+    <div class="scenario-cell"><span class="scenario-cell-label">Gap(s)</span><p>Role gap (what does this mean for my job?), decision gap (should I look elsewhere?), trust gap (who can I believe?), problematic gap (cultural fit feels wrong).</p></div>
+    <div class="scenario-cell"><span class="scenario-cell-label">Bridge(s)</span><p>Informal peer conversations, reading between lines, LinkedIn scanning, cautious manager conversations.</p></div>
+    <div class="scenario-cell"><span class="scenario-cell-label">Outcome(s)</span><p>Formal communications bridge none of the actual gaps. Informal network is the most effective bridge.</p></div>
+  </div>
+</div>
+```
+
+---
+
+# Comparative Analysis {#compare}
+
+```{=html}
+<table class="compare">
+<thead><tr><th>Framework</th><th>Primary Unit</th><th>Time Direction</th><th>Method Prescribed?</th><th>Key Difference from SMM</th><th>Best Integration</th></tr></thead>
+<tbody>
+<tr><td>Weickian Sensemaking</td><td>Organisation / collective</td><td>Retrospective</td><td>No — descriptive only</td><td>Less methodologically specific; organisational not individual level</td><td>Use Weick for organisational-level context (situation); Dervin for individual-level gap-bridging within it</td></tr>
+<tr><td>Design Thinking</td><td>Problem-solution cycle</td><td>Prospective</td><td>Partially (stages, not interview method)</td><td>Generative not diagnostic; "empathy" framing can be shallow</td><td>SMM for rigorous gap diagnosis in DT phases 1–2; DT ideation tools to design bridges for SMM-surfaced gaps</td></tr>
+<tr><td>User Journey Mapping</td><td>Touchpoints across timeline</td><td>Both</td><td>No</td><td>Often persona-based, not grounded in specific moments; atheoretical</td><td>Use SMM interviews to generate empirically grounded data that journey maps then visualise</td></tr>
+<tr><td>Systems Thinking</td><td>Feedback loops / system structure</td><td>Both</td><td>No</td><td>Macro not micro; individual agency under-theorised</td><td>Systems Thinking for why gaps are endemic; SMM for how individuals experience and navigate them</td></tr>
+<tr><td>Ethnographic Interviewing</td><td>Cultural practice / thick description</td><td>Synchronic</td><td>Emergent, not prescribed</td><td>Richer cultural context; weaker cross-case comparability</td><td>Ethnographic immersion for situational context; MMTLI for systematic gap-bridge-outcome mapping within that context</td></tr>
+</tbody>
+</table>
+```
+
+---
+
+# Ethical Projects {#ethics}
+
+::: {.callout-important appearance="minimal"}
+**Core ethical principle:** SMM positions participants as active sense-makers, not informants. Research design must protect their ability to make sense of the research process itself — informed consent, power transparency, and benefit reciprocity are structural requirements, not procedural formalities.
+:::
+
+```{=html}
+<div class="ethics-card">
+  <div class="ethics-head">
+    <strong>01 · Healthcare Navigation Study</strong>
+    <p style="font-size:.85rem;color:#666;margin:.3rem 0 0;">Interview patients about moments of uncertainty navigating care systems — especially relevant in cross-national or expat contexts.</p>
+  </div>
+  <div class="ethics-grid">
+    <div class="ethics-cell">
+      <span class="ethics-label-risk">Ethical Risks</span>
+      <ul>
+        <li>Recall may surface trauma or fear — prepare de-escalation and local crisis referral options</li>
+        <li>Health data carries legal and ethical weight — collect only what illuminates gap types</li>
+        <li>Power asymmetry: participants may feel obligated to share more than comfortable</li>
+      </ul>
+    </div>
+    <div class="ethics-cell">
+      <span class="ethics-label-mit">Mitigations</span>
+      <ul>
+        <li>Full informed consent with explicit right to stop at any point; no deception</li>
+        <li>Anonymise at analysis stage; destroy raw audio after coding</li>
+        <li>Co-design consent forms with patient advocates from the community</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ethics-card">
+  <div class="ethics-head">
+    <strong>02 · Expat Cultural Adaptation Study</strong>
+    <p style="font-size:.85rem;color:#666;margin:.3rem 0 0;">Map sense-making gaps as people navigate new national systems — healthcare, education, employment, social norms.</p>
+  </div>
+  <div class="ethics-grid">
+    <div class="ethics-cell">
+      <span class="ethics-label-risk">Ethical Risks</span>
+      <ul>
+        <li>Language barriers may distort gap reporting (gaps in expressing gaps)</li>
+        <li>Cultural norms around disclosure vary; what counts as a "gap" may differ cross-culturally</li>
+        <li>Researcher positionality: expat researcher may over-identify; non-expat may misread</li>
+      </ul>
+    </div>
+    <div class="ethics-cell">
+      <span class="ethics-label-mit">Mitigations</span>
+      <ul>
+        <li>Interview in participant's language of comfort; use bilingual co-researchers</li>
+        <li>Pilot MMTLI instrument with diverse cultural consultants before deployment</li>
+        <li>Maintain a reflexive research journal; include positionality statement in publications</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ethics-card">
+  <div class="ethics-head">
+    <strong>03 · Workplace Onboarding Friction Map</strong>
+    <p style="font-size:.85rem;color:#666;margin:.3rem 0 0;">Identify new employee sense-making gaps during onboarding — especially role-gaps and systemic barrier-gaps.</p>
+  </div>
+  <div class="ethics-grid">
+    <div class="ethics-cell">
+      <span class="ethics-label-risk">Ethical Risks</span>
+      <ul>
+        <li>Managerial misuse: findings used to evaluate rather than support employees</li>
+        <li>Retaliation risk if negative experiences are traceable to individuals</li>
+        <li>Organisational inertia: data collected but never acted on (ethical failure of omission)</li>
+      </ul>
+    </div>
+    <div class="ethics-cell">
+      <span class="ethics-label-mit">Mitigations</span>
+      <ul>
+        <li>Contractually establish: data is not used for performance review</li>
+        <li>Aggregate all reporting; individuals never identified in outputs</li>
+        <li>Establish change commitment before beginning; co-design action plan with HR</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="ethics-card">
+  <div class="ethics-head">
+    <strong>04 · Community Crisis Communication Review</strong>
+    <p style="font-size:.85rem;color:#666;margin:.3rem 0 0;">Analyse how people bridged uncertainty during emergencies — natural disasters, public health crises, civil unrest.</p>
+  </div>
+  <div class="ethics-grid">
+    <div class="ethics-cell">
+      <span class="ethics-label-risk">Ethical Risks</span>
+      <ul>
+        <li>Re-traumatisation through narrative recall of crisis moments</li>
+        <li>Community distrust if research extracts without reciprocating</li>
+        <li>Over-generalisation from crisis-state to normal conditions</li>
+      </ul>
+    </div>
+    <div class="ethics-cell">
+      <span class="ethics-label-mit">Mitigations</span>
+      <ul>
+        <li>Train interviewers in trauma-informed questioning; provide resource sheets</li>
+        <li>Return findings to community in accessible form; involve them in interpretation</li>
+        <li>Contextualise findings explicitly; label crisis-specific limitations</li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+
+### Universal Ethical Commitments in SMM Research
+
+| Principle | What It Requires in SMM Practice |
+|-----------|----------------------------------|
+| Informed consent as ongoing | Because MMTLI interviews follow emergent narratives into unpredictable territory, consent must be renewable as sensitive material emerges — not only at the outset |
+| Reciprocity | Participants share sense-making moments; researchers owe them: findings in accessible form, co-interpretation opportunities, actionable outputs |
+| Power transparency | MMTLI positions the researcher as gap-mapper; participants may feel their sense-making is being evaluated. Explicitly de-hierarchise the interview dynamic |
+| Trauma sensitivity | Gap probes about crisis, illness, or institutional failure may surface trauma. Train interviewers in trauma-informed questioning; have referral resources available |
+| Sense-unmaking ethics | If research design challenges participants' existing worldviews (sense-unmaking), this must be consensual and supported — not imposed in the name of critical method |
+| Data minimisation | SMM's richness tempts over-collection. Collect only what illuminates gap types and bridge patterns for your specific research question |
+
+---
+
+# Mastery Plan {#plan}
+
+## 7-Day Study Protocol
+
+```{=html}
+<div class="day-grid">
+  <div class="day-card">
+    <div class="day-head"><span class="day-n">1</span><span class="day-name">Mon</span></div>
+    <div class="day-body">
+      <div class="day-theme">Foundations</div>
+      <div class="day-task">Read Core Class in full</div>
+      <div class="day-task">Memorise 7 assumptions by number</div>
+      <div class="day-task">Read Dervin (1992)</div>
+      <div class="day-task">Write: what does 'constructed information' mean?</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-head"><span class="day-n">2</span><span class="day-name">Tue</span></div>
+    <div class="day-body">
+      <div class="day-theme">Core Concepts</div>
+      <div class="day-task">Master S-G-B-O from memory</div>
+      <div class="day-task">Reproduce diagrams by hand</div>
+      <div class="day-task">Memorise gap taxonomy</div>
+      <div class="day-task">Drill flashcards 1–10</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-head"><span class="day-n">3</span><span class="day-name">Wed</span></div>
+    <div class="day-body">
+      <div class="day-theme">Methodology</div>
+      <div class="day-task">Study MMTLI protocol</div>
+      <div class="day-task">Rewrite 5 non-neutral Qs</div>
+      <div class="day-task">Memorise analysis stages</div>
+      <div class="day-task">Drill flashcards 11–20</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-head"><span class="day-n">4</span><span class="day-name">Thu</span></div>
+    <div class="day-body">
+      <div class="day-theme">Live Practice</div>
+      <div class="day-task">Self-MMTLI on a recent decision</div>
+      <div class="day-task">Code your own transcript</div>
+      <div class="day-task">Identify gap types</div>
+      <div class="day-task">What did sense-unmaking require?</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-head"><span class="day-n">5</span><span class="day-name">Fri</span></div>
+    <div class="day-body">
+      <div class="day-theme">Applied Domain</div>
+      <div class="day-task">Pick one domain for your work</div>
+      <div class="day-task">Design an SMM research plan</div>
+      <div class="day-task">Write 8 MMTLI questions</div>
+      <div class="day-task">Answer test Qs 1–3</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-head"><span class="day-n">6</span><span class="day-name">Sat</span></div>
+    <div class="day-body">
+      <div class="day-theme">Comparisons</div>
+      <div class="day-task">Work through Sec 7</div>
+      <div class="day-task">Map against frameworks you use</div>
+      <div class="day-task">Where would SMM change past work?</div>
+      <div class="day-task">Answer test Qs 4–5</div>
+    </div>
+  </div>
+  <div class="day-card">
+    <div class="day-head"><span class="day-n">7</span><span class="day-name">Sun</span></div>
+    <div class="day-body">
+      <div class="day-theme">Integration</div>
+      <div class="day-task">Write full S-G-B-O from memory</div>
+      <div class="day-task">Write one-page SMM summary</div>
+      <div class="day-task">Work through all scenarios</div>
+      <div class="day-task">Name one real project to apply</div>
+    </div>
+  </div>
+</div>
+```
+
+## Daily Practice Loop
+
+Each day, spend 5 minutes on this ritual:
+
+1. **Recall** the S-G-B-O framework from memory. Write the gap taxonomy unaided.
+2. **Apply**: identify one gap you encountered today. Name its type.
+3. **Bridge audit**: what did you reach for? Was it informational, emotional, social, procedural?
+4. **Outcome trace**: did the bridge help, hurt, or create a new gap?
+5. **Sense-unmaking check**: did you need to dismantle an existing assumption first?
+
+## Primary Sources
+
+| Work | Why Read It |
+|------|-------------|
+| Dervin (1983) — "Information as a User Construct" | Foundational statement — introduces gap-bridge metaphor; critique of transmission model |
+| Dervin (1992) — "From the Mind's Eye of the User" | **Best single overview** — full S-G-B-O articulation; methodological implications. Start here. |
+| Dervin & Nilan (1986) — *Annual Review of Information Science* | Landmark paradigm critique — establishes the shift from topic-based to gap-based research |
+| Dervin (1998) — "Sense-Making Theory and Practice" | Mature statement — introduces sense-unmaking; feminist and power dimensions |
+| Dervin (1999) — "On Studying Information Seeking Methodologically" | Deepest methodological discussion — best source on MMTLI design and analysis |
+
+---
+
+# Fieldwork Template {#fieldwork}
+
+*Print this section separately for use during interviews and observations. Use one sheet per episode.*
+
+```{=html}
+<div class="field-box">
+  <div class="field-row">
+    <span class="field-label">Date / Context</span>
+    <input class="field-line" type="text" placeholder="Date, setting, participant code..." />
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Situation</span>
+    <span class="field-prompt">What was happening? What was the person's time-space context?</span>
+    <input class="field-line" type="text" />
+    <input class="field-line" type="text" />
+    <input class="field-line" type="text" />
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Gap(s)</span>
+    <span class="field-prompt">What interrupted forward movement? Type: Decision / Barrier / Confusion / Role / Spin-out / Washout</span>
+    <input class="field-line" type="text" placeholder="Gap 1:" />
+    <input class="field-line" type="text" placeholder="Gap 2:" />
+    <input class="field-line" type="text" placeholder="Gap 3:" />
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Bridge(s)</span>
+    <span class="field-prompt">What was constructed to cross the gap? Type: Informational / Emotional / Social / Procedural / Cognitive</span>
+    <input class="field-line" type="text" placeholder="Bridge 1:" />
+    <input class="field-line" type="text" placeholder="Bridge 2:" />
+    <input class="field-line" type="text" placeholder="Bridge 3:" />
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Outcome(s)</span>
+    <span class="field-prompt">What changed? Circle: Helped / Hurt / New gap. Describe use (decided, acted, connected, reframed...):</span>
+    <input class="field-line" type="text" />
+    <input class="field-line" type="text" />
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Hurts / Failures</span>
+    <span class="field-prompt">What failed? What got in the way? What made it worse?</span>
+    <input class="field-line" type="text" />
+    <input class="field-line" type="text" />
+  </div>
+
+  <div class="field-row">
+    <span class="field-label">Sense-Unmaking Note</span>
+    <span class="field-prompt">Was any existing sense dismantled in the process? What was unlearned or destabilised?</span>
+    <input class="field-line" type="text" />
+  </div>
+
+  <div class="field-row" style="margin-bottom:0;">
+    <span class="field-label">Analyst Notes</span>
+    <input class="field-line" type="text" />
+    <input class="field-line" type="text" />
+  </div>
+</div>
+```
+
+---
+
+*Dervin, B. (1983, 1992, 1998, 1999). Core SMM texts. See Section 9 for full reading list.*
