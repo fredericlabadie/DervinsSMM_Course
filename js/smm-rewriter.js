@@ -196,7 +196,7 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
     const output = el('div', 'rewriter-output');
     output.id = 'rewriter-output';
 
-    shell.append(tokenWrap, inputWrap, output);
+    shell.append(inputWrap, tokenWrap, output);
     root.appendChild(shell);
 
     textarea.addEventListener('input', () => { btnRun.disabled = !textarea.value.trim(); });
