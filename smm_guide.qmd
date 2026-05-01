@@ -5,7 +5,7 @@ author: "Frederic Labadie"
 date: last-modified
 format:
   html:
-    theme: [cosmo, custom.scss]
+    theme: cosmo
     toc: true
     toc-depth: 3
     toc-title: "Contents"
@@ -988,6 +988,12 @@ Paste any survey, UX interview, or research question and this tool rewrites it u
 ```{=html}
 <div style="background:#fff;border:1px solid #d4d0c8;border-radius:10px;padding:28px;margin:24px 0;">
 
+  <div style="margin-bottom:16px;padding:12px 14px;background:#f0f7f4;border:1px solid #0d6e56;border-radius:6px;">
+    <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#0d6e56;margin-bottom:6px;">Hugging Face token <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#888;">— free at <a href="https://huggingface.co/settings/tokens" target="_blank" style="color:#0d6e56;">huggingface.co/settings/tokens</a></span></label>
+    <input id="rw-token" type="password" placeholder="hf_..." style="width:100%;border:1px solid #d4d0c8;border-radius:6px;padding:8px 12px;font-family:'JetBrains Mono',monospace;font-size:.85rem;color:#111;background:#fff;outline:none;" />
+    <p style="font-size:.75rem;color:#888;margin:.5rem 0 0;font-family:'JetBrains Mono',monospace;">Your token stays in your browser — it is never stored or transmitted anywhere except directly to Hugging Face.</p>
+  </div>
+
   <div style="margin-bottom:16px;">
     <label style="display:block;font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:#0d6e56;margin-bottom:8px;">Your question</label>
     <textarea id="rw-input" placeholder="e.g. 'Did you find the information you were looking for?' or 'How satisfied were you with the checkout process?'" style="width:100%;min-height:88px;border:1px solid #d4d0c8;border-radius:6px;padding:12px 14px;font-family:'Source Serif 4',Georgia,serif;font-size:14px;line-height:1.6;resize:vertical;color:#111;outline:none;background:#fffef7;"></textarea>
@@ -1068,44 +1074,230 @@ Paste any survey, UX interview, or research question and this tool rewrites it u
 </style>
 
 <script>
+const HF_MODEL = 'HuggingFaceH4/zephyr-7b-beta';
+
 let rwCtx = 'UX research interview';
+
 function setCtx(btn, ctx) {
   document.querySelectorAll('.rw-ctx').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   rwCtx = ctx;
 }
+
 async function rewriteQuestion() {
   const input = document.getElementById('rw-input').value.trim();
-  if (!input) return;
+  const token = document.getElementById('rw-token').value.trim();
+
+  if (!input) {
+    document.getElementById('rw-error').textContent = 'Please enter a question to rewrite.';
+    document.getElementById('rw-error').style.display = 'block';
+    return;
+  }
+  if (!token) {
+    document.getElementById('rw-error').textContent = 'Please enter your Hugging Face token. Get one free at huggingface.co/settings/tokens';
+    document.getElementById('rw-error').style.display = 'block';
+    return;
+  }
+
   const btn = document.getElementById('rw-btn');
   const loading = document.getElementById('rw-loading');
   const result = document.getElementById('rw-result');
   const error = document.getElementById('rw-error');
-  btn.disabled = true; btn.textContent = 'Rewriting...';
-  loading.style.display = 'block'; result.style.display = 'none'; error.style.display = 'none';
+
+  btn.disabled = true;
+  btn.textContent = 'Rewriting...';
+  loading.style.display = 'block';
+  loading.textContent = 'Loading model — first request may take 20–30 seconds while the model warms up...';
+  result.style.display = 'none';
+  error.style.display = 'none';
+
+  const systemPrompt = `You are an expert in Brenda Dervin's Sense-Making Methodology (SMM). Your job is to rewrite research questions using SMM principles.
+
+SMM-informed questions:
+- Ask about a specific moment or situation, not general patterns or feelings
+- Surface the gap (what stopped the person, what they were confused about) rather than asking about topics or satisfaction
+- Do not presuppose the bridge type — avoid assuming "information" was the resource they needed
+- Use neutral questioning — do not imply what a "correct" answer would look like
+- Frame around verbs (what were you trying to do?) not nouns (what information did you need?)
+
+You are rewriting a question from a ${rwCtx} context.
+
+Return ONLY a valid JSON object with no preamble, no explanation outside the JSON, and no markdown code fences:
+{"diagnosis":"What is wrong with the original question from an SMM perspective (2-3 sentences)","rewritten":"The SMM-rewritten version of the question","gapType":"Which gap type this question surfaces: Decision, Barrier, Confusion, Role, Spin-out, Washout, or Multiple","explanation":"Why the rewritten question will produce more useful data (2-3 sentences)"}`;
+
+  const prompt = `<|system|>
+${systemPrompt}</s>
+<|user|>
+Original question: "${input}"</s>
+<|assistant|>
+`;
+
   try {
-    const res = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1000,
-        system: `You are an expert in Brenda Dervin's Sense-Making Methodology. Rewrite a question from ${rwCtx} using SMM principles: ask about a specific moment not general patterns; surface the gap not topics or satisfaction; do not presuppose bridge type; use neutral questioning; frame around verbs not nouns. Return ONLY valid JSON: {"diagnosis":"What is wrong with the original (2-3 sentences)","rewritten":"The SMM-rewritten question","gapType":"Gap type this surfaces (Decision/Barrier/Confusion/Role/Spin-out/Washout/Multiple)","explanation":"Why this produces better data (2-3 sentences)"}`,
-        messages: [{ role: 'user', content: `Original question: "${input}"` }]
-      })
-    });
+    const res = await fetch(
+      `https://api-inference.huggingface.co/models/${HF_MODEL}`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          inputs: prompt,
+          parameters: {
+            max_new_tokens: 400,
+            temperature: 0.3,
+            return_full_text: false,
+            stop: ['</s>', '<|user|>']
+          }
+        })
+      }
+    );
+
+    if (!res.ok) {
+      const err = await res.json();
+      if (err.error && err.error.includes('loading')) {
+        throw new Error('Model is loading — please wait 30 seconds and try again.');
+      }
+      throw new Error(err.error || `API error ${res.status}`);
+    }
+
     const data = await res.json();
-    const parsed = JSON.parse(data.content[0].text.replace(/```json|```/g,'').trim());
+    const text = data[0]?.generated_text || '';
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) throw new Error('Model returned an unexpected format. Please try again.');
+    const parsed = JSON.parse(jsonMatch[0]);
+
     result.innerHTML = `
-      <div class="rw-block"><div class="rw-label">What's wrong with the original</div><div class="rw-text">${parsed.diagnosis}</div></div>
-      <div class="rw-block" style="background:#f0f7f4;border-color:#0d6e56;"><div class="rw-label">SMM rewrite <span class="rw-badge">${parsed.gapType} gap</span></div><div class="rw-text" style="font-style:italic;">"${parsed.rewritten}"</div></div>
-      <div class="rw-block"><div class="rw-label">Why this produces better data</div><div class="rw-text">${parsed.explanation}</div></div>`;
+      <div class="rw-block">
+        <div class="rw-label">What's wrong with the original</div>
+        <div class="rw-text">${parsed.diagnosis}</div>
+      </div>
+      <div class="rw-block" style="background:#f0f7f4;border-color:#0d6e56;">
+        <div class="rw-label">SMM rewrite <span class="rw-badge">${parsed.gapType} gap</span></div>
+        <div class="rw-text" style="font-style:italic;">"${parsed.rewritten}"</div>
+      </div>
+      <div class="rw-block">
+        <div class="rw-label">Why this produces better data</div>
+        <div class="rw-text">${parsed.explanation}</div>
+      </div>`;
     result.style.display = 'block';
-  } catch(err) {
-    error.textContent = 'Something went wrong: ' + (err.message || 'API error — check network connection.');
+
+  } catch (err) {
+    error.textContent = err.message || 'Something went wrong — please try again.';
     error.style.display = 'block';
   } finally {
-    loading.style.display = 'none'; btn.disabled = false; btn.textContent = 'Rewrite with SMM →';
+    loading.style.display = 'none';
+    btn.disabled = false;
+    btn.textContent = 'Rewrite with SMM →';
+  }
+}
+</script>
+
+let rwCtx = 'UX research interview';
+
+function setCtx(btn, ctx) {
+  document.querySelectorAll('.rw-ctx').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  rwCtx = ctx;
+}
+
+async function rewriteQuestion() {
+  const input = document.getElementById('rw-input').value.trim();
+  if (!input) return;
+
+  const btn = document.getElementById('rw-btn');
+  const loading = document.getElementById('rw-loading');
+  const result = document.getElementById('rw-result');
+  const error = document.getElementById('rw-error');
+
+  btn.disabled = true;
+  btn.textContent = 'Rewriting...';
+  loading.style.display = 'block';
+  loading.textContent = 'Loading model — first request may take 20–30 seconds while the model warms up...';
+  result.style.display = 'none';
+  error.style.display = 'none';
+
+  const systemPrompt = `You are an expert in Brenda Dervin's Sense-Making Methodology (SMM). Your job is to rewrite research questions using SMM principles.
+
+SMM-informed questions:
+- Ask about a specific moment or situation, not general patterns or feelings
+- Surface the gap (what stopped the person, what they were confused about) rather than asking about topics or satisfaction
+- Do not presuppose the bridge type — avoid assuming "information" was the resource they needed
+- Use neutral questioning — do not imply what a "correct" answer would look like
+- Frame around verbs (what were you trying to do?) not nouns (what information did you need?)
+
+You are rewriting a question from a ${rwCtx} context.
+
+Return ONLY a valid JSON object with no preamble, no explanation outside the JSON, and no markdown code fences:
+{"diagnosis":"What is wrong with the original question from an SMM perspective (2-3 sentences)","rewritten":"The SMM-rewritten version of the question","gapType":"Which gap type this question surfaces: Decision, Barrier, Confusion, Role, Spin-out, Washout, or Multiple","explanation":"Why the rewritten question will produce more useful data (2-3 sentences)"}`;
+
+  const prompt = `<|system|>
+${systemPrompt}</s>
+<|user|>
+Original question: "${input}"</s>
+<|assistant|>
+`;
+
+  try {
+    const res = await fetch(
+      `https://api-inference.huggingface.co/models/${HF_MODEL}`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${HF_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          inputs: prompt,
+          parameters: {
+            max_new_tokens: 400,
+            temperature: 0.3,
+            return_full_text: false,
+            stop: ['</s>', '<|user|>']
+          }
+        })
+      }
+    );
+
+    if (!res.ok) {
+      const err = await res.json();
+      if (err.error && err.error.includes('loading')) {
+        throw new Error('Model is loading — please wait 30 seconds and try again.');
+      }
+      throw new Error(err.error || `API error ${res.status}`);
+    }
+
+    const data = await res.json();
+    let text = data[0]?.generated_text || '';
+
+    // Extract JSON from the response
+    const jsonMatch = text.match(/\{[\s\S]*\}/);
+    if (!jsonMatch) throw new Error('Model returned an unexpected format. Please try again.');
+
+    const parsed = JSON.parse(jsonMatch[0]);
+
+    result.innerHTML = `
+      <div class="rw-block">
+        <div class="rw-label">What's wrong with the original</div>
+        <div class="rw-text">${parsed.diagnosis}</div>
+      </div>
+      <div class="rw-block" style="background:#f0f7f4;border-color:#0d6e56;">
+        <div class="rw-label">SMM rewrite <span class="rw-badge">${parsed.gapType} gap</span></div>
+        <div class="rw-text" style="font-style:italic;">"${parsed.rewritten}"</div>
+      </div>
+      <div class="rw-block">
+        <div class="rw-label">Why this produces better data</div>
+        <div class="rw-text">${parsed.explanation}</div>
+      </div>`;
+    result.style.display = 'block';
+
+  } catch (err) {
+    error.textContent = err.message || 'Something went wrong — please try again.';
+    error.style.display = 'block';
+  } finally {
+    loading.style.display = 'none';
+    btn.disabled = false;
+    btn.textContent = 'Rewrite with SMM →';
   }
 }
 </script>
