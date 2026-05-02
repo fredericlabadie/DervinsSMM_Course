@@ -1,0 +1,18 @@
+```{=html}
+  <details class="plate">
+    <summary><span class="plate-n">Plate VI</span><span class="plate-title">Comparative analysis — SMM and neighbouring frameworks</span></summary>
+    <div class="plate-body">
+      <p>SMM is not the only sense-making framework, and it is not always the right one. Understanding where it overlaps with and diverges from neighbouring approaches helps practitioners know when to reach for it.</p>
+      <table class="compare-table">
+        <thead><tr><th>Framework</th><th>Primary unit</th><th>Time</th><th>Key difference</th><th>Best integration with SMM</th></tr></thead>
+        <tbody>
+          <tr><td>Weickian sensemaking</td><td>Organisation / collective</td><td>Retrospective</td><td>Organisational, not individual; less methodologically specific</td><td>Weick for collective context; Dervin for individual gap-bridging within it</td></tr>
+          <tr><td>Design Thinking</td><td>Problem-solution cycle</td><td>Prospective</td><td>Generative not diagnostic; empathy framing can be shallow</td><td>SMM for rigorous gap diagnosis; DT ideation for designing bridges</td></tr>
+          <tr><td>User Journey Mapping</td><td>Touchpoints across timeline</td><td>Both</td><td>Often persona-based, not grounded in specific moments</td><td>SMM interviews generate empirically grounded data that journey maps visualise</td></tr>
+          <tr><td>Systems Thinking</td><td>Feedback loops / system structure</td><td>Both</td><td>Macro not micro; individual agency under-theorised</td><td>Systems Thinking for why gaps are endemic; SMM for how individuals navigate them</td></tr>
+          <tr><td>Ethnographic interviewing</td><td>Cultural practice / thick description</td><td>Synchronic</td><td>Richer cultural context; weaker cross-case comparability</td><td>Ethnographic immersion for situational context; MMTLI for systematic gap-bridge-outcome mapping</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+```

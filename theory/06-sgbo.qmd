@@ -1,0 +1,26 @@
+```{=html}
+  <div class="sgbo-section-head">
+    <div class="sgbo-n"><span>§ The Constitution</span></div>
+    <div>
+      <h2 class="sgbo-title">Situation → Gap → Bridge → Outcome</h2>
+      <div class="sgbo-sub">A course teaching shorthand for the movement from situation, through discontinuity, toward helps, hurts, uses, and new situations.</div>
+    </div>
+  </div>
+
+  <div class="smm-callout-box" style="margin:24px 0;">
+    <strong>Academic note</strong> Situation → Gap → Bridge → Outcome is the shorthand used in this course for teaching and practice. Dervin's early formulations often foreground situations, gaps, and uses/helps; later summaries and applications make bridge and outcome language more explicit. Read SGBO here as a practitioner map across Dervin's work, not as a claim that every period of her writing used the exact same four labels.
+  </div>
+
+  <div class="diag-wrap">
+    <div class="diag-plate"><span>Plate II · The Constitution</span></div>
+    <div class="diag-frame">
+      <div class="diag-grid">
+        <div class="diag-station"><span class="diag-station-n">· I · Situation</span><span class="diag-station-label" style="color:#7ab685">Where you are</span><span class="diag-station-desc">Specific time-space context. The ground itself.</span><div class="diag-hints"><span>· person in a moment</span><span>· what came before</span></div></div>
+        <div class="diag-station"><span class="diag-station-n">· II · Gap</span><span class="diag-station-label" style="color:#d4b86a">What stops you</span><span class="diag-station-desc">The discontinuity. Question, confusion, barrier, dilemma.</span><div class="diag-hints"><span>· situated stops</span><span>· not a failure: the engine</span></div></div>
+        <div class="diag-station"><span class="diag-station-n">· III · Bridge</span><span class="diag-station-label" style="color:#5e9c6f">What you build</span><span class="diag-station-desc">Any resource: ideas, memories, people, procedures.</span><div class="diag-hints"><span>· information is one type</span><span>· not always available</span></div></div>
+        <div class="diag-station" style="border-right:none"><span class="diag-station-n">· IV · Outcome</span><span class="diag-station-label" style="color:#a3d4b9">What happens</span><span class="diag-station-desc">Helps · hurts · new gap. Shapes the next situation.</span><div class="diag-hints"><span>· symmetric data</span><span>· loops back</span></div></div>
+      </div>
+      <div class="diag-arc">The recursive arc — <span class="neon-hl">course visualisation</span>: an outcome may help, hurt, or destabilise existing sense, becoming part of the next situation. The loop never closes.</div>
+    </div>
+  </div>
+```

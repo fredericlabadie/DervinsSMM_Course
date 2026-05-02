@@ -1,0 +1,57 @@
+```{=html}
+<div class="page-head">
+  <div class="page-eyebrow">
+    <svg width="48" height="48" viewBox="0 0 32 32" fill="none"><path d="M 16 2 L 16 14" stroke="#a06a3a" stroke-width="1.2"/><path d="M 16 14 Q 10 18, 8 28" stroke="#a06a3a" stroke-width="1" fill="none"/><path d="M 16 14 Q 22 18, 24 28" stroke="#a06a3a" stroke-width="1" fill="none"/><path d="M 16 14 L 16 28" stroke="#a06a3a" stroke-width="1"/></svg>
+    <span>§ Theory · Foundations</span>
+  </div>
+  <div>
+    <h1 class="page-title">The central metaphor</h1>
+    <p class="page-dek">One picture holds the whole methodology — a person, a moment, a gap, the bridge they build to cross it.</p>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <blockquote class="pull-quote">
+    "Information is not simply a thing transmitted intact. In Sense-Making, it becomes useful when a person constructs it into help for moving across a gap."
+    <span class="pull-quote-attr">— course paraphrase after Brenda Dervin</span>
+  </blockquote>
+
+  <div class="metaphor-wrap">
+    <div class="metaphor-plate"><span>Plate I · The Central Metaphor</span></div>
+    <svg viewBox="0 0 1000 360" style="width:100%;height:auto;display:block">
+      <defs>
+        <pattern id="dm-stipple" patternUnits="userSpaceOnUse" width="8" height="8">
+          <circle cx="2" cy="2" r="0.6" fill="#a06a3a" opacity="0.5"/><circle cx="6" cy="5" r="0.5" fill="#a06a3a" opacity="0.4"/>
+        </pattern>
+      </defs>
+      <path d="M 0 240 L 220 240 Q 280 240, 320 280 L 360 320 Q 420 350, 500 348 Q 580 350, 640 320 L 680 280 Q 720 240, 780 240 L 1000 240" stroke="#0c1410" stroke-width="2.2" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+      <path d="M 220 240 Q 280 240, 320 280 L 360 320 Q 420 350, 500 348 Q 580 350, 640 320 L 680 280 Q 720 240, 780 240 L 780 360 L 220 360 Z" fill="url(#dm-stipple)" opacity="0.7"/>
+      <g stroke="#0c1410" stroke-width="1.6" fill="none" stroke-linecap="round">
+        <circle cx="170" cy="186" r="10" fill="#e3e6d3"/>
+        <path d="M 170 196 L 170 222"/><path d="M 170 204 L 158 214"/><path d="M 170 204 Q 184 200, 196 198"/><path d="M 170 222 L 162 240"/><path d="M 170 222 L 184 240"/>
+      </g>
+      <path d="M 196 198 Q 500 110, 804 198" stroke="#a06a3a" stroke-width="1.6" fill="none" stroke-dasharray="2 5"/>
+      <circle cx="196" cy="198" r="2.5" fill="#a06a3a"/><circle cx="804" cy="198" r="2.5" fill="#a06a3a"/>
+      <rect x="406" y="258" width="188" height="40" fill="#e3e6d3" stroke="#a06a3a" stroke-width="0.7"/>
+      <text x="500" y="280" text-anchor="middle" font-family="'Cormorant Garamond', serif" font-style="italic" font-size="24" font-weight="600" fill="#0c1410" letter-spacing="2">gap</text>
+      <text x="500" y="292" text-anchor="middle" font-family="'IBM Plex Mono', monospace" font-size="8.5" font-weight="600" fill="#a06a3a" letter-spacing="1.6">QUESTIONS · CONFUSIONS · MUDDLES</text>
+      <g font-family="'IBM Plex Mono', monospace" font-size="10" letter-spacing="1.5" fill="#a06a3a">
+        <text x="40" y="28">SITUATION</text>
+        <text x="500" y="28" text-anchor="middle">BRIDGE</text>
+        <text x="960" y="28" text-anchor="end">OUTCOMES</text>
+      </g>
+    </svg>
+    <div class="metaphor-caption">
+      A person, mid-stride in a moment of space-time, building a bridge across a gap — from situation, through the discontinuity, toward outcome. After Brenda Dervin, <span class="fig-ref">fig. C2.1</span>.
+    </div>
+  </div>
+
+  <div class="abstract-card corner-brackets">
+    <span class="bracket-bl"></span><span class="bracket-br"></span>
+    <span class="key">SUBJECT</span><span class="val">Brenda Dervin · Sense-Making Methodology (early 1970s–)</span>
+    <span class="key">UNIT</span><span class="val">The gap — specific discontinuity, specific person, specific moment</span>
+    <span class="key">METHOD</span><span class="val">Micro-Moment Time-Line Interview · neutral questioning</span>
+    <span class="key">USE</span><span class="val">Survey design · UX research · funnel diagnosis · A/B post-mortem</span>
+  </div>
+```

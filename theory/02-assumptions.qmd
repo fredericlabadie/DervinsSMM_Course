@@ -1,0 +1,20 @@
+```{=html}
+  <details class="plate">
+    <summary><span class="plate-n">Plate III</span><span class="plate-title">Seven assumptions — course synthesis</span></summary>
+    <div class="plate-body">
+      <p>These are not optional background — they are the premises this course uses to organise Dervin's methodological stance. Every design decision in SMM research should be checked against them. <em>Course synthesis across Dervin (1983, 1992, 1998) — not a direct enumeration from any single paper.</em></p>
+
+      <div class="smm-callout-box" style="margin:18px 0;">
+        <strong>Academic note</strong> This list is a teaching synthesis. It condenses recurring premises in Dervin's writing; it should not be cited as a seven-item list authored by Dervin.
+      </div>
+
+      <div class="assumption"><span class="a-num">Assumption 01</span><span class="a-title">Reality is discontinuous</span><p>Gaps are not exceptions to be explained away — they are the fundamental condition of human experience. There is no complete knowledge, no final arrival, no state of full information. The person is always mid-crossing.</p></div>
+      <div class="assumption"><span class="a-num">Assumption 02</span><span class="a-title">Information is constructed, not found</span><p>Information becomes meaningful in use, when a person constructs it into help for moving across a gap in a specific situation.</p></div>
+      <div class="assumption"><span class="a-num">Assumption 03</span><span class="a-title">Situation is constitutive, not contextual</span><p>The specific time-space context determines what counts as a gap, what bridges are available, and what outcomes are possible.</p></div>
+      <div class="assumption"><span class="a-num">Assumption 04</span><span class="a-title">People are active sense-makers, not passive receivers</span><p>The human being is the agent constructing bridges using internal resources and external resources. Meaning is built, not merely received.</p></div>
+      <div class="assumption"><span class="a-num">Assumption 05</span><span class="a-title">Universal procedure; unique instance</span><p>Everyone sense-makes, but each instance is irreducibly tied to that person's situation and moment. This enables cautious comparison without flattening experience.</p></div>
+      <div class="assumption"><span class="a-num">Assumption 06</span><span class="a-title">Subjectivity is datum, not noise</span><p>Confusion, emotion, and intuition are data about the stop a person experienced, not measurement error to be cleaned away.</p></div>
+      <div class="assumption"><span class="a-num">Assumption 07</span><span class="a-title">Both internal and external orders are real</span><p>SMM operates between pure subjectivism and pure objectivism. The gap may be materially real; the bridge that crosses it is still constructed.</p></div>
+    </div>
+  </details>
+```
