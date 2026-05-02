@@ -58,12 +58,12 @@ Every time a developer says "our users would have to be idiots to not understand
 
 | Work | Note |
 |------|------|
-| Dervin (1983) — "Information as a User Construct" | Foundational |
-| Dervin (1992) — "From the Mind's Eye of the User" | **Start here** |
-| Dervin & Nilan (1986) — Annual Review of Information Science | Paradigm critique |
-| Dervin (1998) — "Sense-Making Theory and Practice" | Sense-unmaking; power |
-| Dervin (1999) — "On Studying Information Seeking Methodologically" | MMTLI deep dive |
-| Dervin & Foreman-Wernet (Eds.) (2003) — SMM Reader | Essential collection |
+| [Dervin (1983) — "Information as a User Construct"](https://www.ideals.illinois.edu/items/2438) | Foundational statement of information as user construct and perceived information needs |
+| [Dervin (1992) — "From the Mind's Eye of the User"](https://faculty.washington.edu/harryb/courses/INFO310/Dervin1992.pdf) | **Start here** for the qualitative-quantitative methodology and situational questioning |
+| [Dervin & Nilan (1986) — Annual Review of Information Science and Technology](https://doi.org/10.1002/aris.1440210104) | Paradigm critique of information needs and uses research |
+| Dervin (1998) — "Sense-Making Theory and Practice" | Sense-unmaking; power; verify source details before formal citation |
+| Dervin (1999) — "On Studying Information Seeking Methodologically" | MMTLI deep dive; verify source details before formal citation |
+| Dervin & Foreman-Wernet (Eds.) (2003) — SMM Reader | Essential collection; verify edition details before formal citation |
 
 ---
 
