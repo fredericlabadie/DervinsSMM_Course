@@ -1,0 +1,19 @@
+```{=html}
+  <details class="plate">
+    <summary><span class="plate-n">Plate V</span><span class="plate-title">SMM vs. the transmission model</span></summary>
+    <div class="plate-body">
+      <p>Dervin's core critique: the transmission model assumes meaning inheres in messages — that the same message means the same thing to all receivers. SMM challenges that assumption by asking how people in different situations construct different helps, hindrances, and uses. A transfer-only design frame is therefore inadequate.</p>
+      <table class="compare-table">
+        <thead><tr><th>Dimension</th><th>Transmission model</th><th>Sense-Making Methodology</th></tr></thead>
+        <tbody>
+          <tr><td>Ontology</td><td>Information exists independently as an objective thing</td><td>Information is constructed in the act of bridging — always relational</td></tr>
+          <tr><td>Human role</td><td>Passive receiver / decoder</td><td>Active sense-maker constructing bridges</td></tr>
+          <tr><td>Model</td><td>Linear: Source → Message → Channel → Receiver</td><td>Situational and recursive: Situation → Gap → Bridge/Help → Outcome/Use → New Situation</td></tr>
+          <tr><td>Unit of analysis</td><td>The message or information object</td><td>The gap: specific discontinuity in a specific situation</td></tr>
+          <tr><td>Success</td><td>Accurate transmission: did the message arrive intact?</td><td>Effective bridging: did the person cross the gap in a way that helped?</td></tr>
+          <tr><td>Context</td><td>Noise to be reduced</td><td>Constitutive: determines what a gap is and what bridges are possible</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+```

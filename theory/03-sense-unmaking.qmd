@@ -1,0 +1,12 @@
+```{=html}
+  <details class="plate">
+    <summary><span class="plate-n">Plate IV</span><span class="plate-title">Sense-unmaking</span></summary>
+    <div class="plate-body">
+      <p>In later work, Dervin foregrounded <strong>sense-unmaking</strong> — the recognition that people may also need to <em>dismantle</em>, challenge, or loosen existing sense structures. This is not merely the failure of sense-making. It is part of how sense-making changes over time.</p>
+      <blockquote>Course paraphrase: people sometimes need to unlearn, challenge assumptions, or destabilise established understandings before new sense can be made.</blockquote>
+      <p>Sense-unmaking is particularly relevant for transformative learning, organisational change, critical consciousness, and creative work. In later SMM writing, Dervin connects making and unmaking sense to power: some sense structures are imposed, and people may need to challenge or undo them in order to move.</p>
+      <div class="smm-callout-box"><strong>Practitioner note</strong> A redesign can disrupt users' established sense of an interface. Support-ticket spikes after a product launch are often worth reading this way: telemetry shows the event, and SMM helps ask what sense was unmade.</div>
+      <div class="smm-callout-box warn"><strong>Common mistake</strong> Treating SMM as purely constructive misses resistance, confusion, and transformative learning — contexts where old sense must be dismantled before new sense can be made.</div>
+    </div>
+  </details>
+```

@@ -1,0 +1,10 @@
+```{=html}
+  <details class="plate">
+    <summary><span class="plate-n">Plate VIII</span><span class="plate-title">In memoriam</span></summary>
+    <div class="plate-body">
+      <p>Brenda Dervin (1938–2023), long associated with Ohio State University, developed Sense-Making Methodology over five decades of work across communication, information studies, and methodological design.</p>
+      <p>This site is an independent practitioner resource built in gratitude for that work. It is not a reproduction of her texts; it is a teaching, application, and fieldwork instrument that tries to carry the method toward people whose research questions would change if they encountered it.</p>
+    </div>
+  </details>
+</div>
+```
