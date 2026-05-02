@@ -6,7 +6,7 @@ pagetitle: "Practice — SMM Question Rewriter"
 <div class="smm-callout" id="smm-callout">
   <svg width="16" height="16" viewBox="0 0 64 64" fill="none"><path d="M 32 6 L 32 58" stroke="#a06a3a" stroke-width="1"/><ellipse cx="32" cy="8" rx="3" ry="5" stroke="#a06a3a" stroke-width="0.8" fill="none"/></svg>
   <span class="callout-new">New here?</span>
-  <span>Start with <a href="bridge.html">Bridge ↗</a> for a one-minute orientation, or <a href="theory.html">Theory ↗</a> for the full picture.</span>
+  <span>Read the <a href="bridge.html">Orientation ↗</a> for a one-minute map, or open <a href="theory.html">Theory ↗</a> for the full picture.</span>
   <button class="dismiss" onclick="this.parentElement.style.display='none'; localStorage.setItem('smm_callout_dismissed','1');" aria-label="Dismiss">✕</button>
 </div>
 <script>if (localStorage.getItem('smm_callout_dismissed')) document.getElementById('smm-callout').style.display = 'none';</script>
