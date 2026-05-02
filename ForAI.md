@@ -1,6 +1,6 @@
 # ForAI.md — Dervin's SMM Course
 *Context for Claude, ChatGPT, and any AI agent working on this project*
-*Last updated: May 2026 — academic accuracy review in progress*
+*Last updated: May 2026 — bibliography verification pass in progress*
 
 ---
 
@@ -144,6 +144,8 @@ GitHub Actions workflow (.github/workflows/render-deploy.yml) runs `quarto rende
 
 **Fieldwork examples:** `fieldwork.qmd` now marks rewrite examples and scenarios as applied translations using practitioner labels. It also tells practitioners to return to participants' own words and avoid forcing stories into labels too early.
 
+**Bibliography:** `README.md` now contains a verified citation table for the core Dervin sources. Dervin (1998) and Dervin (1999) have DOI-backed records; the 2003 reader has library-backed publication, ISBN, and page-count details. `theory.qmd` may still need its visible bibliography table mirrored to the same precision.
+
 **Needs language:** Do not simply say "study gaps, not needs" as if Dervin abolished needs language. Prefer: study needs as situationally constructed gaps or questions, not static topic categories.
 
 **Citations:** Use light author-date links to primary sources where possible. The bibliography carries a caveat to verify against library databases before formal academic use.
@@ -175,8 +177,8 @@ Brenda Dervin (Ohio State University) is the intellectual source of the theoreti
 
 ## What Remains To Do
 
-- [ ] Verify bibliography citations against JSTOR/Google Scholar before sharing with academic audiences, especially Dervin (1998), Dervin (1999), and the Dervin & Foreman-Wernet reader.
-- [ ] Add or verify stable primary-source links where public versions exist.
+- [ ] Mirror verified bibliography details from `README.md` into `theory.qmd` if the public site bibliography should carry the same precision.
+- [ ] Resolve Dervin (1983) page-range discrepancy against the physical book or a library scan: some records list pp. 153–183; PhilPapers lists pp. 155–183.
 - [ ] Decide whether `smm_guide.qmd` should be updated as a legacy/PDF source or explicitly archived as no longer maintained.
 - [ ] Test mobile rendering at 320px.
 - [ ] Verify $lime (#c4ff3a) does not bleed into light paper sections.

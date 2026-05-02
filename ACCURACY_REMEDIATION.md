@@ -1,6 +1,6 @@
 # Academic Accuracy Remediation Log
 
-*Branch:* `accuracy/theory-fieldwork-pass`  
+*Branch:* `accuracy/bibliography-verification`  
 *Project:* Dervin's Sense-Making Methodology course  
 *Purpose:* Keep a durable handoff record for academic accuracy review and iteration.
 
@@ -8,7 +8,7 @@
 
 ## Current status
 
-The site has completed a first academic-framing pass and a follow-up inspection of the theory and fieldwork pages. The current live-source posture is now:
+The site has completed a first academic-framing pass, a follow-up inspection of the theory and fieldwork pages, and a targeted bibliography verification pass. The current live-source posture is now:
 
 - `README.md` describes the live site as a five-page Quarto site rather than a single `smm_guide.qmd` source.
 - `ForAI.md` documents the Claude / Claude Design / ChatGPT development timeline and the current runtime AI architecture.
@@ -19,6 +19,7 @@ The site has completed a first academic-framing pass and a follow-up inspection 
 - `_includes/footer.html` distinguishes Dervin's theoretical foundation from independent practitioner examples, teaching heuristics, diagrams, and applications.
 - `theory.qmd` now presents SGBO as a course teaching shorthand, identifies the seven assumptions as a course synthesis, softens the transmission-model critique, and labels the recursive loop as a course visualisation.
 - `fieldwork.qmd` now frames worked scenarios and rewrite examples as applied translations using practitioner labels, not formal Dervin categories.
+- `README.md` now contains verified citation details for the core primary-source list.
 
 ---
 
@@ -58,11 +59,30 @@ This keeps the practical value while avoiding the strongest academic misalignmen
 
 ---
 
+## Bibliography verification status
+
+The core bibliography entries have been checked against targeted public bibliographic records and DOI/library pages. `README.md` now contains verified citation details for:
+
+- Dervin (1983), “Information as a user construct: The relevance of perceived information needs to synthesis and interpretation.”
+- Dervin (1992), “From the mind’s eye of the user: The Sense-Making qualitative-quantitative methodology.”
+- Dervin & Nilan (1986), “Information needs and uses.”
+- Dervin (1998), “Sense-making theory and practice: An overview of user interests in knowledge seeking and use.”
+- Dervin (1999), “On studying information seeking methodologically: The implications of connecting metatheory to method.”
+- Dervin, Foreman-Wernet, & Lauterbach (Eds.) (2003), *Sense-Making Methodology Reader: Selected Writings of Brenda Dervin*.
+
+Notes:
+
+- Dervin (1983) has a page-range discrepancy in secondary records: some list pp. 153–183; PhilPapers lists pp. 155–183. Keep a note until checked against the physical book or a library scan.
+- The 2003 reader has page-count discrepancies in retailer records; library records list xv, 397 pages and should be preferred.
+- Dervin (1998) and Dervin (1999) now have DOI-backed records.
+
+---
+
 ## Remaining work
 
-1. **Bibliography verification**
-   - Verify the full formal citations for Dervin (1998), Dervin (1999), and the Dervin & Foreman-Wernet reader against library databases.
-   - Keep the bibliography caveat until all details are checked.
+1. **Theory-page bibliography table**
+   - Mirror the verified citation details from `README.md` into `theory.qmd` if the visible site bibliography should carry the same precision.
+   - Because `theory.qmd` contains a large raw HTML block, update it carefully and render locally after editing.
 
 2. **Primary-source links**
    - Add or verify light links where stable public versions exist.
