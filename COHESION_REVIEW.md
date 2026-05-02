@@ -2,98 +2,125 @@
 
 *Project:* Dervin's Sense-Making Methodology course  
 *Date:* May 2026  
-*Purpose:* Document naming, navigation, and contextual-cohesion observations after the theory modularisation pass.
+*Purpose:* Track navigation, page-role, terminology, and contextual-cohesion decisions.
 
 ---
 
-## Current page roles
+## Current navigation decision
 
-Current navigation:
+Visible navigation is now:
 
-1. **Bridge** — orientation / entry page
-2. **Theory** — central metaphor, SGBO, assumptions, bibliography
-3. **Method** — practitioner gap pictures, MMTLI, neutral questioning, analytics application
-4. **Practice** — live question rewriter and active recall
-5. **Fieldwork** — worked examples, ethics, practice template
+1. **Orientation** — how to use the site and where each page fits
+2. **Theory** — central metaphor, SGBO, assumptions, bibliography, in memoriam
+3. **Method** — practitioner gap pictures, MMTLI, neutral questioning, analysis protocol, analytics application
+4. **Practice** — live question rewriter and active recall; also the homepage
+5. **Fieldwork** — worked scenarios, practice projects, ethics, applied examples
 
-The structure is conceptually sound, but the label **Bridge** is doing double duty. In Dervin's vocabulary, bridge is already a core theoretical term. As a page title, it can feel disembodied because it names a concept rather than the page's function. The page itself is an orientation and reading path.
-
----
-
-## Recommended navigation names
-
-### Preferred set
-
-Use functional page names while preserving SMM language inside the pages:
-
-- **Start** (`bridge.qmd`) — orientation / how to use the site
-- **Theory** (`theory.qmd`) — central metaphor and academic grounding
-- **Method** (`method.qmd`) — gap pictures, MMTLI, neutral questioning
-- **Practice** (`index.qmd`) — rewriter + active recall
-- **Fieldwork** (`fieldwork.qmd`) — applied examples, ethics, template
-
-Why: this gives visitors a conventional entry point without flattening the conceptual language. "Start" says what the page does. "Bridge" can remain as a section idea or thematic metaphor.
-
-### Alternate set
-
-If the site should feel more like a course path:
-
-- **Start**
-- **Grounding**
-- **Method**
-- **Instrument**
-- **Fieldwork**
-
-Why: this is more instructional, but slightly less immediately recognizable than Theory / Practice.
-
-### Keep as-is only if
-
-Keep **Bridge** only if the intent is explicitly poetic / thematic navigation. If so, add a parenthetical label in the nav or page header, e.g. **Bridge / Start here**. Otherwise the term competes with SMM's own bridge concept.
+The URL for Orientation remains `bridge.html` for compatibility, but visible copy should use **Orientation**, not Bridge. "Bridge" should be reserved for the SMM concept: the resource, help, or construction used to move across a gap.
 
 ---
 
-## Cohesion observations
+## Current site architecture tension
 
-### 1. Entry route vs. homepage route
+`index.qmd` is both the homepage and the Practice page. This is a valid product decision because the Question Rewriter is the primary interactive feature. It does create one asymmetry:
 
-`index.qmd` is the homepage and the practice tool, while `bridge.qmd` is the orientation page. This is a valid product choice because the tool is the main interactive feature. But it creates a conceptual asymmetry: visitors land on Practice first, then are told to go to Bridge.
+- first-time visitors may land on Practice first,
+- but the conceptual path begins with Orientation.
 
-Recommendation: keep `index.qmd` as Practice if the rewriter is the primary feature, but rename Bridge to **Start** and keep the callout on Practice: "New here? Start with Start / Orientation."
-
-### 2. Plate numbering across pages
-
-Plate numbering is local to each page, not global. That is fine, but each page should keep its own internal sequence. Theory now displays Plate I → Plate II → Plate III... after the order fix.
-
-Potential future improvement: add page-specific prefixes in comments only, not visible UI, to avoid confusing module file order with plate order.
-
-### 3. Practitioner vs. academic layer
-
-The site is now strongest when each section clearly signals one of three statuses:
-
-- Dervin's formulation
-- Course synthesis
-- Practitioner application
-
-This pattern is already present in the theory, method, and practice pages. It should remain the editorial rule for future additions.
-
-### 4. Runtime tool vs. academic source
-
-The Practice page correctly says the rewriter is a practicum tool, not an academic authority. Keep this language close to the tool, because the tool can otherwise make the practitioner labels feel more canonical than they are.
-
-### 5. Legacy file risk
-
-`smm_guide.qmd` is marked as legacy in `legacy/README.md`, but the file itself still renders if someone opens it directly. Future improvement: add a warning callout at the top of `smm_guide.qmd` if the file can be safely edited locally. The connector should avoid full-file edits to `smm_guide.qmd` because it is large and truncates.
+Current mitigation: the Practice page callout says "New here? Read the Orientation for a one-minute map..." This is the right pattern. Do not make Orientation the homepage unless the project changes from tool-first to course-first.
 
 ---
 
-## Recommended next naming change
+## Page-role cohesion
 
-Make a small, separate PR:
+### Orientation
 
-- Change nav label from **Bridge** to **Start** in `_includes/header.html` and `_includes/footer.html`.
-- Keep the file path `bridge.html` for now to avoid breaking links.
-- Change `bridge.qmd` `pagetitle` to `Start — Orientation`.
-- Change visible eyebrow from `§ Bridge · Orientation` to `§ Start · Orientation`.
-- Change the Practice callout from `Start with Bridge` to `Start here` or `Start with the orientation`.
+Role: map the site and explain the two-layer design: practitioner top layer + academic depth.
 
-This is low-risk and improves cohesion without restructuring URLs.
+Current status: coherent. The page uses the four-part path Theory → Method → Practice → Fieldwork while acknowledging that users can skip to the rewriter.
+
+### Theory
+
+Role: establish the central metaphor, the course SGBO shorthand, assumptions, sense-unmaking, contrast with transmission models, comparisons, and sources.
+
+Current status: coherent after modularisation and plate-order fix. Watch for two risks:
+
+- Do not let SGBO drift into being described as a timeless exact Dervin formulation.
+- Keep visible plate order aligned with page flow, even though module file names are not alphabetically sequential.
+
+### Method
+
+Role: teach how to diagnose discontinuities and how to ask/study them.
+
+Current status: conceptually coherent, but it carries two sub-roles: gap pictures and interview/analysis protocol. This is acceptable because both are methods, but the page should keep explaining that the gap labels are practitioner heuristics and that MMTLI/neutral questioning are the stronger methodological core.
+
+Possible later improvement: if the Method page grows, split it into `method.qmd` for gap pictures and `fieldwork.qmd` for interviewing/analysis. Not necessary now.
+
+### Practice
+
+Role: let users do something immediately with the Question Rewriter, then practice recall.
+
+Current status: coherent. Keep the practicum-tool warning close to the rewriter so the AI output does not appear to be an academic authority.
+
+### Fieldwork
+
+Role: applied examples, worked scenarios, practice projects, ethics.
+
+Current status: coherent. The page is the applied lab of the site. It should continue to say examples are applied translations and practitioner labels, not formal Dervin categories.
+
+---
+
+## Terminology rules
+
+Use these consistently:
+
+- **Orientation** for the page / nav label.
+- **Bridge** only for the SMM concept.
+- **Practice** for the live tool and active-recall page.
+- **Question Rewriter** for the tool itself.
+- **Practitioner labels** or **gap pictures** for the six-label display.
+- **Course synthesis** for seven assumptions and SGBO shorthand.
+- **Applied translation** for examples, scenarios, and product/analytics mappings.
+
+Avoid:
+
+- "Dervin's taxonomy" for the six labels.
+- "six gaps" without a nearby heuristic caveat.
+- "Study gaps, not needs" as a slogan without explaining that needs are studied as situated gaps/questions.
+- "Bridge" as a page title or generic navigation term.
+
+---
+
+## Remaining cohesion issues
+
+1. **CSS class names still say bridge**
+   - Classes like `bridge-intro`, `bridge-path`, and `bridge-step` remain in `bridge.qmd` and `custom.scss`.
+   - This is technical debt only; it does not affect visible site cohesion.
+   - Rename only in a dedicated styling/refactor pass to avoid CSS regressions.
+
+2. **Legacy file warning**
+   - `smm_guide.qmd` is marked as legacy in docs, but the file itself does not visibly warn readers.
+   - Because the file is large and connector output truncates, add a top warning only from a local editor or after splitting/archiving it.
+
+3. **Method page dual role**
+   - The Method page includes both diagnostic labels and MMTLI/protocol sections.
+   - This is acceptable now, but if the page becomes crowded, split the interview/protocol material into Fieldwork or a new `protocol.qmd`.
+
+4. **Homepage vs. course path**
+   - Practice is the homepage; Orientation is the conceptual start.
+   - This is intentional. Keep the Practice callout visible for new visitors.
+
+---
+
+## Recommendation
+
+Do not rename files yet. Keep the stable URLs:
+
+- `bridge.html` for Orientation
+- `index.html` for Practice / homepage
+
+The next cohesion work should be small and visible:
+
+1. Keep documentation aligned with the Orientation label.
+2. Add page-level "what this page is for" copy only where a page's function is ambiguous.
+3. Avoid broad URL restructures until the site has more external links or analytics data showing user confusion.

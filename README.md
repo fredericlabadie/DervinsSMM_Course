@@ -14,14 +14,14 @@ Dervin understood something most researchers spend careers avoiding: the questio
 
 ## What It Is
 
-A five-page interactive site covering Sense-Making Methodology in full — orientation, theory, method, fieldwork, applied practice, and a working question rewriter. Built with Quarto, deployed via GitHub Actions to GitHub Pages.
+A five-page interactive site covering Sense-Making Methodology in full — orientation, theory, method, practice, fieldwork, and a working question rewriter. Built with Quarto, deployed via GitHub Actions to GitHub Pages.
 
 **Rendered pages:**
-- **Practice / Question Rewriter** (`index.qmd`) — the primary interactive tool
-- **Bridge** (`bridge.qmd`) — orientation and entry point
+- **Practice / Question Rewriter** (`index.qmd`) — the primary interactive tool and homepage
+- **Orientation** (`bridge.qmd` → `bridge.html`) — how to use the site and where each page fits
 - **Theory** (`theory.qmd` + `theory/*.qmd`) — S-G-B-O framework, seven-point synthesis of assumptions, bibliography, in memoriam
-- **Method** (`method.qmd`) — practitioner gap labels, analytics and digital product applications, UX telemetry + SMM protocol
-- **Fieldwork** (`fieldwork.qmd`) — MMTLI protocol, neutral questioning, worked examples, ethics, practice template
+- **Method** (`method.qmd`) — practitioner gap labels, MMTLI, neutral questioning, analysis protocol, analytics applications
+- **Fieldwork** (`fieldwork.qmd`) — worked scenarios, practice projects, ethics, applied examples
 
 **The Question Rewriter** — paste any survey or UX question, get it rewritten using SMM principles. Three-tier system: local example matching → HuggingFace Zephyr-7B proxy → heuristic fallback. Works without any login or setup. The rewriter's gap labels are practitioner prompts for analysis, not a canonical Dervin taxonomy.
 
@@ -37,6 +37,7 @@ Every time a developer says "our users would have to be idiots to not understand
 
 ## Contents
 
+- Orientation and reading path for practitioners
 - Origins and intellectual history of SMM
 - 7 philosophical assumptions as a course synthesis across Dervin 1983, 1992, 1998 — not a direct enumeration from one paper
 - S-G-B-O as a practitioner teaching model, with attention to earlier situation-gap-use/help formulations and later bridge/outcome language
