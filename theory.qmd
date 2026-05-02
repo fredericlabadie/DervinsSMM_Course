@@ -3,10 +3,10 @@ pagetitle: "Theory — The Central Metaphor"
 ---
 
 {{< include theory/01-hero.qmd >}}
+{{< include theory/06-sgbo.qmd >}}
 {{< include theory/02-assumptions.qmd >}}
 {{< include theory/03-sense-unmaking.qmd >}}
 {{< include theory/04-transmission-model.qmd >}}
 {{< include theory/05-comparative-analysis.qmd >}}
-{{< include theory/06-sgbo.qmd >}}
 {{< include theory/07-bibliography.qmd >}}
 {{< include theory/08-in-memoriam.qmd >}}
