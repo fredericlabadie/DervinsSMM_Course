@@ -41,7 +41,7 @@
       original: input.trim(),
       diagnosis: [
         'Asks for an evaluation rather than situating a moment.',
-        'Reads as a possible ' + gap.label.toLowerCase() + '-oriented gap picture — but the stop is not surfaced in the participant\u2019s own terms, so the data may not resolve cleanly.',
+        'Reads as a possible ' + gap.label.toLowerCase() + '-oriented practitioner gap picture — but the stop is not surfaced in the participant\u2019s own terms, so the data may not resolve cleanly.',
         'Does not invite both helps and hurts.',
       ],
       rewrite: 'Walk me through a specific moment when this came up for you. What were you trying to do, what did you reach for, and what got in the way?',
@@ -68,7 +68,7 @@ Important accuracy constraint: use the gap labels below as this course's practit
 
 2. REWRITE: Rewrite the question using SMM neutral questioning principles — anchor a specific moment, leave the gap type open, probe for both bridge and hurt.
 
-3. GAP_LABEL: Suggest which practitioner gap label the rewrite may help surface: ${gapList}. Treat this as a tentative analytic label, not as the respondent's answer and not as a canonical taxonomy.
+3. GAP_LABEL: Suggest which practitioner gap label the rewrite may help surface: ${gapList}. Treat this as a tentative analytic prompt, not as the respondent's answer and not as a canonical taxonomy.
 
 4. WHY: In 1-2 sentences, explain why the rewrite produces more useful data than the original.
 
@@ -267,9 +267,10 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
       gapTag.style.color = gapColor;
       const dot = el('span', 'dot');
       dot.style.background = gapColor;
-      gapTag.append(dot, document.createTextNode(' ' + (gap ? gap.label : r.gap) + ' gap'));
+      gapTag.append(dot, document.createTextNode(' ' + (gap ? gap.label : r.gap)));
       const gapDesc = el('span', 'gap-desc', { text: gap ? gap.desc : '' });
-      gapMeta.append(gapLabel, gapTag, gapDesc);
+      const gapCaveat = el('span', 'gap-desc', { text: 'Tentative analytic prompt; return to the participant\u2019s own words before coding.' });
+      gapMeta.append(gapLabel, gapTag, gapDesc, gapCaveat);
       s3.append(s3h, rBox, gapMeta);
       output.appendChild(s3);
 

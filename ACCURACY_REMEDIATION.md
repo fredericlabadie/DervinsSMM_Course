@@ -1,6 +1,6 @@
 # Academic Accuracy Remediation Log
 
-*Branch:* `refactor/theory-modules`  
+*Branch:* `qa/rewriter-terminology`  
 *Project:* Dervin's Sense-Making Methodology course  
 *Purpose:* Keep a durable handoff record for academic accuracy review and iteration.
 
@@ -8,7 +8,7 @@
 
 ## Current status
 
-The site has completed a first academic-framing pass, a targeted bibliography verification pass, and a theory-page modularisation pass. The current live-source posture is now:
+The site has completed a first academic-framing pass, a targeted bibliography verification pass, a theory-page modularisation pass, a page-flow cohesion pass, and a runtime rewriter terminology QA pass. The current live-source posture is now:
 
 - `README.md` describes the live site as a five-page Quarto site rather than a single `smm_guide.qmd` source.
 - `ForAI.md` documents the Claude / Claude Design / ChatGPT development timeline and the current runtime AI architecture.
@@ -18,9 +18,23 @@ The site has completed a first academic-framing pass, a targeted bibliography ve
 - `index.qmd` warns that the rewriter is a practicum tool rather than an academic authority.
 - `_includes/footer.html` distinguishes Dervin's theoretical foundation from independent practitioner examples, teaching heuristics, diagrams, and applications.
 - `theory.qmd` is now a small include wrapper over `theory/*.qmd`, making future academic and bibliography edits safer.
-- `theory/07-bibliography.qmd` now mirrors the verified citation details from `README.md`.
+- `theory/07-bibliography.qmd` mirrors the verified citation details from `README.md`.
 - `fieldwork.qmd` frames worked scenarios and rewrite examples as applied translations using practitioner labels, not formal Dervin categories.
 - `legacy/README.md` marks `smm_guide.qmd` as archival / not maintained source.
+- `COHESION_REVIEW.md` tracks the current Orientation → Theory → Method → Practice → Fieldwork page-flow decision.
+
+---
+
+## Runtime rewriter QA status
+
+The rewriter has been checked for terminology drift. Current safeguards:
+
+- The model prompt explicitly says the labels are a course practitioner heuristic, not a canonical six-part Dervin taxonomy.
+- The fallback rewrite says a label is a **practitioner gap picture**, not the participant's answer.
+- The rendered output now shows `Practitioner label → Decision` rather than `Decision gap`, reducing the impression that the labels are formal gap types.
+- The rendered output adds a visible caveat: "Tentative analytic prompt; return to the participant's own words before coding."
+- The copied Markdown uses "Practitioner gap label" rather than "Gap type."
+- `js/smm-data.js` now distinguishes support metadata / possible curriculum-spine labels from the current visible site navigation.
 
 ---
 
@@ -42,11 +56,11 @@ The theory page is now modular:
 
 - `theory.qmd` — include wrapper only
 - `theory/01-hero.qmd` — page header, central metaphor, abstract front-matter card
+- `theory/06-sgbo.qmd` — course S-G-B-O teaching shorthand and diagram; rendered after the hero as visible Plate II
 - `theory/02-assumptions.qmd` — seven-point course synthesis of Dervin's methodological stance
 - `theory/03-sense-unmaking.qmd` — later sense-unmaking framing and practitioner application
 - `theory/04-transmission-model.qmd` — SMM vs. transmission-model comparison
 - `theory/05-comparative-analysis.qmd` — neighbouring frameworks table
-- `theory/06-sgbo.qmd` — course S-G-B-O teaching shorthand and diagram
 - `theory/07-bibliography.qmd` — verified bibliography / recommended reading
 - `theory/08-in-memoriam.qmd` — Dervin memorial note
 
@@ -78,6 +92,7 @@ Notes:
 1. **Local render / visual QA**
    - Run `quarto render` locally.
    - Check `theory.html` after the modular include refactor.
+   - Check `index.html` rewriter output for the new practitioner-label caveat.
    - Check mobile rendering around 320px.
    - Confirm `$lime` accent colour does not bleed into light paper sections.
 
@@ -87,6 +102,7 @@ Notes:
 
 3. **Optional later pass**
    - If a maintained PDF is needed, create a new `print.qmd` that includes the live modular sections rather than reviving `smm_guide.qmd`.
+   - If SVG edits continue, externalize major SVGs into `assets/svg/` so they can be edited and tested independently.
 
 ---
 

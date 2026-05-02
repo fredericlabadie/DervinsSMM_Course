@@ -1,7 +1,7 @@
 // Course practitioner gap labels, sample rewrites, and support content.
 // The labels below are a teaching heuristic grounded where possible in Dervin's
 // movement-state / stop framing. Do not describe them as a canonical Dervin taxonomy.
-// Plain global script so any direction can use it.
+// Plain global script so any page can use it.
 
 window.SMM_GAPS = [
   { id: 'decision',   label: 'Decision',     hue: 265, color: '#6d3acd', desc: 'Facing a choice; unclear how to decide',          signal: '"I needed to choose between..."' },
@@ -25,7 +25,7 @@ window.SMM_REWRITES = [
     ],
     rewrite: 'Walk me through the moment you were trying to decide which plan fit you. What did you turn to, and what made it harder?',
     gap: 'decision',
-    why: 'A decision-oriented gap picture points to comparison and trade-off reasoning. The neutral framing surfaces what the user actually weighed, which bridges they tried (peers, the pricing page, support), and where the journey broke — not whether one artifact felt "clear" in the abstract.',
+    why: 'A decision-oriented practitioner label points to comparison and trade-off reasoning. The neutral framing surfaces what the user actually weighed, which bridges they tried (peers, the pricing page, support), and where the journey broke — not whether one artifact felt "clear" in the abstract.',
     diff: [
       { kind: 'cut',  text: 'Did you find the pricing information clear?' },
       { kind: 'add',  text: 'Walk me through the moment you were trying to decide which plan fit you.' },
@@ -124,24 +124,26 @@ window.SMM_REWRITES = [
   },
 ];
 
-// IA — sections of the site, used by all directions for the chapter scaffold.
+// IA — support metadata for any future curriculum/spine view.
+// These labels are not the primary site navigation; current visible nav is
+// Orientation · Theory · Method · Practice · Fieldwork.
 window.SMM_SECTIONS = [
-  { n: '01', id: 'core',        title: 'Core Class',            sub: 'Origins, S\u2011G\u2011B\u2011O, practitioner gap labels' },
-  { n: '02', id: 'visual',      title: 'Visual Model',          sub: 'Diagrams, recursive loop, gap anatomy' },
-  { n: '03', id: 'method',      title: 'Methodology',           sub: 'MMTLI, neutral questioning, analysis' },
-  { n: '04', id: 'applied',     title: 'Applied Practice',      sub: 'UX, strategy, comms, decisions, orgs' },
-  { n: '05', id: 'analytics',   title: 'Analytics & Product',   sub: 'Funnels, telemetry, A/B, measurement' },
-  { n: '06', id: 'projects',    title: 'Practice Projects',     sub: 'Four 30\u201390 minute exercises' },
-  { n: '07', id: 'cliff',       title: 'Cliff Notes',           sub: 'Definitions, principles, common mistakes' },
-  { n: '08', id: 'recall',      title: 'Active Recall',         sub: '20 flashcards, 10 questions, 5 scenarios' },
-  { n: '09', id: 'compare',     title: 'Comparative Analysis',  sub: 'Weick, design thinking, journeys, ethnography' },
-  { n: '10', id: 'ethics',      title: 'Ethical Projects',      sub: 'Risk and mitigation case studies' },
-  { n: '11', id: 'rewriter',    title: 'Question Rewriter',     sub: 'Practicum partner — paste a question' },
-  { n: '12', id: 'fieldwork',   title: 'Fieldwork Template',    sub: 'Printable interview sheet' },
+  { n: '01', id: 'core',        title: 'Core Concepts',          sub: 'Origins, S\u2011G\u2011B\u2011O, practitioner gap labels' },
+  { n: '02', id: 'visual',      title: 'Visual Model',           sub: 'Diagrams, recursive loop, gap anatomy' },
+  { n: '03', id: 'protocol',    title: 'Protocol',               sub: 'MMTLI, neutral questioning, analysis' },
+  { n: '04', id: 'applied',     title: 'Applied Practice',       sub: 'UX, strategy, comms, decisions, orgs' },
+  { n: '05', id: 'analytics',   title: 'Analytics & Product',    sub: 'Funnels, telemetry, A/B, measurement' },
+  { n: '06', id: 'projects',    title: 'Practice Projects',      sub: 'Four 30\u201390 minute exercises' },
+  { n: '07', id: 'cliff',       title: 'Cliff Notes',            sub: 'Definitions, principles, common mistakes' },
+  { n: '08', id: 'recall',      title: 'Active Recall',          sub: '20 flashcards, 10 questions, 5 scenarios' },
+  { n: '09', id: 'compare',     title: 'Comparative Analysis',   sub: 'Weick, design thinking, journeys, ethnography' },
+  { n: '10', id: 'ethics',      title: 'Ethical Projects',       sub: 'Risk and mitigation case studies' },
+  { n: '11', id: 'rewriter',    title: 'Question Rewriter',      sub: 'Practicum partner — paste a question' },
+  { n: '12', id: 'fieldwork',   title: 'Fieldwork Template',     sub: 'Printable interview sheet' },
 ];
 
-// Module previews — for direction 3 v2 curriculum spine.
-// One "teaching moment" per module so the page can preview depth without dumping content.
+// Module previews — support metadata for a possible curriculum spine.
+// One teaching moment per module so a future page can preview depth without dumping content.
 window.SMM_MODULE_PREVIEWS = {
   core: {
     learn: ['Origins (early 1970s) and the post-positivist turn', 'The S-G-B-O scaffold and why it\u2019s recursive', 'Practitioner gap labels and how to use them cautiously'],
@@ -153,7 +155,7 @@ window.SMM_MODULE_PREVIEWS = {
     moment: { kind: 'principle', term: 'Recursion', body: 'Every outcome reshapes the next situation. The diagram is a loop, not a line.' },
     duration: '25 min',
   },
-  method: {
+  protocol: {
     learn: ['Micro-Moment Time-Line Interview, end to end', 'Neutral question construction', 'Coding gaps, bridges, helps, and hurts'],
     moment: { kind: 'instrument', term: 'MMTLI', body: 'Six probes: situate \u2192 step-through \u2192 gap \u2192 bridge \u2192 outcome \u2192 hurt. Each probe is a station, not a question.' },
     duration: '90 min',
@@ -195,7 +197,7 @@ window.SMM_MODULE_PREVIEWS = {
   },
   rewriter: {
     learn: ['Use the question rewriter on real research', 'Save and share rewrites', 'Build a personal rewrite library'],
-    moment: { kind: 'instrument', term: 'Practicum', body: 'Paste any survey, interview, or strategy question. Receive diagnosis, transformation, and a practitioner gap-label suggestion \u2014 instantly.' },
+    moment: { kind: 'instrument', term: 'Practicum', body: 'Paste any survey, interview, or strategy question. Receive diagnosis, transformation, and a practitioner-label suggestion \u2014 instantly.' },
     duration: 'Open',
   },
   fieldwork: {
@@ -205,10 +207,10 @@ window.SMM_MODULE_PREVIEWS = {
   },
 };
 
-// Tracks for the curriculum spine
+// Tracks for a possible curriculum spine. These are not visible page-nav labels.
 window.SMM_TRACKS = [
   { id: 'theory',  label: 'Theory',  sections: ['core', 'visual', 'compare'] },
-  { id: 'method',  label: 'Method',  sections: ['method', 'rewriter', 'fieldwork'] },
+  { id: 'method',  label: 'Method',  sections: ['protocol', 'rewriter', 'fieldwork'] },
   { id: 'applied', label: 'Applied', sections: ['applied', 'analytics', 'projects'] },
   { id: 'study',   label: 'Study',   sections: ['cliff', 'recall', 'ethics'] },
 ];
