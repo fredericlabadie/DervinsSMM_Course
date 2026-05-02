@@ -153,7 +153,7 @@ pagetitle: "Method — The Six Gaps"
       <span class="plate-title">Analytics and digital product work</span>
     </summary>
     <div class="plate-body">
-      <p>This is where I actually use SMM day-to-day. Quantitative analytics tells you <em>what</em> happened — where users dropped off, which variant won, which segment converts. SMM is the framework I reach for when I need to understand <em>why</em>. They are not competing methods; they are sequential ones.</p>
+      <p>Sense-making is concrete once you see it. Every survey question that asks "was this helpful?" is asking the researcher's question, not the user's. Early in my career I kept running into the gap between what we measured and what users were actually experiencing. At Stanley Steemer, when I built the UX program from scratch, it was the first thing I had to solve — how do you actually ask users what they're experiencing rather than what you assumed they were experiencing? SMM gave me the language for that. Now I hear the problem everywhere. Every time a developer says "our users would have to be idiots to not understand how to..." — that's not a user problem. That's a question problem.</p>
 
       <p>Most analytics practices measure outcomes. A funnel chart shows drop-off at step 3. A heatmap shows where users stop scrolling. But none of this tells you what gap the user was experiencing at that moment — and therefore none of it tells you what bridge to build. SMM is the diagnostic layer that sits underneath quantitative data and makes it actionable.</p>
 
@@ -169,8 +169,8 @@ pagetitle: "Method — The Six Gaps"
       </table>
 
       <div class="smm-callout-box">
-        <strong>The core argument</strong>
-        Data analytics and qualitative user research are not competing methods. They are sequential ones. Analytics surfaces the fact of a gap. SMM provides the methodology for diagnosing its nature. You cannot design a bridge without knowing the gap type. A decision gap, a confusion gap, and a barrier gap at the same funnel step require entirely different interventions.
+        <strong>Finding the Hypothesis When You Only Know the Question — Without Moving the Goal Posts</strong><br>
+        A talk in development for the Amsterdam data and analytics community. A talk for analysts who have learned to read data but not yet learned to question whether they asked for the right data in the first place.
       </div>
     </div>
   </details>
