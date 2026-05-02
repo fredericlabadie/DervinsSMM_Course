@@ -55,6 +55,16 @@
     };
   }
 
+  function sanitizeErrorMessage(err) {
+    const msg = String(err && err.message ? err.message : err || 'Unknown error');
+    if (/Failed to fetch|NetworkError|Load failed/i.test(msg)) return 'network/CORS/preflight failure';
+    if (/Could not parse response/i.test(msg)) return 'model returned non-JSON text';
+    if (/No generated text/i.test(msg)) return 'proxy returned no generated text';
+    const status = msg.match(/Rewriter API error:\s*(\d{3})/i);
+    if (status) return 'proxy returned HTTP ' + status[1];
+    return 'proxy/model error';
+  }
+
   // Proxy call via writersroom.fredericlabadie.com
   const PROXY_URL = 'https://writersroom.fredericlabadie.com/api/rewrite';
 
@@ -86,11 +96,18 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
       body: JSON.stringify({ prompt }),
     });
     if (!res.ok) {
-      const err = await res.text();
+      let err = '';
+      try {
+        const payload = await res.json();
+        err = payload && payload.error ? payload.error : JSON.stringify(payload);
+      } catch {
+        err = await res.text();
+      }
       throw new Error('Rewriter API error: ' + res.status + ' ' + err);
     }
     const data = await res.json();
     const text = Array.isArray(data) ? data[0].generated_text : data.generated_text || '';
+    if (!text) throw new Error('No generated text returned from proxy');
     const jsonMatch = text.match(/\{[\s\S]*\}/);
     if (!jsonMatch) throw new Error('Could not parse response from model');
     return JSON.parse(jsonMatch[0]);
@@ -200,7 +217,8 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
       } catch (err) {
         console.error('Rewriter error:', err);
         result = buildFallbackRewrite(q);
-        const errHint = el('div', 'rewriter-label', { text: 'AI unavailable — showing heuristic rewrite.' });
+        const reason = sanitizeErrorMessage(err);
+        const errHint = el('div', 'rewriter-label', { text: 'AI unavailable — showing heuristic rewrite. Reason: ' + reason + '.' });
         errHint.style.cssText = 'color:#7c2424;font-size:10px;margin-bottom:8px';
         output.appendChild(errHint);
       }
