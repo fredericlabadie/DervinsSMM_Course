@@ -1,6 +1,6 @@
 # ForAI.md — Dervin's SMM Course
 *Context for Claude, ChatGPT, and any AI agent working on this project*
-*Last updated: May 2026 — theory modularisation pass in progress*
+*Last updated: May 2026 — cohesion review pass in progress*
 
 ---
 
@@ -58,36 +58,42 @@ _quarto.yml              ← project config, site-url, fonts, includes; renders 
 custom.scss              ← full visual design (DO NOT modify without reading carefully)
 _includes/header.html    ← persistent nav header injected into every page
 _includes/footer.html    ← persistent footer with attribution and nav links
-bridge.qmd               ← orientation / entry page
+bridge.qmd               ← visible page label: Orientation; URL remains bridge.html
 theory.qmd               ← small wrapper; includes theory/*.qmd modules
 theory/*.qmd             ← theory sections; edit these instead of a large raw-HTML file
-method.qmd               ← practitioner gap labels, analytics applications, practice projects
-fieldwork.qmd            ← MMTLI protocol, worked examples, ethics
-index.qmd                ← question rewriter tool and active-recall practice
+method.qmd               ← practitioner gap labels, MMTLI, neutral questioning, analysis protocol, analytics applications
+fieldwork.qmd            ← worked scenarios, practice projects, ethics, applied examples
+index.qmd                ← visible page label: Practice; homepage, question rewriter, and active-recall practice
 js/smm-data.js           ← support data: practitioner gap labels, scenarios, local rewrite examples
 js/smm-rewriter.js       ← rewriter logic: local match → proxy AI → heuristic fallback
 smm_guide.qmd            ← legacy single-file version (not rendered; not maintained source)
 legacy/README.md         ← explains legacy/archive status
 ACCURACY_REMEDIATION.md  ← durable academic-review state log
+COHESION_REVIEW.md       ← durable navigation/page-flow review
 ```
 
 **Current rendered pages in _quarto.yml:**
 ```
-index.qmd
-bridge.qmd
-theory.qmd
-method.qmd
-fieldwork.qmd
+index.qmd      → practice / homepage
+theory.qmd     → theory
+method.qmd     → method
+fieldwork.qmd  → fieldwork
+bridge.qmd     → orientation
+```
+
+**Visible navigation order:**
+```
+Orientation · Theory · Method · Practice · Fieldwork
 ```
 
 **Theory module map:**
 ```
 theory/01-hero.qmd
+theory/06-sgbo.qmd        ← rendered second to preserve Plate II display order
 theory/02-assumptions.qmd
 theory/03-sense-unmaking.qmd
 theory/04-transmission-model.qmd
 theory/05-comparative-analysis.qmd
-theory/06-sgbo.qmd
 theory/07-bibliography.qmd
 theory/08-in-memoriam.qmd
 ```
@@ -132,6 +138,8 @@ GitHub Actions workflow (.github/workflows/render-deploy.yml) runs `quarto rende
 
 **Practitioner top layer + academic depth:** The intended structure is a practitioner-facing guide on top, with academic caveats and primary-source reading paths beneath. Preserve the direct, practical voice, but use short academic notes when a course heuristic is being used.
 
+**Page cohesion:** The visible navigation uses Orientation → Theory → Method → Practice → Fieldwork. `index.qmd` remains the homepage because the Question Rewriter is the main interactive feature, but `bridge.qmd` is the conceptual orientation page. Keep this distinction clear in docs and visible copy.
+
 **Gap labels / six-gap framework:** The course keeps six labels because they are useful for UX, analytics, and product research. They are described as a practitioner heuristic grounded where possible in Dervin's movement-state / stop framing. Do not call them "Dervin's taxonomy." Decision, barrier, problematic, spin-out, and washout are better grounded in accessible primary-source discussions; **Role** is retained as an applied course extension.
 
 **S-G-B-O:** Situation → Gap → Bridge → Outcome is presented as a course teaching shorthand / practitioner model. Do not imply that all stages of Dervin's work used the exact same four-part SGBO formulation.
@@ -160,8 +168,9 @@ Brenda Dervin (Ohio State University) is the intellectual source of the theoreti
 
 ## What Remains To Do
 
-- [ ] Run `quarto render` locally after the theory-module refactor.
-- [ ] Check `theory.html` visually after render, especially SVG/callout/table spacing.
+- [ ] Run `quarto render` locally after cohesion edits.
+- [ ] Check `theory.html` visually, especially SVG/callout/table spacing.
+- [ ] Check `bridge.html`/Orientation wording after render.
 - [ ] Test mobile rendering at 320px.
 - [ ] Verify $lime (#c4ff3a) does not bleed into light paper sections.
 - [ ] Resolve Dervin (1983) page-range discrepancy against the physical book or a library scan: some records list pp. 153–183; PhilPapers lists pp. 155–183.
