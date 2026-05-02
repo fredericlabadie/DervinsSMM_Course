@@ -14,15 +14,16 @@ Dervin understood something most researchers spend careers avoiding: the questio
 
 ## What It Is
 
-A four-page interactive site covering Sense-Making Methodology in full — theory, method, applied practice, and a working question rewriter. Built with Quarto, deployed via GitHub Actions to GitHub Pages.
+A five-page interactive site covering Sense-Making Methodology in full — orientation, theory, method, fieldwork, applied practice, and a working question rewriter. Built with Quarto, deployed via GitHub Actions to GitHub Pages.
 
-**Four sections:**
-- **Bridge** — orientation and entry point
-- **Theory** — S-G-B-O framework, gap taxonomy, seven philosophical assumptions, full bibliography, in memoriam
-- **Method** — six gap types, analytics and digital product applications, UX telemetry + SMM protocol, practice projects
-- **Fieldwork** — MMTLI protocol, neutral questioning, worked examples, ethics, practice template
+**Rendered pages:**
+- **Practice / Question Rewriter** (`index.qmd`) — the primary interactive tool
+- **Bridge** (`bridge.qmd`) — orientation and entry point
+- **Theory** (`theory.qmd`) — S-G-B-O framework, seven-point synthesis of assumptions, bibliography, in memoriam
+- **Method** (`method.qmd`) — practitioner gap labels, analytics and digital product applications, UX telemetry + SMM protocol
+- **Fieldwork** (`fieldwork.qmd`) — MMTLI protocol, neutral questioning, worked examples, ethics, practice template
 
-**The Question Rewriter** — paste any survey or UX question, get it rewritten using SMM principles. Three-tier system: local example matching → HuggingFace Zephyr-7B proxy → heuristic fallback. Works without any login or setup.
+**The Question Rewriter** — paste any survey or UX question, get it rewritten using SMM principles. Three-tier system: local example matching → HuggingFace Zephyr-7B proxy → heuristic fallback. Works without any login or setup. The rewriter's gap labels are practitioner prompts for analysis, not a canonical Dervin taxonomy.
 
 ---
 
@@ -37,15 +38,15 @@ Every time a developer says "our users would have to be idiots to not understand
 ## Contents
 
 - Origins and intellectual history of SMM
-- 7 philosophical assumptions (synthesised across Dervin 1983, 1992, 1998)
-- Full S-G-B-O framework (Situation → Gap → Bridge → Outcome)
-- Six gap types with structural characterisations
+- 7 philosophical assumptions as a course synthesis across Dervin 1983, 1992, 1998 — not a direct enumeration from one paper
+- S-G-B-O as a practitioner teaching model, with attention to earlier situation-gap-use/help formulations and later bridge/outcome language
+- Practitioner gap labels / gap pictures for applied analysis
 - Sense-making vs. sense-unmaking
 - SMM vs. information-transfer models
 - Micro-Moment Time-Line Interview (MMTLI) protocol in full
 - Neutral questioning technique
 - Analytics and digital product applications — funnel analysis, UX telemetry, A/B testing interpretation
-- Practice projects — 4 structured exercises
+- Practice projects and active-recall material
 - Comparative analysis: Weick, Design Thinking, User Journey Mapping, Systems Thinking, Ethnographic Interviewing
 - Ethical research design for SMM studies
 - Full bibliography with primary and contextual sources
@@ -68,7 +69,7 @@ Every time a developer says "our users would have to be idiots to not understand
 
 ## Technical
 
-Built with [Quarto](https://quarto.org). Renders to static HTML via GitHub Actions on every push to main. The Question Rewriter proxies HuggingFace Zephyr-7B through a serverless function — no credentials needed to use the site.
+Built with [Quarto](https://quarto.org). Renders to static HTML via GitHub Actions on every push to main. The Question Rewriter proxies HuggingFace Zephyr-7B through a serverless function in the separate Writers Room/Vercel project — no credentials are stored in this repo or needed to use the site.
 
 ```bash
 # Render locally
@@ -82,7 +83,7 @@ quarto preview
 
 ## Attribution
 
-Sense-Making Methodology is the intellectual work of Brenda Dervin (Ohio State University, early 1970s–2023). This site is an independent interpretive resource — commentary, application, and working instrument — not a reproduction of her texts.
+Sense-Making Methodology is the intellectual work of Brenda Dervin (Ohio State University, early 1970s–2023). This site is an independent interpretive resource — commentary, application, and working instrument — not a reproduction of her texts. The theoretical foundation derives from her published work; practitioner examples, teaching heuristics, diagrams, and applications are independent interpretations.
 
 ---
 
