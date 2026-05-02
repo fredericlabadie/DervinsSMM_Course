@@ -1,6 +1,6 @@
 # ForAI.md — Dervin's SMM Course
 *Context for Claude, ChatGPT, and any AI agent working on this project*
-*Last updated: May 2026 — accuracy/dervin-smm-remediation branch*
+*Last updated: May 2026 — academic accuracy review in progress*
 
 ---
 
@@ -66,6 +66,7 @@ index.qmd                ← question rewriter tool and active-recall practice
 js/smm-data.js           ← support data: practitioner gap labels, scenarios, local rewrite examples
 js/smm-rewriter.js       ← rewriter logic: local match → proxy AI → heuristic fallback
 smm_guide.qmd            ← legacy single-file version (not rendered in live site)
+ACCURACY_REMEDIATION.md  ← durable academic-review state log
 ```
 
 **Current rendered pages in _quarto.yml:**
@@ -127,17 +128,21 @@ GitHub Actions workflow (.github/workflows/render-deploy.yml) runs `quarto rende
 
 ---
 
-## Content Accuracy Notes
+## Content Accuracy Status
 
 **Practitioner top layer + academic depth:** The intended structure is a practitioner-facing guide on top, with academic caveats and primary-source reading paths beneath. Preserve the direct, practical voice, but use short academic notes when a course heuristic is being used.
 
-**Gap labels / six-gap framework:** The course currently keeps six labels because they are useful for UX, analytics, and product research. They must be described as a practitioner heuristic grounded where possible in Dervin's movement-state / stop framing. Do not call them "Dervin's taxonomy." Decision, barrier, problematic, spin-out, and washout are better grounded in accessible primary-source discussions; **Role** is retained as an applied course extension.
+**Gap labels / six-gap framework:** The course keeps six labels because they are useful for UX, analytics, and product research. They are described as a practitioner heuristic grounded where possible in Dervin's movement-state / stop framing. Do not call them "Dervin's taxonomy." Decision, barrier, problematic, spin-out, and washout are better grounded in accessible primary-source discussions; **Role** is retained as an applied course extension.
 
-**S-G-B-O:** Treat Situation → Gap → Bridge → Outcome as a practitioner teaching model. Early Dervin formulations foreground situations, gaps, and uses/helps; later writing more explicitly includes bridge/outcome language. Do not imply that all stages of Dervin's work used the exact same four-part SGBO formulation.
+**S-G-B-O:** Situation → Gap → Bridge → Outcome is now presented as a course teaching shorthand / practitioner model. `theory.qmd` notes that early Dervin formulations often foreground situations, gaps, and uses/helps, while later summaries and applications make bridge/outcome language more explicit. Do not imply that all stages of Dervin's work used the exact same four-part SGBO formulation.
 
-**The seven assumptions:** In theory.qmd these should be described as a seven-point course synthesis across Dervin (1983, 1992, 1998), not a direct enumeration from one paper.
+**The seven assumptions:** `theory.qmd` now describes these as a seven-point course synthesis across Dervin (1983, 1992, 1998), not a direct enumeration from one paper.
 
-**Sense-unmaking:** Real in Dervin's later work, but recursive loop diagrams and product analytics applications are course interpretations. Label them as interpretive visualisations/applications where appropriate.
+**Sense-unmaking:** `theory.qmd` now frames sense-unmaking as later Dervin work while labeling product/analytics examples and the recursive loop diagram as course applications / visualisations.
+
+**Transmission model:** `theory.qmd` has softened absolutist language. The current preferred claim is that a transfer-only design frame is inadequate, not that every information-transfer design necessarily fails.
+
+**Fieldwork examples:** `fieldwork.qmd` now marks rewrite examples and scenarios as applied translations using practitioner labels. It also tells practitioners to return to participants' own words and avoid forcing stories into labels too early.
 
 **Needs language:** Do not simply say "study gaps, not needs" as if Dervin abolished needs language. Prefer: study needs as situationally constructed gaps or questions, not static topic categories.
 
@@ -170,12 +175,12 @@ Brenda Dervin (Ohio State University) is the intellectual source of the theoreti
 
 ## What Remains To Do
 
-- [ ] Complete theory.qmd remediation: model chronology, seven-point synthesis framing, sense-unmaking interpretation, transmission-model softening
-- [ ] Review fieldwork.qmd for applied-example labels and MMTLI source notes
-- [ ] Verify bibliography citations against JSTOR/Google Scholar before sharing with academic audiences
-- [ ] Test mobile rendering at 320px
-- [ ] Verify $lime (#c4ff3a) does not bleed into light paper sections
-- [ ] Submit talk proposal to Netherlands dbt Meetup and DDMA Digital Analytics Summit
+- [ ] Verify bibliography citations against JSTOR/Google Scholar before sharing with academic audiences, especially Dervin (1998), Dervin (1999), and the Dervin & Foreman-Wernet reader.
+- [ ] Add or verify stable primary-source links where public versions exist.
+- [ ] Decide whether `smm_guide.qmd` should be updated as a legacy/PDF source or explicitly archived as no longer maintained.
+- [ ] Test mobile rendering at 320px.
+- [ ] Verify $lime (#c4ff3a) does not bleed into light paper sections.
+- [ ] Submit talk proposal to Netherlands dbt Meetup and DDMA Digital Analytics Summit.
 
 ---
 
