@@ -1,6 +1,6 @@
 # ForAI.md — Dervin's SMM Course
 *Context for Claude, ChatGPT, and any AI agent working on this project*
-*Last updated: May 2026 — bibliography verification pass in progress*
+*Last updated: May 2026 — theory modularisation pass in progress*
 
 ---
 
@@ -59,13 +59,15 @@ custom.scss              ← full visual design (DO NOT modify without reading c
 _includes/header.html    ← persistent nav header injected into every page
 _includes/footer.html    ← persistent footer with attribution and nav links
 bridge.qmd               ← orientation / entry page
-theory.qmd               ← S-G-B-O framing, seven-point synthesis, bibliography, in memoriam
+theory.qmd               ← small wrapper; includes theory/*.qmd modules
+theory/*.qmd             ← theory sections; edit these instead of a large raw-HTML file
 method.qmd               ← practitioner gap labels, analytics applications, practice projects
 fieldwork.qmd            ← MMTLI protocol, worked examples, ethics
 index.qmd                ← question rewriter tool and active-recall practice
 js/smm-data.js           ← support data: practitioner gap labels, scenarios, local rewrite examples
 js/smm-rewriter.js       ← rewriter logic: local match → proxy AI → heuristic fallback
-smm_guide.qmd            ← legacy single-file version (not rendered in live site)
+smm_guide.qmd            ← legacy single-file version (not rendered; not maintained source)
+legacy/README.md         ← explains legacy/archive status
 ACCURACY_REMEDIATION.md  ← durable academic-review state log
 ```
 
@@ -78,22 +80,20 @@ method.qmd
 fieldwork.qmd
 ```
 
+**Theory module map:**
+```
+theory/01-hero.qmd
+theory/02-assumptions.qmd
+theory/03-sense-unmaking.qmd
+theory/04-transmission-model.qmd
+theory/05-comparative-analysis.qmd
+theory/06-sgbo.qmd
+theory/07-bibliography.qmd
+theory/08-in-memoriam.qmd
+```
+
 **Render pipeline:**
 GitHub Actions workflow (.github/workflows/render-deploy.yml) runs `quarto render` on push to main. Output goes to _site/. GitHub Pages serves from _site/. No build server — fully static after render.
-
-**Fonts (Google Fonts, loaded in _quarto.yml):**
-- Cormorant Garamond — display headings, large italic treatment
-- EB Garamond — secondary display
-- IBM Plex Serif — body text
-- IBM Plex Mono — labels, eyebrows, monospace UI elements
-
-**Colour palette (defined in custom.scss):**
-- $paper-warm: #dde0cf — sage-green page background
-- $ink: #0c1410 — primary text
-- $copper: #a06a3a / $copper-deep: #7a4d22 — accent, labels, links
-- $ivy: #0f1a14 — dark section backgrounds
-- $lime: #c4ff3a — active state only in dark ivy nav (use sparingly)
-- $rule: rgba(160,106,58,.25) — borders and dividers
 
 ---
 
@@ -134,38 +134,21 @@ GitHub Actions workflow (.github/workflows/render-deploy.yml) runs `quarto rende
 
 **Gap labels / six-gap framework:** The course keeps six labels because they are useful for UX, analytics, and product research. They are described as a practitioner heuristic grounded where possible in Dervin's movement-state / stop framing. Do not call them "Dervin's taxonomy." Decision, barrier, problematic, spin-out, and washout are better grounded in accessible primary-source discussions; **Role** is retained as an applied course extension.
 
-**S-G-B-O:** Situation → Gap → Bridge → Outcome is now presented as a course teaching shorthand / practitioner model. `theory.qmd` notes that early Dervin formulations often foreground situations, gaps, and uses/helps, while later summaries and applications make bridge/outcome language more explicit. Do not imply that all stages of Dervin's work used the exact same four-part SGBO formulation.
+**S-G-B-O:** Situation → Gap → Bridge → Outcome is presented as a course teaching shorthand / practitioner model. Do not imply that all stages of Dervin's work used the exact same four-part SGBO formulation.
 
-**The seven assumptions:** `theory.qmd` now describes these as a seven-point course synthesis across Dervin (1983, 1992, 1998), not a direct enumeration from one paper.
+**The seven assumptions:** `theory/02-assumptions.qmd` describes these as a seven-point course synthesis across Dervin (1983, 1992, 1998), not a direct enumeration from one paper.
 
-**Sense-unmaking:** `theory.qmd` now frames sense-unmaking as later Dervin work while labeling product/analytics examples and the recursive loop diagram as course applications / visualisations.
+**Sense-unmaking:** `theory/03-sense-unmaking.qmd` frames sense-unmaking as later Dervin work while labeling product/analytics examples as course applications.
 
-**Transmission model:** `theory.qmd` has softened absolutist language. The current preferred claim is that a transfer-only design frame is inadequate, not that every information-transfer design necessarily fails.
+**Transmission model:** `theory/04-transmission-model.qmd` uses the preferred claim that a transfer-only design frame is inadequate, not that every information-transfer design necessarily fails.
 
-**Fieldwork examples:** `fieldwork.qmd` now marks rewrite examples and scenarios as applied translations using practitioner labels. It also tells practitioners to return to participants' own words and avoid forcing stories into labels too early.
+**Fieldwork examples:** `fieldwork.qmd` marks rewrite examples and scenarios as applied translations using practitioner labels. It also tells practitioners to return to participants' own words and avoid forcing stories into labels too early.
 
-**Bibliography:** `README.md` now contains a verified citation table for the core Dervin sources. Dervin (1998) and Dervin (1999) have DOI-backed records; the 2003 reader has library-backed publication, ISBN, and page-count details. `theory.qmd` may still need its visible bibliography table mirrored to the same precision.
+**Bibliography:** `README.md` and `theory/07-bibliography.qmd` contain verified citation tables for the core Dervin sources. Dervin (1998) and Dervin (1999) have DOI-backed records; the 2003 reader has library-backed publication, ISBN, and page-count details.
 
 **Needs language:** Do not simply say "study gaps, not needs" as if Dervin abolished needs language. Prefer: study needs as situationally constructed gaps or questions, not static topic categories.
 
-**Citations:** Use light author-date links to primary sources where possible. The bibliography carries a caveat to verify against library databases before formal academic use.
-
 **The in memoriam:** Dates should be Brenda Dervin (1938–2023); institutional home Ohio State University.
-
----
-
-## Personal Voice on the Site
-
-Three moments of personal voice are intentionally placed. Do not rewrite or generalise these — they are specific and autobiographical:
-
-**bridge.qmd opening:**
-"Dervin understood something most researchers spend careers avoiding: the question is the problem, not the user. She spent fifty years building a methodology for asking better ones. When she died in 2023 I wanted to make sure it reached the people whose research would be different if they'd ever encountered it."
-
-**method.qmd analytics plate:**
-"Sense-making is concrete once you see it. Every survey question that asks 'was this helpful?' is asking the researcher's question, not the user's. Early in my career I kept running into the gap between what we measured and what users were actually experiencing. At Stanley Steemer, when I built the UX program from scratch, it was the first thing I had to solve..."
-
-**method.qmd talk concept:**
-"Finding the Hypothesis When You Only Know the Question — Without Moving the Goal Posts. A talk for analysts who have learned to read data but not yet learned to question whether they asked for the right data in the first place."
 
 ---
 
@@ -177,12 +160,12 @@ Brenda Dervin (Ohio State University) is the intellectual source of the theoreti
 
 ## What Remains To Do
 
-- [ ] Mirror verified bibliography details from `README.md` into `theory.qmd` if the public site bibliography should carry the same precision.
-- [ ] Resolve Dervin (1983) page-range discrepancy against the physical book or a library scan: some records list pp. 153–183; PhilPapers lists pp. 155–183.
-- [ ] Decide whether `smm_guide.qmd` should be updated as a legacy/PDF source or explicitly archived as no longer maintained.
+- [ ] Run `quarto render` locally after the theory-module refactor.
+- [ ] Check `theory.html` visually after render, especially SVG/callout/table spacing.
 - [ ] Test mobile rendering at 320px.
 - [ ] Verify $lime (#c4ff3a) does not bleed into light paper sections.
-- [ ] Submit talk proposal to Netherlands dbt Meetup and DDMA Digital Analytics Summit.
+- [ ] Resolve Dervin (1983) page-range discrepancy against the physical book or a library scan: some records list pp. 153–183; PhilPapers lists pp. 155–183.
+- [ ] If a maintained PDF is needed, create a new `print.qmd` from live modular sections rather than reviving `smm_guide.qmd`.
 
 ---
 

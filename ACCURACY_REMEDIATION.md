@@ -1,6 +1,6 @@
 # Academic Accuracy Remediation Log
 
-*Branch:* `accuracy/bibliography-verification`  
+*Branch:* `refactor/theory-modules`  
 *Project:* Dervin's Sense-Making Methodology course  
 *Purpose:* Keep a durable handoff record for academic accuracy review and iteration.
 
@@ -8,7 +8,7 @@
 
 ## Current status
 
-The site has completed a first academic-framing pass, a follow-up inspection of the theory and fieldwork pages, and a targeted bibliography verification pass. The current live-source posture is now:
+The site has completed a first academic-framing pass, a targeted bibliography verification pass, and a theory-page modularisation pass. The current live-source posture is now:
 
 - `README.md` describes the live site as a five-page Quarto site rather than a single `smm_guide.qmd` source.
 - `ForAI.md` documents the Claude / Claude Design / ChatGPT development timeline and the current runtime AI architecture.
@@ -17,9 +17,10 @@ The site has completed a first academic-framing pass, a follow-up inspection of 
 - `js/smm-rewriter.js` instructs the model to treat the labels as a course heuristic, not a canonical six-part Dervin taxonomy.
 - `index.qmd` warns that the rewriter is a practicum tool rather than an academic authority.
 - `_includes/footer.html` distinguishes Dervin's theoretical foundation from independent practitioner examples, teaching heuristics, diagrams, and applications.
-- `theory.qmd` now presents SGBO as a course teaching shorthand, identifies the seven assumptions as a course synthesis, softens the transmission-model critique, and labels the recursive loop as a course visualisation.
-- `fieldwork.qmd` now frames worked scenarios and rewrite examples as applied translations using practitioner labels, not formal Dervin categories.
-- `README.md` now contains verified citation details for the core primary-source list.
+- `theory.qmd` is now a small include wrapper over `theory/*.qmd`, making future academic and bibliography edits safer.
+- `theory/07-bibliography.qmd` now mirrors the verified citation details from `README.md`.
+- `fieldwork.qmd` frames worked scenarios and rewrite examples as applied translations using practitioner labels, not formal Dervin categories.
+- `legacy/README.md` marks `smm_guide.qmd` as archival / not maintained source.
 
 ---
 
@@ -37,31 +38,25 @@ This keeps the practical value while avoiding the strongest academic misalignmen
 
 ## Theory-page remediation status
 
-`theory.qmd` has already addressed the highest-risk conceptual issues:
+The theory page is now modular:
 
-- SGBO is framed as a **course teaching shorthand**, not a timeless exact formula across all stages of Dervin's writing.
-- The page notes that earlier Dervin formulations foreground situations, gaps, and uses/helps, while later summaries and applications make bridge/outcome language more explicit.
-- The "seven assumptions" are explicitly named as a **course synthesis across Dervin (1983, 1992, 1998)** rather than a direct enumeration from one source.
-- Sense-unmaking is described as later Dervin work, while product/analytics examples are labeled as course applications.
-- The dark SGBO loop identifies the recursion as a **course visualisation**.
-- The transmission-model critique has been softened from absolutist language to the more defensible claim that a transfer-only design frame is inadequate.
+- `theory.qmd` — include wrapper only
+- `theory/01-hero.qmd` — page header, central metaphor, abstract front-matter card
+- `theory/02-assumptions.qmd` — seven-point course synthesis of Dervin's methodological stance
+- `theory/03-sense-unmaking.qmd` — later sense-unmaking framing and practitioner application
+- `theory/04-transmission-model.qmd` — SMM vs. transmission-model comparison
+- `theory/05-comparative-analysis.qmd` — neighbouring frameworks table
+- `theory/06-sgbo.qmd` — course S-G-B-O teaching shorthand and diagram
+- `theory/07-bibliography.qmd` — verified bibliography / recommended reading
+- `theory/08-in-memoriam.qmd` — Dervin memorial note
 
----
-
-## Fieldwork-page remediation status
-
-`fieldwork.qmd` has also addressed the main applied-risk areas:
-
-- Rewrite cards use **Practitioner labels** rather than claiming formal Dervin categories.
-- Worked scenarios are described as **course S-G-B-O analyses** and **applied translations for practice**.
-- Practice projects instruct users to apply practitioner labels only after the story is situated, avoiding premature classification.
-- Ethics guidance acknowledges the vulnerability created by MMTLI-style interviews and requires specific, renewable, non-coercive consent.
+This addresses the earlier connector problem where large raw-HTML files were being truncated and risky to edit.
 
 ---
 
 ## Bibliography verification status
 
-The core bibliography entries have been checked against targeted public bibliographic records and DOI/library pages. `README.md` now contains verified citation details for:
+The core bibliography entries have been checked against targeted public bibliographic records and DOI/library pages. `README.md` and `theory/07-bibliography.qmd` now contain verified citation details for:
 
 - Dervin (1983), “Information as a user construct: The relevance of perceived information needs to synthesis and interpretation.”
 - Dervin (1992), “From the mind’s eye of the user: The Sense-Making qualitative-quantitative methodology.”
@@ -74,27 +69,24 @@ Notes:
 
 - Dervin (1983) has a page-range discrepancy in secondary records: some list pp. 153–183; PhilPapers lists pp. 155–183. Keep a note until checked against the physical book or a library scan.
 - The 2003 reader has page-count discrepancies in retailer records; library records list xv, 397 pages and should be preferred.
-- Dervin (1998) and Dervin (1999) now have DOI-backed records.
+- Dervin (1998) and Dervin (1999) have DOI-backed records.
 
 ---
 
 ## Remaining work
 
-1. **Theory-page bibliography table**
-   - Mirror the verified citation details from `README.md` into `theory.qmd` if the visible site bibliography should carry the same precision.
-   - Because `theory.qmd` contains a large raw HTML block, update it carefully and render locally after editing.
+1. **Local render / visual QA**
+   - Run `quarto render` locally.
+   - Check `theory.html` after the modular include refactor.
+   - Check mobile rendering around 320px.
+   - Confirm `$lime` accent colour does not bleed into light paper sections.
 
 2. **Primary-source links**
    - Add or verify light links where stable public versions exist.
    - Avoid over-linking every sentence; prefer source notes at section level.
 
-3. **Local render / visual QA**
-   - Run `quarto render` locally.
-   - Check mobile rendering around 320px.
-   - Confirm `$lime` accent colour does not bleed into light paper sections.
-
-4. **Optional later pass**
-   - Decide whether `smm_guide.qmd` should be updated as a legacy/PDF source or explicitly archived as no longer maintained.
+3. **Optional later pass**
+   - If a maintained PDF is needed, create a new `print.qmd` that includes the live modular sections rather than reviving `smm_guide.qmd`.
 
 ---
 
