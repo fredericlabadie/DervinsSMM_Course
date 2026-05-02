@@ -19,7 +19,7 @@ A five-page interactive site covering Sense-Making Methodology in full — orien
 **Rendered pages:**
 - **Practice / Question Rewriter** (`index.qmd`) — the primary interactive tool
 - **Bridge** (`bridge.qmd`) — orientation and entry point
-- **Theory** (`theory.qmd`) — S-G-B-O framework, seven-point synthesis of assumptions, bibliography, in memoriam
+- **Theory** (`theory.qmd` + `theory/*.qmd`) — S-G-B-O framework, seven-point synthesis of assumptions, bibliography, in memoriam
 - **Method** (`method.qmd`) — practitioner gap labels, analytics and digital product applications, UX telemetry + SMM protocol
 - **Fieldwork** (`fieldwork.qmd`) — MMTLI protocol, neutral questioning, worked examples, ethics, practice template
 
@@ -51,6 +51,14 @@ Every time a developer says "our users would have to be idiots to not understand
 - Ethical research design for SMM studies
 - Full bibliography with primary and contextual sources
 - In memoriam: Brenda Dervin (1938–2023)
+
+---
+
+## Source structure
+
+The live site is intentionally modular. `theory.qmd` is now a small wrapper that includes smaller files under `theory/`, so academic and bibliography edits can be made without touching one large raw-HTML file.
+
+`smm_guide.qmd` is a legacy single-file guide retained for archival reference only. It is not rendered by `_quarto.yml` and should not be treated as maintained source. See `legacy/README.md`.
 
 ---
 
