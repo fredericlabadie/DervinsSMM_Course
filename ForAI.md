@@ -1,6 +1,6 @@
 # ForAI.md — Dervin's SMM Course
-*Context for Claude and any AI agent working on this project*
-*Last updated: May 2026*
+*Context for Claude, ChatGPT, and any AI agent working on this project*
+*Last updated: May 2026 — accuracy/dervin-smm-remediation branch*
 
 ---
 
@@ -27,22 +27,54 @@ The personal voice on the site reflects genuine career experience — not academ
 
 ---
 
+## AI Development History
+
+AI has been used in several roles. Do not collapse these into one generic implementation statement.
+
+1. **Initial course development — Claude**  
+   Claude was used to help draft the first version of the course, shape the pedagogical structure, and translate SMM into a practitioner-facing guide.
+
+2. **Design direction — Claude Design**  
+   Claude Design was used for visual direction, interface treatment, and the current design language.
+
+3. **Subsequent build iteration — Claude**  
+   Claude was used again for a later build pass, including site structure and implementation refinements.
+
+4. **Implementation review — ChatGPT**  
+   ChatGPT was used to evaluate implementation approaches and compare possible architectures.
+
+5. **Academic accuracy review and remediation — ChatGPT**  
+   ChatGPT is being used to review the site against Dervin's primary and secondary SMM literature and to revise places where the course overstates, collapses chronology, or presents practitioner heuristics as Dervin's own settled terminology.
+
+Final responsibility for content, interpretation, implementation, and citations remains with the author.
+
+---
+
 ## Architecture
 
-**Source files:**
+**Rendered source files:**
 ```
-_quarto.yml              ← project config, site-url, fonts, includes
+_quarto.yml              ← project config, site-url, fonts, includes; renders five QMD pages
 custom.scss              ← full visual design (DO NOT modify without reading carefully)
 _includes/header.html    ← persistent nav header injected into every page
 _includes/footer.html    ← persistent footer with attribution and nav links
-bridge.qmd               ← orientation / entry page (first thing visitors see)
-theory.qmd               ← S-G-B-O framework, gap taxonomy, bibliography, in memoriam
-method.qmd               ← gap types, analytics applications, practice projects
+bridge.qmd               ← orientation / entry page
+theory.qmd               ← S-G-B-O framing, seven-point synthesis, bibliography, in memoriam
+method.qmd               ← practitioner gap labels, analytics applications, practice projects
 fieldwork.qmd            ← MMTLI protocol, worked examples, ethics
-index.qmd                ← question rewriter tool (primary interactive feature)
-js/smm-data.js           ← all content data: flashcards, scenarios, local rewrite examples
+index.qmd                ← question rewriter tool and active-recall practice
+js/smm-data.js           ← support data: practitioner gap labels, scenarios, local rewrite examples
 js/smm-rewriter.js       ← rewriter logic: local match → proxy AI → heuristic fallback
 smm_guide.qmd            ← legacy single-file version (not rendered in live site)
+```
+
+**Current rendered pages in _quarto.yml:**
+```
+index.qmd
+bridge.qmd
+theory.qmd
+method.qmd
+fieldwork.qmd
 ```
 
 **Render pipeline:**
@@ -68,14 +100,8 @@ GitHub Actions workflow (.github/workflows/render-deploy.yml) runs `quarto rende
 
 **Aesthetic:** Academic rigour with practitioner accessibility. The design AI used a "witchy herbarium" concept — dark cabinet, botanical illustration quality, copper and sage palette — which works for this subject. Dervin herself had that energy: intellectually precise, pleasant, with an edge. The visual should carry that. Not a sterile textbook. Not a lifestyle brand.
 
-**What has been cleaned:**
-- All literal herbal/botanical copy removed from method.qmd (gap card Latin plant names replaced with structural characterisations)
-- Header stamp changed from HERBAL · ANNO MMXXVI · LABADIE to SENSE-MAKING · ANNO MMXXVI · LABADIE
-- Dead .hf-token-prompt CSS block removed from custom.scss
-- "Materia" section eyebrow replaced with "Discontinuities"
-
 **What should be preserved:**
-- The corner-bracket card styling on gap type cards
+- The corner-bracket card styling on gap label cards
 - The botanical SVG illustrations (.card-specimen class) — visual, not copy
 - The details.plate progressive disclosure pattern
 - The $ivy dark diagram sections for visual rhythm
@@ -89,7 +115,7 @@ GitHub Actions workflow (.github/workflows/render-deploy.yml) runs `quarto rende
 
 **How it works — three-tier fallback:**
 1. Local match — checks js/smm-data.js for example rewrites matching the input pattern. Instant, no API call.
-2. Proxy AI — calls https://writersroom.fredericlabadie.com/api/rewrite (Next.js serverless function in the Writers Room repo). Calls HuggingFace zephyr-7b-beta server-side. HF token stored in Vercel env vars — never in browser.
+2. Proxy AI — calls https://writersroom.fredericlabadie.com/api/rewrite (Next.js serverless function in the separate Writers Room repo). Calls HuggingFace zephyr-7b-beta server-side. HF token stored in Vercel env vars — never in browser.
 3. Heuristic fallback — if proxy fails, generates a reasonable SMM rewrite using pattern matching. Always produces output.
 
 **For AI agents working on this project:**
@@ -97,20 +123,27 @@ GitHub Actions workflow (.github/workflows/render-deploy.yml) runs `quarto rende
 - Do not modify the fetch URL in smm-rewriter.js without also updating the Writers Room API route
 - The token input UI has been intentionally removed — do not re-add it
 - Proxy endpoint: https://writersroom.fredericlabadie.com/api/rewrite (POST, body: { prompt: string })
+- The rewriter's gap labels are practitioner prompts for analysis, not an academic source or canonical Dervin taxonomy
 
 ---
 
 ## Content Accuracy Notes
 
-**The seven assumptions** in theory.qmd are a synthesis across Dervin (1983, 1992, 1998) — not a direct enumeration from any single paper. Noted inline. Do not present as a direct Dervin quotation.
+**Practitioner top layer + academic depth:** The intended structure is a practitioner-facing guide on top, with academic caveats and primary-source reading paths beneath. Preserve the direct, practical voice, but use short academic notes when a course heuristic is being used.
 
-**The 1972 date** has been corrected to "early 1970s" — methodology formalised in print from 1983.
+**Gap labels / six-gap framework:** The course currently keeps six labels because they are useful for UX, analytics, and product research. They must be described as a practitioner heuristic grounded where possible in Dervin's movement-state / stop framing. Do not call them "Dervin's taxonomy." Decision, barrier, problematic, spin-out, and washout are better grounded in accessible primary-source discussions; **Role** is retained as an applied course extension.
 
-**The in memoriam** gives her dates as 1938–2023 and institutional home as Ohio State University. Accurate.
+**S-G-B-O:** Treat Situation → Gap → Bridge → Outcome as a practitioner teaching model. Early Dervin formulations foreground situations, gaps, and uses/helps; later writing more explicitly includes bridge/outcome language. Do not imply that all stages of Dervin's work used the exact same four-part SGBO formulation.
 
-**Citations** in the bibliography carry a caveat to verify against library databases before formal academic use. Do not remove this caveat.
+**The seven assumptions:** In theory.qmd these should be described as a seven-point course synthesis across Dervin (1983, 1992, 1998), not a direct enumeration from one paper.
 
-**The NPS gap classification** in smm-data.js classifies NPS as a "washout" gap question. Defensible as pedagogy but not a precise taxonomic claim.
+**Sense-unmaking:** Real in Dervin's later work, but recursive loop diagrams and product analytics applications are course interpretations. Label them as interpretive visualisations/applications where appropriate.
+
+**Needs language:** Do not simply say "study gaps, not needs" as if Dervin abolished needs language. Prefer: study needs as situationally constructed gaps or questions, not static topic categories.
+
+**Citations:** Use light author-date links to primary sources where possible. The bibliography carries a caveat to verify against library databases before formal academic use.
+
+**The in memoriam:** Dates should be Brenda Dervin (1938–2023); institutional home Ohio State University.
 
 ---
 
@@ -131,12 +164,14 @@ Three moments of personal voice are intentionally placed. Do not rewrite or gene
 
 ## Attribution
 
-Brenda Dervin (Ohio State University) is the intellectual source of all theoretical content. The footer carries a formal attribution statement on every page. Do not remove or weaken this attribution.
+Brenda Dervin (Ohio State University) is the intellectual source of the theoretical foundation. The footer carries a formal attribution statement on every page. Do not remove or weaken this attribution. Practitioner examples, teaching heuristics, diagrams, and applications are independent interpretations.
 
 ---
 
 ## What Remains To Do
 
+- [ ] Complete theory.qmd remediation: model chronology, seven-point synthesis framing, sense-unmaking interpretation, transmission-model softening
+- [ ] Review fieldwork.qmd for applied-example labels and MMTLI source notes
 - [ ] Verify bibliography citations against JSTOR/Google Scholar before sharing with academic audiences
 - [ ] Test mobile rendering at 320px
 - [ ] Verify $lime (#c4ff3a) does not bleed into light paper sections

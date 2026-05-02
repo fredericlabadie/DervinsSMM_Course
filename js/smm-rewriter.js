@@ -1,5 +1,6 @@
-// SMM Question Rewriter — vanilla JS, HuggingFace Inference API
+// SMM Question Rewriter — vanilla JS, proxied HuggingFace-backed rewrite tool
 // Renders into a target container. Uses window.SMM_GAPS and window.SMM_REWRITES from smm-data.js.
+// The gap labels are course practitioner labels, not a canonical Dervin taxonomy.
 
 (function() {
   'use strict';
@@ -40,12 +41,12 @@
       original: input.trim(),
       diagnosis: [
         'Asks for an evaluation rather than situating a moment.',
-        'Reads as a ' + gap.label.toLowerCase() + '-gap framing — but the gap type isn\u2019t made explicit, so the data won\u2019t cleanly resolve.',
+        'Reads as a possible ' + gap.label.toLowerCase() + '-oriented gap picture — but the stop is not surfaced in the participant\u2019s own terms, so the data may not resolve cleanly.',
         'Does not invite both helps and hurts.',
       ],
       rewrite: 'Walk me through a specific moment when this came up for you. What were you trying to do, what did you reach for, and what got in the way?',
       gap: gapId,
-      why: 'Anchors the question in a specific micro-moment, leaves room for any bridge type the user actually used, and probes for hurts as well as helps — the structural moves SMM uses to surface a ' + gap.label.toLowerCase() + '-gap honestly.',
+      why: 'Anchors the question in a specific micro-moment, leaves room for any bridge type the user actually used, and probes for hurts as well as helps. The gap label is a practitioner prompt for analysis, not a substitute for the participant\u2019s own account of the discontinuity.',
       diff: [
         { kind: 'cut', text: input.trim() },
         { kind: 'add', text: 'Walk me through a specific moment when this came up for you.' },
@@ -59,13 +60,15 @@
 
   function buildSystemPrompt() {
     const gapList = (window.SMM_GAPS || []).map(g => g.label + ': ' + g.desc).join('; ');
-    return `You are an expert in Brenda Dervin's Sense-Making Methodology (SMM). A user will give you a research question (survey, UX interview, A/B test hypothesis, etc). Your job:
+    return `You are an expert practitioner using Brenda Dervin's Sense-Making Methodology (SMM). A user will give you a research question (survey, UX interview, A/B test hypothesis, etc). Your job:
+
+Important accuracy constraint: use the gap labels below as this course's practitioner heuristic. They are grounded where possible in Dervin's movement-state / stop framing, but they are not a canonical six-part Dervin taxonomy. Do not claim that Dervin herself published these exact six categories.
 
 1. DIAGNOSE: Give exactly 3 bullet points explaining what is wrong with the question from an SMM perspective. Focus on: what it presupposes, whether it asks about a moment or a generality, whether it leaves room for both helps and hurts.
 
 2. REWRITE: Rewrite the question using SMM neutral questioning principles — anchor a specific moment, leave the gap type open, probe for both bridge and hurt.
 
-3. GAP: Classify which of these 6 gap types the rewrite is designed to surface: ${gapList}
+3. GAP_LABEL: Suggest which practitioner gap label the rewrite may help surface: ${gapList}. Treat this as a tentative analytic label, not as the respondent's answer and not as a canonical taxonomy.
 
 4. WHY: In 1-2 sentences, explain why the rewrite produces more useful data than the original.
 
@@ -217,7 +220,7 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
         '**Original**', '> ' + lastResult.original, '',
         '**Diagnosis**', ...lastResult.diagnosis.map(d => '- ' + d), '',
         '**Rewrite**', '> ' + lastResult.rewrite, '',
-        '**Gap type:** ' + (gap ? gap.label : lastResult.gap) + (gap ? ' — ' + gap.desc : ''), '',
+        '**Practitioner gap label:** ' + (gap ? gap.label : lastResult.gap) + (gap ? ' — ' + gap.desc : ''), '',
         '**Why this works**', lastResult.why,
       ].join('\n');
       navigator.clipboard.writeText(md).then(() => {
@@ -258,7 +261,7 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
       s3h.append(el('span', 'step-n', { text: '04 · Rewrite' }), el('span', 'step-title', { text: 'SMM-neutral framing' }));
       const rBox = el('div', 'rewrite-box', { text: '\u201C' + r.rewrite + '\u201D' });
       const gapMeta = el('div', 'gap-meta');
-      const gapLabel = el('span', 'rewriter-label', { text: 'Designed to surface →' });
+      const gapLabel = el('span', 'rewriter-label', { text: 'Practitioner label →' });
       gapLabel.style.fontSize = '10px';
       const gapTag = el('span', 'gap-tag');
       gapTag.style.color = gapColor;

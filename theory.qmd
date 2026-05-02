@@ -18,8 +18,8 @@ pagetitle: "Theory — The Central Metaphor"
 
   <!-- Pull Quote -->
   <blockquote class="pull-quote">
-    "Information is not a thing. It is a verb — the moment a person constructs sense across a gap they cannot yet see across."
-    <span class="pull-quote-attr">— after Brenda Dervin, paraphrased</span>
+    "Information is not simply a thing transmitted intact. In Sense-Making, it becomes useful when a person constructs it into help for moving across a gap."
+    <span class="pull-quote-attr">— course paraphrase after Brenda Dervin</span>
   </blockquote>
 
   <!-- Plate I: The Central Metaphor -->
@@ -101,10 +101,10 @@ pagetitle: "Theory — The Central Metaphor"
   <details class="plate">
     <summary>
       <span class="plate-n">Plate III</span>
-      <span class="plate-title">The seven assumptions</span>
+      <span class="plate-title">Seven assumptions — course synthesis</span>
     </summary>
     <div class="plate-body">
-      <p>These are not optional background — they are constitutive of the methodology. Every design decision in SMM research follows from them. <em>Synthesised across Dervin (1983, 1992, 1998) — not a direct enumeration from any single paper.</em></p>
+      <p>These are not optional background — they are the premises this course uses to organise Dervin's methodological stance. Every design decision in SMM research should be checked against them. <em>Course synthesis across Dervin (1983, 1992, 1998) — not a direct enumeration from any single paper.</em></p>
 
       <div class="assumption">
         <span class="a-num">Assumption 01</span>
@@ -129,12 +129,12 @@ pagetitle: "Theory — The Central Metaphor"
       <div class="assumption">
         <span class="a-num">Assumption 05</span>
         <span class="a-title">Universal procedure; unique instance</span>
-        <p>Everyone sense-makes (universal), but the specific sense made is irreducibly unique to that person's situation and moment. This is what makes cross-case comparisons by gap type powerful — the structure is shared, the content is individual.</p>
+        <p>Everyone sense-makes (universal), but the specific sense made is irreducibly unique to that person's situation and moment. This is what makes cautious cross-case comparison possible — recurring structures can be compared, while the content remains situated and individual.</p>
       </div>
       <div class="assumption">
         <span class="a-num">Assumption 06</span>
         <span class="a-title">Subjectivity is datum, not noise</span>
-        <p>Confusion, emotion, and intuition are what SMM is designed to capture — not artefacts to be controlled for. When a participant says "I felt lost," that is primary data about a spin-out gap, not a measurement error.</p>
+        <p>Confusion, emotion, and intuition are what SMM is designed to capture — not artefacts to be controlled for. When a participant says "I felt lost," that is primary data about the stop they experienced, not a measurement error.</p>
       </div>
       <div class="assumption">
         <span class="a-num">Assumption 07</span>
@@ -151,13 +151,13 @@ pagetitle: "Theory — The Central Metaphor"
       <span class="plate-title">Sense-unmaking</span>
     </summary>
     <div class="plate-body">
-      <p>In her later work (primarily 1990s onward), Dervin added <strong>sense-unmaking</strong> — recognition that people must also <em>dismantle</em> existing sense structures. This is not the failure of sense-making. It is a constitutive part of it.</p>
+      <p>In later work, Dervin foregrounded <strong>sense-unmaking</strong> — the recognition that people may also need to <em>dismantle</em>, challenge, or loosen existing sense structures. This is not merely the failure of sense-making. It is part of how sense-making changes over time.</p>
 
-      <blockquote>People must forget, unlearn, challenge assumptions, and destabilise established understandings before new sense can be made.</blockquote>
+      <blockquote>Course paraphrase: people sometimes need to unlearn, challenge assumptions, or destabilise established understandings before new sense can be made.</blockquote>
 
-      <p>Sense-unmaking is particularly critical for: transformative learning, organisational change, critical consciousness, and creative work. In Dervin's later framework (1998), she connected sense-unmaking explicitly to power — dominant groups impose sense structures, and marginalised groups must unmake imposed sense to survive and resist.</p>
+      <p>Sense-unmaking is particularly relevant for transformative learning, organisational change, critical consciousness, and creative work. In later SMM writing, Dervin connects making and unmaking sense to power: some sense structures are imposed, and people may need to challenge or undo them in order to move.</p>
 
-      <p>For analytics practitioners: sense-unmaking is what happens when a redesign breaks established user habits. Users had working sense of the old interface. The redesign unmade that sense, creating new gaps. Support ticket spikes after a product launch are often sense-unmaking events — the telemetry shows the fact, SMM diagnoses the structure.</p>
+      <p>Course application for analytics practitioners: a redesign can disrupt users' established sense of an interface. Users had workable sense of the old design; the redesign may unsettle that sense and create new gaps. Support ticket spikes after a product launch are often worth reading this way: telemetry shows the event, and SMM helps ask what sense was unmade.</p>
 
       <div class="smm-callout-box warn">
         <strong>Common mistake</strong>
@@ -173,14 +173,14 @@ pagetitle: "Theory — The Central Metaphor"
       <span class="plate-title">SMM vs. the transmission model</span>
     </summary>
     <div class="plate-body">
-      <p>Dervin's core critique: the transmission model assumes meaning inheres in messages — that the same message means the same thing to all receivers. SMM demonstrates empirically this is false. Designing for information transfer is designing for failure.</p>
+      <p>Dervin's core critique: the transmission model assumes meaning inheres in messages — that the same message means the same thing to all receivers. SMM challenges that assumption by asking how people in different situations construct different helps, hindrances, and uses. A transfer-only design frame is therefore inadequate.</p>
 
       <table class="compare-table">
         <thead><tr><th>Dimension</th><th>Transmission Model</th><th>Sense-Making Methodology</th></tr></thead>
         <tbody>
           <tr><td>Ontology</td><td>Information exists independently as an objective thing</td><td>Information is constructed in the act of bridging — always relational</td></tr>
           <tr><td>Human role</td><td>Passive receiver / decoder</td><td>Active sense-maker constructing bridges</td></tr>
-          <tr><td>Model</td><td>Linear: Source → Message → Channel → Receiver</td><td>Recursive: Situation → Gap → Bridge → Outcome → New Situation</td></tr>
+          <tr><td>Model</td><td>Linear: Source → Message → Channel → Receiver</td><td>Situational and recursive: Situation → Gap → Bridge/Help → Outcome/Use → New Situation</td></tr>
           <tr><td>Unit of analysis</td><td>The message or information object</td><td>The gap: specific discontinuity in a specific situation</td></tr>
           <tr><td>Success</td><td>Accurate transmission: did the message arrive intact?</td><td>Effective bridging: did the person cross the gap in a way that helped?</td></tr>
           <tr><td>Context</td><td>Noise to be reduced</td><td>Constitutive: determines what a gap is and what bridges are possible</td></tr>
@@ -211,7 +211,7 @@ pagetitle: "Theory — The Central Metaphor"
     </div>
   </details>
 
-  <!-- SGBO Section Head (unchanged from original) -->
+  <!-- SGBO Section Head -->
   <div class="sgbo-section-head">
     <div class="sgbo-n">
       <svg width="56" height="56" viewBox="0 0 32 32" fill="none"><path d="M 16 2 L 16 14" stroke="#a06a3a" stroke-width="1.2"/><path d="M 16 14 Q 10 18, 8 28" stroke="#a06a3a" stroke-width="1" fill="none"/><path d="M 16 14 Q 22 18, 24 28" stroke="#a06a3a" stroke-width="1" fill="none"/><path d="M 16 14 L 16 28" stroke="#a06a3a" stroke-width="1"/><ellipse cx="13" cy="3" rx="2.5" ry="1.5" stroke="#a06a3a" stroke-width="0.8" fill="none"/><ellipse cx="19" cy="3" rx="2.5" ry="1.5" stroke="#a06a3a" stroke-width="0.8" fill="none"/></svg>
@@ -219,8 +219,14 @@ pagetitle: "Theory — The Central Metaphor"
     </div>
     <div>
       <h2 class="sgbo-title">Situation → Gap → Bridge → Outcome</h2>
-      <div class="sgbo-sub">The four stations of the recursive loop. Outcomes reshape situations; bridges may help, hurt, or grow new gaps.</div>
+      <div class="sgbo-sub">A course teaching shorthand for the movement from situation, through discontinuity, toward helps, hurts, uses, and new situations.</div>
     </div>
+  </div>
+
+
+  <div class="smm-callout-box" style="margin:24px 0;">
+    <strong>Academic note</strong>
+    Situation → Gap → Bridge → Outcome is the shorthand used in this course for teaching and practice. Dervin's early formulations often foreground situations, gaps, and uses/helps; later summaries and applications make bridge and outcome language more explicit. Read SGBO here as a practitioner map across Dervin's work, not as a claim that every period of her writing used the exact same four labels.
   </div>
 
   <!-- Plate II: The Constitution (dark diagram) -->
@@ -244,7 +250,7 @@ pagetitle: "Theory — The Central Metaphor"
           <span class="diag-station-n">· II · Gap</span>
           <span class="diag-station-label" style="color:#d4b86a">What stops you</span>
           <span class="diag-station-desc">The discontinuity. Question, confusion, barrier, dilemma.</span>
-          <div class="diag-hints"><span>· six structural shapes</span><span>· not a failure: the engine</span></div>
+          <div class="diag-hints"><span>· situated stops</span><span>· not a failure: the engine</span></div>
         </div>
         <div class="diag-station">
           <svg width="28" height="28" viewBox="0 0 32 32" fill="none"><path d="M16 2 C 8 8, 6 18, 16 30 C 26 18, 24 8, 16 2 Z" stroke="#5e9c6f" stroke-width="1.2"/><path d="M16 4 L 16 28" stroke="#5e9c6f" stroke-width="0.8"/></svg>
@@ -262,8 +268,8 @@ pagetitle: "Theory — The Central Metaphor"
         </div>
       </div>
       <div class="diag-arc">
-        The recursive arc — <span class="neon-hl">sense-unmaking</span>:
-        an outcome may destabilise existing sense, which becomes a new gap. The loop never closes.
+        The recursive arc — <span class="neon-hl">course visualisation</span>:
+        an outcome may help, hurt, or destabilise existing sense, becoming part of the next situation. The loop never closes.
       </div>
     </div>
   </div>
@@ -279,7 +285,7 @@ pagetitle: "Theory — The Central Metaphor"
 
       <div class="smm-callout-box" style="margin-bottom:20px;">
         <strong>Start here</strong>
-        Dervin, B. (1992). "From the mind's eye of the user: The sense-making qualitative-quantitative methodology." In J. D. Glazier & R. R. Powell (Eds.), <em>Qualitative Research in Information Management</em> (pp. 61–84). Englewood, CO: Libraries Unlimited. — The most accessible single-paper introduction. Full S-G-B-O articulation, methodological implications, and examples. If you read one thing, read this.
+        Dervin, B. (1992). "From the mind's eye of the user: The sense-making qualitative-quantitative methodology." In J. D. Glazier & R. R. Powell (Eds.), <em>Qualitative Research in Information Management</em> (pp. 61–84). Englewood, CO: Libraries Unlimited. — The most accessible single-paper introduction to the qualitative-quantitative methodology, situational questioning, gaps, and uses/helps. If you read one thing, read this.
       </div>
 
       <table class="compare-table">
@@ -288,7 +294,7 @@ pagetitle: "Theory — The Central Metaphor"
           <tr>
             <td>Dervin, B. (1983)</td>
             <td>"Information as a user construct: The relevance of perceived information needs to synthesis and interpretation." In S. Ward & L. Reed (Eds.), <em>Knowledge Structure and Use</em>. Philadelphia: Temple University Press.</td>
-            <td>Foundational statement. Introduces the gap-bridge metaphor and the critique of the transmission model. The paper that established SMM as a distinct paradigm.</td>
+            <td>Foundational statement. Introduces core Sense-Making premises, perceived information needs, and the critique of information-as-transmission. Foundational for the gap/bridge metaphor and later SMM formulations.</td>
           </tr>
           <tr>
             <td>Dervin, B., & Nilan, M. (1986)</td>

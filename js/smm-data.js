@@ -1,16 +1,18 @@
-// SMM core data — gap taxonomy, sample rewrites, content for the redesign.
+// Course practitioner gap labels, sample rewrites, and support content.
+// The labels below are a teaching heuristic grounded where possible in Dervin's
+// movement-state / stop framing. Do not describe them as a canonical Dervin taxonomy.
 // Plain global script so any direction can use it.
 
 window.SMM_GAPS = [
   { id: 'decision',   label: 'Decision',     hue: 265, color: '#6d3acd', desc: 'Facing a choice; unclear how to decide',          signal: '"I needed to choose between..."' },
   { id: 'barrier',    label: 'Barrier',      hue: 18,  color: '#b94a28', desc: 'External obstacle blocking movement',              signal: '"I couldn\u2019t get access to..."' },
   { id: 'problematic',label: 'Problematic',  hue: 350, color: '#a8324d', desc: 'Something wrong but unclear what',                 signal: '"Something felt off but I couldn\u2019t name it..."' },
-  { id: 'role',       label: 'Role',         hue: 200, color: '#2a6f97', desc: 'Unclear how to behave in a role/situation',        signal: '"I didn\u2019t know what I was supposed to do..."' },
+  { id: 'role',       label: 'Role',         hue: 200, color: '#2a6f97', desc: 'Course extension: unclear how to behave in a role/situation', signal: '"I didn\u2019t know what I was supposed to do..."' },
   { id: 'spinout',    label: 'Spin-out',     hue: 42,  color: '#a87a1f', desc: 'Total disorientation; no clear question',          signal: '"I had no idea where to start..."' },
   { id: 'washout',    label: 'Washout',      hue: 158, color: '#0d6e56', desc: 'Information received but doesn\u2019t address the gap', signal: '"I got a lot but none of it helped..."' },
 ];
 
-// Pre-built worked-example rewrites (illustrative — modeled on the QMD content).
+// Pre-built worked-example rewrites (illustrative — modeled on the course heuristic).
 window.SMM_REWRITES = [
   {
     id: 'pricing',
@@ -23,7 +25,7 @@ window.SMM_REWRITES = [
     ],
     rewrite: 'Walk me through the moment you were trying to decide which plan fit you. What did you turn to, and what made it harder?',
     gap: 'decision',
-    why: 'A decision-gap requires comparison and trade-off reasoning. The neutral framing surfaces what the user actually weighed, which bridges they tried (peers, the pricing page, support), and where the journey broke — not whether one artifact felt "clear" in the abstract.',
+    why: 'A decision-oriented gap picture points to comparison and trade-off reasoning. The neutral framing surfaces what the user actually weighed, which bridges they tried (peers, the pricing page, support), and where the journey broke — not whether one artifact felt "clear" in the abstract.',
     diff: [
       { kind: 'cut',  text: 'Did you find the pricing information clear?' },
       { kind: 'add',  text: 'Walk me through the moment you were trying to decide which plan fit you.' },
@@ -41,7 +43,7 @@ window.SMM_REWRITES = [
     ],
     rewrite: 'Think back to the last time you used us for something that mattered. What were you trying to do, what helped, and what got in the way?',
     gap: 'washout',
-    why: 'NPS asks for a generalized affective rating. The SMM rewrite anchors a specific micro-moment, lets the situation surface, and probes for both helps and hurts — which together identify washout (received but did not bridge).',
+    why: 'NPS asks for a generalized affective rating. The SMM rewrite anchors a specific micro-moment, lets the situation surface, and probes for both helps and hurts — which may reveal a washout pattern where something was received but did not bridge the operative gap.',
     diff: [
       { kind: 'cut',  text: 'How likely are you to recommend us to a friend?' },
       { kind: 'add',  text: 'Think back to the last time you used us for something that mattered.' },
@@ -59,7 +61,7 @@ window.SMM_REWRITES = [
     ],
     rewrite: 'Tell me about the last time you needed to get something out of the product to use elsewhere. What were you trying to accomplish, and how did you actually do it?',
     gap: 'role',
-    why: 'Often a "low-adoption" finding hides a role-gap: users do not know that exporting is part of how they\u2019re supposed to work with the tool, or they\u2019ve already constructed a different bridge (screenshot, copy/paste, a colleague). The rewrite finds the actual workflow, not the assumed one.',
+    why: 'Low adoption may indicate a role-oriented applied gap: users may not see exporting as part of how they are supposed to work with the tool, or they may have already constructed another bridge (screenshot, copy/paste, a colleague). The rewrite finds the actual workflow, not the assumed one.',
     diff: [
       { kind: 'cut',  text: 'Why don\u2019t users adopt the new export feature?' },
       { kind: 'add',  text: 'Tell me about the last time you needed to get something out of the product to use elsewhere.' },
@@ -95,7 +97,7 @@ window.SMM_REWRITES = [
     ],
     rewrite: 'Walk me through your first week. Where did you feel completely lost, and what did you do about it?',
     gap: 'spinout',
-    why: 'Onboarding failures are often spin-out gaps: total disorientation with no clear question to ask. The rewrite explicitly invites that signal to surface, and probes the bridges (asking a colleague, finding a doc, giving up and waiting) the new hire actually built.',
+    why: 'Onboarding failures often present as spin-out: total disorientation with no clear question to ask. The rewrite invites that signal to surface and probes the bridges (asking a colleague, finding a doc, giving up and waiting) the new hire actually built.',
     diff: [
       { kind: 'cut',  text: 'Was the onboarding helpful?' },
       { kind: 'add',  text: 'Walk me through your first week.' },
@@ -113,7 +115,7 @@ window.SMM_REWRITES = [
     ],
     rewrite: 'When you think about your role after the merger, what is the question you keep coming back to that nobody has answered?',
     gap: 'role',
-    why: 'Post-merger employees overwhelmingly carry role-gaps and trust-gaps, not information-gaps. Asking for the unanswered question surfaces the gap directly, in employees\u2019 own words, and lets communications be designed as bridges rather than broadcasts.',
+    why: 'Post-merger employees often carry role-oriented and trust-oriented gaps, not simply information gaps. Asking for the unanswered question surfaces the gap directly, in employees\u2019 own words, and lets communications be designed as bridges rather than broadcasts.',
     diff: [
       { kind: 'cut',  text: 'How can we communicate the strategy more clearly?' },
       { kind: 'add',  text: 'When you think about your role after the merger,' },
@@ -124,7 +126,7 @@ window.SMM_REWRITES = [
 
 // IA — sections of the site, used by all directions for the chapter scaffold.
 window.SMM_SECTIONS = [
-  { n: '01', id: 'core',        title: 'Core Class',            sub: 'Origins, S\u2011G\u2011B\u2011O, gap taxonomy' },
+  { n: '01', id: 'core',        title: 'Core Class',            sub: 'Origins, S\u2011G\u2011B\u2011O, practitioner gap labels' },
   { n: '02', id: 'visual',      title: 'Visual Model',          sub: 'Diagrams, recursive loop, gap anatomy' },
   { n: '03', id: 'method',      title: 'Methodology',           sub: 'MMTLI, neutral questioning, analysis' },
   { n: '04', id: 'applied',     title: 'Applied Practice',      sub: 'UX, strategy, comms, decisions, orgs' },
@@ -142,7 +144,7 @@ window.SMM_SECTIONS = [
 // One "teaching moment" per module so the page can preview depth without dumping content.
 window.SMM_MODULE_PREVIEWS = {
   core: {
-    learn: ['Origins (early 1970s) and the post-positivist turn', 'The S-G-B-O scaffold and why it\u2019s recursive', 'Six structural gap types and how to spot each'],
+    learn: ['Origins (early 1970s) and the post-positivist turn', 'The S-G-B-O scaffold and why it\u2019s recursive', 'Practitioner gap labels and how to use them cautiously'],
     moment: { kind: 'definition', term: 'Sense-Making', body: 'Verbing, not noun. The continuous activity of constructing bridges across discontinuities to move through time-space.' },
     duration: '40 min',
   },
@@ -157,8 +159,8 @@ window.SMM_MODULE_PREVIEWS = {
     duration: '90 min',
   },
   applied: {
-    learn: ['Diagnosing UX research questions', 'Re-framing strategy and comms problems', 'Spotting role-gaps in org dynamics'],
-    moment: { kind: 'caution', term: 'Watch for', body: 'Most "communication" problems are role-gaps and trust-gaps wearing information-gap clothing.' },
+    learn: ['Diagnosing UX research questions', 'Re-framing strategy and comms problems', 'Spotting role-oriented applied gaps in org dynamics'],
+    moment: { kind: 'caution', term: 'Watch for', body: 'Most "communication" problems are role-oriented and trust-oriented gaps wearing information-gap clothing.' },
     duration: '60 min',
   },
   analytics: {
@@ -193,7 +195,7 @@ window.SMM_MODULE_PREVIEWS = {
   },
   rewriter: {
     learn: ['Use the question rewriter on real research', 'Save and share rewrites', 'Build a personal rewrite library'],
-    moment: { kind: 'instrument', term: 'Practicum', body: 'Paste any survey, interview, or strategy question. Receive diagnosis, transformation, and gap classification \u2014 instantly.' },
+    moment: { kind: 'instrument', term: 'Practicum', body: 'Paste any survey, interview, or strategy question. Receive diagnosis, transformation, and a practitioner gap-label suggestion \u2014 instantly.' },
     duration: 'Open',
   },
   fieldwork: {

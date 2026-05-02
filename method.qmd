@@ -1,5 +1,5 @@
 ---
-pagetitle: "Method — The Six Gaps"
+pagetitle: "Method — Gap Pictures for Practice"
 ---
 
 ```{=html}
@@ -9,8 +9,8 @@ pagetitle: "Method — The Six Gaps"
     <span>§ Method · Discontinuities</span>
   </div>
   <div>
-    <h1 class="page-title">The six gaps</h1>
-    <p class="page-dek">Six structural shapes, derived from the field. Every research question you have ever written presupposes one of them — usually without knowing which.</p>
+    <h1 class="page-title">Gap pictures for practice</h1>
+    <p class="page-dek">A practitioner set of diagnostic labels for noticing how movement gets stopped. The labels are a course heuristic grounded where possible in Dervin's movement-state and stop framing — not a canonical six-part taxonomy.</p>
   </div>
 </div>
 
@@ -43,7 +43,7 @@ pagetitle: "Method — The Six Gaps"
       <div class="card-roman">· IV ·</div>
       <div class="card-specimen"><svg width="64" height="64" viewBox="0 0 64 64" stroke="#2a6f97" stroke-width="0.9" fill="none"><circle cx="32" cy="28" r="4" fill="#2a6f97" fill-opacity=".25"/><ellipse cx="32" cy="16" rx="4" ry="7"/><ellipse cx="22" cy="22" rx="4" ry="7" transform="rotate(60 22 22)"/><ellipse cx="42" cy="22" rx="4" ry="7" transform="rotate(300 42 22)"/><path d="M 32 32 L 32 60" stroke-width="1.2"/></svg></div>
       <div class="card-name">Role</div><div class="card-latin">no script for this</div><div class="ornament-rule-sm"></div>
-      <div class="card-desc">Unclear how to behave in a role/situation</div><div class="card-sig">"I didn't know what I was supposed to do…"</div>
+      <div class="card-desc">Course extension: unclear how to behave in a role/situation</div><div class="card-sig">"I didn't know what I was supposed to do…"</div>
     </div>
     <!-- V. Spin-out -->
     <div class="gap-card corner-brackets"><span class="bracket-bl"></span><span class="bracket-br"></span>
@@ -61,9 +61,14 @@ pagetitle: "Method — The Six Gaps"
     </div>
   </div>
 
+  <div class="smm-callout-box" style="margin-top:28px;">
+    <strong>Academic note</strong>
+    Dervin's primary texts describe movement states or stops — including decision, barrier, problematic, spin-out, and wash-out — as ways people experience discontinuity while moving through time-space. This course keeps the six-label display because it is useful for practice, but treats it as a teaching heuristic. The role label is an applied extension for organisational, UX, and product work, not a documented canonical Dervin category.
+  </div>
+
   <!-- CTA Band -->
   <div class="cta-band">
-    <div><div class="eye">Try it now</div><div class="cta-title">Paste a question — see which gap it presupposes.</div></div>
+    <div><div class="eye">Try it now</div><div class="cta-title">Paste a question — see which gap picture it may presuppose.</div></div>
     <a href="index.html">Open the rewriter →</a>
   </div>
 
@@ -116,7 +121,7 @@ pagetitle: "Method — The Six Gaps"
 
       <div class="smm-callout-box warn">
         <strong>Common mistake: topic-based coding</strong>
-        Coding by topic ("questions about pricing") rather than gap type ("decision-gap requiring comparison") collapses back into traditional information-needs categorisation. The gap taxonomy exists specifically to prevent this.
+        Coding by topic ("questions about pricing") rather than gap picture ("decision-oriented discontinuity requiring comparison") collapses back into traditional information-needs categorisation. The practitioner labels exist to keep the analysis focused on the situated discontinuity, not merely the content topic.
       </div>
     </div>
   </details>
@@ -131,9 +136,9 @@ pagetitle: "Method — The Six Gaps"
       <table class="compare-table">
         <thead><tr><th>Stage</th><th>Method</th><th>What You're Looking For</th></tr></thead>
         <tbody>
-          <tr><td>Transcript coding</td><td>Open coding for S-G-B-O markers; in-vivo codes for gap types</td><td>Where in the transcript do gaps, bridges, and outcomes appear?</td></tr>
-          <tr><td>Gap taxonomy</td><td>Code gaps by type (decision, barrier, spin-out, etc.)</td><td>What kinds of discontinuity are most common?</td></tr>
-          <tr><td>Bridge mapping</td><td>Map which bridge types address which gap types</td><td>Are bridges matched to gaps? Any gaps systematically under-bridged?</td></tr>
+          <tr><td>Transcript coding</td><td>Open coding for S-G-B-O markers; in-vivo codes for how the participant names the stop</td><td>Where in the transcript do gaps, bridges, and outcomes appear?</td></tr>
+          <tr><td>Gap-picture coding</td><td>Code gaps with practitioner labels where useful (decision, barrier, spin-out, etc.)</td><td>What kinds of discontinuity are most common?</td></tr>
+          <tr><td>Bridge mapping</td><td>Map which bridge types address which gap pictures</td><td>Are bridges matched to gaps? Any gaps systematically under-bridged?</td></tr>
           <tr><td>Outcome analysis</td><td>Code as: helps, hurts, new gaps; classify use types</td><td>What is the downstream effect of different bridge types?</td></tr>
           <tr><td>Comparative</td><td>Compare S-G-B-O patterns across participants/groups</td><td>What structural patterns appear across individual stories?</td></tr>
         </tbody>
