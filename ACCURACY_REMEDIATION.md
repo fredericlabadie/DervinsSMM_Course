@@ -1,14 +1,14 @@
 # Academic Accuracy Remediation Log
 
-*Branch:* `accuracy/dervin-smm-remediation`  
+*Branch:* `accuracy/theory-fieldwork-pass`  
 *Project:* Dervin's Sense-Making Methodology course  
 *Purpose:* Keep a durable handoff record for academic accuracy review and iteration.
 
 ---
 
-## Current branch status
+## Current status
 
-This branch starts from the current `main` state after the first academic-framing pass. At the time this log was added, `main` already included the major first-pass corrections discussed in the review:
+The site has completed a first academic-framing pass and a follow-up inspection of the theory and fieldwork pages. The current live-source posture is now:
 
 - `README.md` describes the live site as a five-page Quarto site rather than a single `smm_guide.qmd` source.
 - `ForAI.md` documents the Claude / Claude Design / ChatGPT development timeline and the current runtime AI architecture.
@@ -17,6 +17,8 @@ This branch starts from the current `main` state after the first academic-framin
 - `js/smm-rewriter.js` instructs the model to treat the labels as a course heuristic, not a canonical six-part Dervin taxonomy.
 - `index.qmd` warns that the rewriter is a practicum tool rather than an academic authority.
 - `_includes/footer.html` distinguishes Dervin's theoretical foundation from independent practitioner examples, teaching heuristics, diagrams, and applications.
+- `theory.qmd` now presents SGBO as a course teaching shorthand, identifies the seven assumptions as a course synthesis, softens the transmission-model critique, and labels the recursive loop as a course visualisation.
+- `fieldwork.qmd` now frames worked scenarios and rewrite examples as applied translations using practitioner labels, not formal Dervin categories.
 
 ---
 
@@ -32,22 +34,47 @@ This keeps the practical value while avoiding the strongest academic misalignmen
 
 ---
 
-## Next remediation targets
+## Theory-page remediation status
 
-1. **`theory.qmd`**
-   - Ensure SGBO is presented as a practitioner teaching model, not a timeless formulation across all of Dervin's work.
-   - Clarify the chronology: early situations-gaps-uses/helps; later bridge/outcome and sense-unmaking language.
-   - Rename or reinforce the "seven assumptions" as a seven-point synthesis, not a direct Dervin enumeration.
-   - Mark recursive sense-unmaking diagrams/applications as interpretive visualisations.
-   - Soften any remaining transmission-model absolutism.
+`theory.qmd` has already addressed the highest-risk conceptual issues:
 
-2. **`fieldwork.qmd`**
-   - Add source notes for MMTLI and neutral questioning.
-   - Mark worked examples as applied translations for UX/product/analytics practice.
+- SGBO is framed as a **course teaching shorthand**, not a timeless exact formula across all stages of Dervin's writing.
+- The page notes that earlier Dervin formulations foreground situations, gaps, and uses/helps, while later summaries and applications make bridge/outcome language more explicit.
+- The "seven assumptions" are explicitly named as a **course synthesis across Dervin (1983, 1992, 1998)** rather than a direct enumeration from one source.
+- Sense-unmaking is described as later Dervin work, while product/analytics examples are labeled as course applications.
+- The dark SGBO loop identifies the recursion as a **course visualisation**.
+- The transmission-model critique has been softened from absolutist language to the more defensible claim that a transfer-only design frame is inadequate.
 
-3. **Bibliography / links**
-   - Add light direct links to Dervin primary sources where the page makes high-confidence academic claims.
-   - Keep the bibliography verification caveat until all formal details are checked against library databases.
+---
+
+## Fieldwork-page remediation status
+
+`fieldwork.qmd` has also addressed the main applied-risk areas:
+
+- Rewrite cards use **Practitioner labels** rather than claiming formal Dervin categories.
+- Worked scenarios are described as **course S-G-B-O analyses** and **applied translations for practice**.
+- Practice projects instruct users to apply practitioner labels only after the story is situated, avoiding premature classification.
+- Ethics guidance acknowledges the vulnerability created by MMTLI-style interviews and requires specific, renewable, non-coercive consent.
+
+---
+
+## Remaining work
+
+1. **Bibliography verification**
+   - Verify the full formal citations for Dervin (1998), Dervin (1999), and the Dervin & Foreman-Wernet reader against library databases.
+   - Keep the bibliography caveat until all details are checked.
+
+2. **Primary-source links**
+   - Add or verify light links where stable public versions exist.
+   - Avoid over-linking every sentence; prefer source notes at section level.
+
+3. **Local render / visual QA**
+   - Run `quarto render` locally.
+   - Check mobile rendering around 320px.
+   - Confirm `$lime` accent colour does not bleed into light paper sections.
+
+4. **Optional later pass**
+   - Decide whether `smm_guide.qmd` should be updated as a legacy/PDF source or explicitly archived as no longer maintained.
 
 ---
 
