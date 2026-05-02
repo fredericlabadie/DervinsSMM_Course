@@ -10,7 +10,7 @@ pagetitle: "Orientation — How to Use This Site"
   </div>
   <div>
     <h1 class="page-title">How to use this site</h1>
-    <p class="page-dek">Sense-Making is a way of asking. This site is a four-stop walk — theory, method, instrument, examples — built around a working tool.</p>
+    <p class="page-dek">Sense-Making is a way of asking. This site is a four-part path — theory, method, practice, fieldwork — built around a working question rewriter.</p>
   </div>
 </div>
 
@@ -49,7 +49,7 @@ pagetitle: "Orientation — How to Use This Site"
       <div>
         <div class="bridge-step-t">Practice</div>
         <div class="bridge-step-d">Paste any question into the rewriter. See what it presupposes; receive a Sense-Making rewrite and a tentative practitioner label.</div>
-        <div class="bridge-step-go">Open instrument →</div>
+        <div class="bridge-step-go">Open practice →</div>
       </div>
     </a>
     <a href="fieldwork.html" class="bridge-step">
@@ -57,7 +57,7 @@ pagetitle: "Orientation — How to Use This Site"
       <div>
         <div class="bridge-step-t">Fieldwork</div>
         <div class="bridge-step-d">Worked examples — surveys, interviews, and post-mortems rewritten as applied practice, with ethics notes.</div>
-        <div class="bridge-step-go">See examples →</div>
+        <div class="bridge-step-go">See fieldwork →</div>
       </div>
     </a>
   </div>
