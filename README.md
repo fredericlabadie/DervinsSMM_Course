@@ -56,14 +56,14 @@ Every time a developer says "our users would have to be idiots to not understand
 
 ## Primary Sources
 
-| Work | Note |
-|------|------|
-| [Dervin (1983) — "Information as a User Construct"](https://www.ideals.illinois.edu/items/2438) | Foundational statement of information as user construct and perceived information needs |
-| [Dervin (1992) — "From the Mind's Eye of the User"](https://faculty.washington.edu/harryb/courses/INFO310/Dervin1992.pdf) | **Start here** for the qualitative-quantitative methodology and situational questioning |
-| [Dervin & Nilan (1986) — Annual Review of Information Science and Technology](https://doi.org/10.1002/aris.1440210104) | Paradigm critique of information needs and uses research |
-| Dervin (1998) — "Sense-Making Theory and Practice" | Sense-unmaking; power; verify source details before formal citation |
-| Dervin (1999) — "On Studying Information Seeking Methodologically" | MMTLI deep dive; verify source details before formal citation |
-| Dervin & Foreman-Wernet (Eds.) (2003) — SMM Reader | Essential collection; verify edition details before formal citation |
+| Work | Verified citation | Note |
+|------|-------------------|------|
+| [Dervin (1983)](https://philpapers.org/rec/DERIAA) | Dervin, B. (1983). “Information as a user construct: The relevance of perceived information needs to synthesis and interpretation.” In S. A. Ward & L. J. Reed (Eds.), *Knowledge Structure and Use: Implications for Synthesis and Interpretation* (pp. 155–183). Philadelphia, PA: Temple University Press. | Foundational statement of information as user construct and perceived information needs. Some secondary sources list pp. 153–183; PhilPapers lists pp. 155–183. |
+| [Dervin (1992)](https://bibbase.org/network/publication/dervin-fromthemindseyeoftheuserthesensemakingqualitativequantitativemethodology-1992) | Dervin, B. (1992). “From the mind’s eye of the user: The Sense-Making qualitative-quantitative methodology.” In J. D. Glazier & R. R. Powell (Eds.), *Qualitative Research in Information Management* (pp. 61–84). Englewood, CO: Libraries Unlimited. | **Start here** for the qualitative-quantitative methodology and situational questioning. |
+| [Dervin & Nilan (1986)](https://garfield.library.upenn.edu/histcomp/annualreviews/ann-rev-inform-sci-tech/index-tc.html) | Dervin, B., & Nilan, M. (1986). “Information needs and uses.” *Annual Review of Information Science and Technology*, 21, 3–33. | Paradigm critique of information needs and uses research. |
+| [Dervin (1998)](https://doi.org/10.1108/13673279810249369) | Dervin, B. (1998). “Sense-making theory and practice: An overview of user interests in knowledge seeking and use.” *Journal of Knowledge Management*, 2(2), 36–46. https://doi.org/10.1108/13673279810249369 | Sense-making and sense-unmaking for knowledge seeking/use and knowledge-management contexts. |
+| [Dervin (1999)](https://doi.org/10.1016/S0306-4573(99)00023-0) | Dervin, B. (1999). “On studying information seeking methodologically: The implications of connecting metatheory to method.” *Information Processing & Management*, 35(6), 727–750. https://doi.org/10.1016/S0306-4573(99)00023-0 | Methodology / metatheory-to-method article; useful for MMTLI and methodological cautions. |
+| [Dervin & Foreman-Wernet (Eds.) (2003)](https://openlibrary.org/books/OL3690333M/Sense-making_methodology_reader) | Dervin, B., Foreman-Wernet, L., & Lauterbach, E. (Eds.). (2003). *Sense-Making Methodology Reader: Selected Writings of Brenda Dervin*. Cresskill, NJ: Hampton Press. ISBN 1-57273-508-2 / 1-57273-509-0. | Essential collection. Library records list xv, 397 pages; some retailer records list 384 pages, so library pagination should be preferred. |
 
 ---
 
