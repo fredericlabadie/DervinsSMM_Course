@@ -1,69 +1,39 @@
 <!-- Persistent footer -->
-<style>
-  .smm-footer {
-    display: grid !important;
-    grid-template-columns: 160px minmax(320px, 1fr) minmax(220px, auto) !important;
-    gap: 18px 28px !important;
-    align-items: start !important;
-    justify-content: initial !important;
-  }
-  .smm-footer > span {
-    display: block;
-    min-width: 0;
-  }
-  .smm-footer > span:last-child {
-    justify-self: end;
-    text-align: right;
-    line-height: 1.7;
-  }
-  @media (max-width: 700px) {
-    .smm-footer {
-      grid-template-columns: 1fr !important;
-      gap: 14px !important;
-      padding: 20px !important;
-    }
-    .smm-footer > span:last-child {
-      justify-self: start;
-      text-align: left;
-    }
-  }
-</style>
-
 <div class="smm-footer">
   <span>FREDERIC LABADIE · AMSTERDAM · ANNO MMXXVI</span>
-  <span style="font-style:italic;letter-spacing:0;text-transform:none;font-family:'IBM Plex Serif',Georgia,serif;font-size:11px;color:#869181;">Sense-Making Methodology is the intellectual work of Brenda Dervin (Ohio State University, early 1970s–2023). This site is an independent interpretive resource — commentary, application, and working instrument — not a reproduction of her texts. The theoretical foundation derives from her published work; practitioner examples, teaching heuristics, diagrams, and applications are independent interpretations. See <a href="theory.html" style="color:#c4ff3a;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;">bibliography</a> for primary sources.</span>
+  <span class="smm-footer-attribution">Sense-Making Methodology is the intellectual work of Brenda Dervin (Ohio State University, early 1970s–2023). This site is an independent interpretive resource — commentary, application, and working instrument — not a reproduction of her texts. The theoretical foundation derives from her published work; practitioner examples, teaching heuristics, diagrams, and applications are independent interpretations. See <a href="theory.html">bibliography</a> for primary sources.</span>
   <span>
     <a href="bridge.html">orientation</a> ·
     <a href="theory.html">theory</a> ·
     <a href="method.html">method</a> ·
     <a href="index.html">practice</a> ·
     <a href="fieldwork.html">fieldwork</a> ·
-    <button type="button" id="academic-feedback-open" style="background:none;border:0;color:#c4ff3a;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;cursor:pointer;font:inherit;text-transform:lowercase;padding:0;">report academic issue</button>
+    <button type="button" id="academic-feedback-open" class="academic-feedback-link">report academic issue</button>
   </span>
 </div>
 
-<div id="academic-feedback-panel" aria-hidden="true" style="display:none;position:fixed;right:18px;bottom:18px;z-index:9999;box-sizing:border-box;max-width:420px;max-height:calc(100vh - 36px);overflow:auto;width:calc(100vw - 36px);background:#f5f1e3;color:#0c1410;border:1px solid #a06a3a;box-shadow:0 16px 50px rgba(0,0,0,.25);padding:20px 20px 22px;border-radius:2px;">
-  <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;">
+<div id="academic-feedback-panel" class="academic-feedback-panel" aria-hidden="true">
+  <div class="academic-feedback-head">
     <div>
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:#a06a3a;margin-bottom:6px;">Academic accuracy feedback</div>
-      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;line-height:1.05;font-style:italic;">Report an issue</div>
+      <div class="academic-feedback-kicker">Academic accuracy feedback</div>
+      <div class="academic-feedback-title">Report an issue</div>
     </div>
-    <button type="button" id="academic-feedback-close" aria-label="Close academic feedback" style="background:none;border:0;font-size:22px;line-height:1;cursor:pointer;color:#0c1410;">×</button>
+    <button type="button" id="academic-feedback-close" class="academic-feedback-close" aria-label="Close academic feedback">×</button>
   </div>
-  <p style="font-family:'IBM Plex Serif',Georgia,serif;font-size:13px;line-height:1.5;color:#4f5a4b;margin:0 0 10px;">Use this for academic or citation concerns: misstated Dervin concepts, overclaiming, wrong source framing, broken bibliography links, or unclear practitioner-vs-academic distinctions. Do not include personal or sensitive information.</p>
-  <label for="academic-feedback-kind" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:#a06a3a;margin-bottom:6px;">Issue type</label>
-  <select id="academic-feedback-kind" style="width:100%;margin-bottom:10px;padding:8px;border:1px solid #c8bea7;background:#fffaf0;color:#0c1410;font-family:'IBM Plex Serif',Georgia,serif;">
+  <p class="academic-feedback-copy">Use this for academic or citation concerns: misstated Dervin concepts, overclaiming, wrong source framing, broken bibliography links, or unclear practitioner-vs-academic distinctions. Do not include personal or sensitive information.</p>
+  <label for="academic-feedback-kind" class="academic-feedback-label">Issue type</label>
+  <select id="academic-feedback-kind" class="academic-feedback-select">
     <option value="Academic inaccuracy">Academic inaccuracy</option>
     <option value="Citation/source issue">Citation/source issue</option>
     <option value="Practitioner framing overclaim">Practitioner framing overclaim</option>
     <option value="Broken or missing source link">Broken or missing source link</option>
     <option value="Other content issue">Other content issue</option>
   </select>
-  <label for="academic-feedback-comment" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:#a06a3a;margin-bottom:6px;">What should be reviewed?</label>
-  <textarea id="academic-feedback-comment" rows="5" placeholder="Example: On the Theory page, the SGBO section sounds like Dervin's exact canonical formula. It may need to be marked more clearly as course shorthand." style="width:100%;box-sizing:border-box;margin-bottom:14px;padding:9px;border:1px solid #c8bea7;background:#fffaf0;color:#0c1410;font-family:'IBM Plex Serif',Georgia,serif;font-size:14px;line-height:1.45;"></textarea>
-  <div style="display:flex;gap:8px;align-items:center;justify-content:flex-end;padding-top:4px;">
-    <span id="academic-feedback-status" style="margin-right:auto;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4f5a4b;"></span>
-    <button type="button" id="academic-feedback-submit" style="background:#0c1410;color:#f5f1e3;border:0;padding:9px 12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;cursor:pointer;">Submit</button>
+  <label for="academic-feedback-comment" class="academic-feedback-label">What should be reviewed?</label>
+  <textarea id="academic-feedback-comment" class="academic-feedback-textarea" rows="5" placeholder="Example: On the Theory page, the SGBO section sounds like Dervin's exact canonical formula. It may need to be marked more clearly as course shorthand."></textarea>
+  <div class="academic-feedback-actions">
+    <span id="academic-feedback-status" class="academic-feedback-status"></span>
+    <button type="button" id="academic-feedback-submit" class="academic-feedback-submit">Submit</button>
   </div>
 </div>
 

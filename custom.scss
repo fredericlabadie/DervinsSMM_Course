@@ -249,10 +249,23 @@ body {
   font-family: $mono-font;
   font-size: 10px;
   letter-spacing: 0.1em;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 160px minmax(320px, 1fr) minmax(220px, auto);
+  gap: 18px 28px;
+  align-items: start;
   border-top: 1px solid $copper;
   text-transform: uppercase;
+
+  > span {
+    display: block;
+    min-width: 0;
+  }
+
+  > span:last-child {
+    justify-self: end;
+    text-align: right;
+    line-height: 1.7;
+  }
 
   a {
     color: $neon;
@@ -264,6 +277,148 @@ body {
 }
 
 // ── CALLOUT BAND (Practice page) ─────────────────
+.smm-footer-attribution {
+  font-family: $serif-font;
+  font-size: 11px;
+  font-style: italic;
+  letter-spacing: 0;
+  text-transform: none;
+  color: $dark-text-muted;
+}
+.academic-feedback-link {
+  background: none;
+  border: 0;
+  color: $neon;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-transform: lowercase;
+  text-underline-offset: 3px;
+  &:hover { color: lighten($neon, 10%); }
+}
+.academic-feedback-panel {
+  display: none;
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+  box-sizing: border-box;
+  width: calc(100vw - 36px);
+  max-width: 420px;
+  max-height: calc(100vh - 36px);
+  overflow: auto;
+  background: $paper;
+  color: $ink;
+  border: 1px solid $copper;
+  box-shadow: 0 16px 50px rgba(0,0,0,.25);
+  padding: 20px 20px 22px;
+  border-radius: 2px;
+}
+.academic-feedback-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+.academic-feedback-kicker,
+.academic-feedback-label,
+.academic-feedback-status,
+.academic-feedback-submit {
+  font-family: $mono-font;
+}
+.academic-feedback-kicker {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: $copper;
+  margin-bottom: 6px;
+}
+.academic-feedback-title {
+  font-family: $display-font;
+  font-size: 24px;
+  line-height: 1.05;
+  font-style: italic;
+}
+.academic-feedback-close {
+  background: none;
+  border: 0;
+  color: $ink;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+.academic-feedback-copy {
+  font-family: $serif-font;
+  font-size: 13px;
+  line-height: 1.5;
+  color: $ink-soft;
+  margin: 0 0 10px;
+}
+.academic-feedback-label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  color: $copper;
+  margin-bottom: 6px;
+}
+.academic-feedback-select,
+.academic-feedback-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid $rule;
+  background: lighten($paper, 3%);
+  color: $ink;
+  font-family: $serif-font;
+}
+.academic-feedback-select {
+  margin-bottom: 10px;
+  padding: 8px;
+}
+.academic-feedback-textarea {
+  margin-bottom: 14px;
+  padding: 9px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.academic-feedback-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+.academic-feedback-status {
+  margin-right: auto;
+  font-size: 10px;
+  color: $ink-soft;
+}
+.academic-feedback-submit {
+  background: $ink;
+  color: $paper;
+  border: 0;
+  padding: 9px 12px;
+  font-size: 10px;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+@media (max-width: 700px) {
+  .smm-footer {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 20px;
+
+    > span:last-child {
+      justify-self: start;
+      text-align: left;
+    }
+  }
+}
+
 .smm-callout {
   display: flex;
   align-items: center;
