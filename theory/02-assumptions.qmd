@@ -4,7 +4,7 @@
     <div class="plate-body">
       <p>These are not optional background — they are the premises this course uses to organise Dervin's methodological stance. Every design decision in SMM research should be checked against them. <em>Course synthesis across Dervin (1983, 1992, 1998) — not a direct enumeration from any single paper.</em></p>
 
-      <div class="smm-callout-box" style="margin:18px 0;">
+      <div class="smm-callout-box smm-callout-box-compact-space">
         <strong>Academic note</strong> This list is a teaching synthesis. It condenses recurring premises in Dervin's writing; it should not be cited as a seven-item list authored by Dervin.
       </div>
 

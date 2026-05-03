@@ -3,7 +3,7 @@
     <summary><span class="plate-n">Plate VII</span><span class="plate-title">Bibliography & recommended reading</span></summary>
     <div class="plate-body">
       <p>Dervin's core works, in order of where to start. Citation details below have been checked against targeted public bibliographic records and DOI/library pages; remaining caveats are called out explicitly.</p>
-      <div class="smm-callout-box" style="margin-bottom:20px;"><strong>Start here</strong> Dervin, B. (1992). “From the mind’s eye of the user: The Sense-Making qualitative-quantitative methodology.” In J. D. Glazier & R. R. Powell (Eds.), <em>Qualitative Research in Information Management</em> (pp. 61–84). Englewood, CO: Libraries Unlimited. — The most accessible single-paper introduction to the qualitative-quantitative methodology, situational questioning, gaps, and uses/helps. If you read one thing, read this.</div>
+      <div class="smm-callout-box smm-callout-box-bibliography-start"><strong>Start here</strong> Dervin, B. (1992). “From the mind’s eye of the user: The Sense-Making qualitative-quantitative methodology.” In J. D. Glazier & R. R. Powell (Eds.), <em>Qualitative Research in Information Management</em> (pp. 61–84). Englewood, CO: Libraries Unlimited. — The most accessible single-paper introduction to the qualitative-quantitative methodology, situational questioning, gaps, and uses/helps. If you read one thing, read this.</div>
       <table class="compare-table">
         <thead><tr><th>Work</th><th>Verified citation</th><th>Use in this course</th></tr></thead>
         <tbody>
@@ -15,7 +15,7 @@
           <tr><td><a href="https://openlibrary.org/books/OL3690333M/Sense-making_methodology_reader" target="_blank" rel="noopener">Dervin, Foreman-Wernet, & Lauterbach (Eds.) (2003)</a></td><td>Dervin, B., Foreman-Wernet, L., & Lauterbach, E. (Eds.). (2003). <em>Sense-Making Methodology Reader: Selected Writings of Brenda Dervin</em>. Cresskill, NJ: Hampton Press. ISBN 1-57273-508-2 / 1-57273-509-0.</td><td>Essential collection. Library records list xv, 397 pages; some retailer records list 384 pages, so library pagination should be preferred.</td></tr>
         </tbody>
       </table>
-      <div class="smm-callout-box warn" style="margin-top:20px;"><strong>Citation caveat</strong> For formal academic use, verify Dervin (1983) page range against the physical volume or a library scan. The rest of the core entries now have DOI-backed or library-backed records in the project README.</div>
+      <div class="smm-callout-box warn smm-callout-box-citation-caveat"><strong>Citation caveat</strong> For formal academic use, verify Dervin (1983) page range against the physical volume or a library scan. The rest of the core entries now have DOI-backed or library-backed records in the project README.</div>
     </div>
   </details>
 ```

@@ -1993,3 +1993,28 @@ details.tq {
   .smm-footer { flex-direction: column; gap: 12px; padding: 20px; }
   .cta-band { flex-direction: column; gap: 16px; text-align: center; }
 }
+
+// Inline-style cleanup helpers
+.smm-text-link {
+  color: $copper-deep;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+.diag-station.diag-station-last { border-right: none; }
+.diag-station-label-situation { color: #7ab685; }
+.diag-station-label-gap { color: #d4b86a; }
+.diag-station-label-bridge { color: #5e9c6f; }
+.diag-station-label-outcome { color: #a3d4b9; }
+.protocol-note {
+  font-size: 13px;
+  color: $ink-soft;
+  margin: 4px 0 0;
+}
+.smm-callout-box-spaced-top { margin-top: 28px; }
+.smm-callout-box-practice-note { margin-bottom: 24px; }
+.smm-callout-box-compact-space { margin: 18px 0; }
+.smm-callout-box-wide-space { margin: 24px 0; }
+.smm-callout-box-bibliography-start { margin-bottom: 20px; }
+.smm-callout-box-citation-caveat { margin-top: 20px; }
+.plate-spaced-top { margin-top: 48px; }

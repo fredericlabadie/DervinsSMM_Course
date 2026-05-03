@@ -61,7 +61,7 @@ pagetitle: "Method — Gap Pictures for Practice"
     </div>
   </div>
 
-  <div class="smm-callout-box" style="margin-top:28px;">
+  <div class="smm-callout-box smm-callout-box-spaced-top">
     <strong>Academic note</strong>
     Dervin's primary texts describe movement states or stops — including decision, barrier, problematic, spin-out, and wash-out — as ways people experience discontinuity while moving through time-space. This course keeps the six-label display because it is useful for practice, but treats it as a teaching heuristic. The role label is an applied extension for organisational, UX, and product work, not a documented canonical Dervin category.
   </div>
@@ -86,7 +86,7 @@ pagetitle: "Method — Gap Pictures for Practice"
       <p>Dervin's signature technique. The MMTLI anchors the conversation in a specific, concrete moment — preventing the retrospective abstraction and generalisation that plague most interviews. SMM research asks participants about <em>verbs</em>, not nouns. Not "what topic did you need information about?" but "what question were you trying to answer?"</p>
 
       <div class="protocol-step"><span class="step-num">1</span><div><div class="step-name">Situating move</div><div class="step-prompt">"Tell me about a specific time when you had to [navigate X / deal with Y]. Not in general — a specific moment."</div></div></div>
-      <div class="protocol-step"><span class="step-num">2</span><div><div class="step-name">Step-through</div><div class="step-prompt">"Walk me through what happened, step by step, from the beginning."</div><p style="font-size:13px;color:#3a4a3f;margin:4px 0 0">The interviewer constructs a mental timeline of the narrative.</p></div></div>
+      <div class="protocol-step"><span class="step-num">2</span><div><div class="step-name">Step-through</div><div class="step-prompt">"Walk me through what happened, step by step, from the beginning."</div><p class="protocol-note">The interviewer constructs a mental timeline of the narrative.</p></div></div>
       <div class="protocol-step"><span class="step-num">3</span><div><div class="step-name">Gap probe</div><div class="step-prompt">"At this point, what questions did you have? What was confusing? What were you trying to figure out?"</div></div></div>
       <div class="protocol-step"><span class="step-num">4</span><div><div class="step-name">Bridge probe</div><div class="step-prompt">"What helped you with that? What did you find or use? What did you draw on?"</div></div></div>
       <div class="protocol-step"><span class="step-num">5</span><div><div class="step-name">Outcome probe</div><div class="step-prompt">"How did that help — or not help? What were you able to do as a result? What happened next?"</div></div></div>
@@ -106,7 +106,7 @@ pagetitle: "Method — Gap Pictures for Practice"
       <span class="plate-title">Neutral questioning</span>
     </summary>
     <div class="plate-body">
-      <p>Neutral questioning avoids presupposing the gap type, bridge type, or outcome type — letting respondents name their own experience rather than conforming to researcher categories. This is the operational principle that the <a href="index.html" style="color:#7a4d22;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">Question Rewriter</a> applies.</p>
+      <p>Neutral questioning avoids presupposing the gap type, bridge type, or outcome type — letting respondents name their own experience rather than conforming to researcher categories. This is the operational principle that the <a href="index.html" class="smm-text-link">Question Rewriter</a> applies.</p>
 
       <table class="neutral-table">
         <thead><tr><th>Avoid (non-neutral)</th><th>Use (neutral)</th><th>Why</th></tr></thead>

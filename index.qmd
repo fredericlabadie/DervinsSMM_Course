@@ -20,12 +20,12 @@ pagetitle: "Practice — SMM Question Rewriter"
     <div class="practice-help">Don't know what a "gap" is yet? <a href="theory.html">Read Theory →</a></div>
   </div>
 
-  <div class="smm-callout-box" style="margin-bottom:24px;">
+  <div class="smm-callout-box smm-callout-box-practice-note">
     <strong>Practitioner note</strong>
     The rewriter is a practicum tool, not an academic authority. It applies this course's practitioner gap labels as tentative prompts for analysis. Dervin's own work should be treated as the source for formal terminology and citation.
   </div>
 
-  <div class="rewriter-card" style="position:relative">
+  <div class="rewriter-card">
     <div class="corner-stamp">
       <img src="assets/svg/icons/instrument-stamp.svg" width="11" height="11" alt="" aria-hidden="true">
       <span>· INSTRUMENT ·</span>
@@ -37,7 +37,7 @@ pagetitle: "Practice — SMM Question Rewriter"
   <!-- DEEP CONTENT: Active recall below the rewriter     -->
   <!-- ═══════════════════════════════════════════════════ -->
 
-  <details class="plate" style="margin-top:48px">
+  <details class="plate plate-spaced-top">
     <summary><span class="plate-n">Plate II</span><span class="plate-title">Flashcards — test your recall</span></summary>
     <div class="plate-body">
       <p>Click any card to reveal the answer.</p>

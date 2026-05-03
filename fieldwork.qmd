@@ -23,7 +23,7 @@ pagetitle: "Fieldwork — From the Field"
     <div class="field-card"><span class="field-label">Research · feature</span><h3 class="field-title">Would you use this?</h3><p class="field-q">"Would you use a feature that did X?"</p><div class="field-divider"></div><p class="field-a">"Tell me about a recent time you needed something like X. Walk me through what you actually did."</p><span class="field-tag">Practitioner labels: Role · Decision</span></div>
   </div>
 
-  <div class="smm-callout-box" style="margin-top:28px;">
+  <div class="smm-callout-box smm-callout-box-spaced-top">
     <strong>Applied examples</strong>
     The labels on this page are practitioner prompts for field analysis. Use them to notice possible stops or discontinuities, then return to the participant's own words. They are not a substitute for Dervin's primary terminology or for the Micro-Moment Time-Line Interview's situating work.
   </div>

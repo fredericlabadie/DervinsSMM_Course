@@ -23,7 +23,7 @@ pagetitle: "Orientation — How to Use This Site"
       Dervin understood something most researchers spend careers avoiding: the question is the problem, not the user. She spent fifty years building a methodology for asking better ones. When she died in 2023 I wanted to make sure it reached the people whose research would be different if they'd ever encountered it.
     </p>
     <p class="bridge-lede">
-      The site you're on is a reading of her work and a working instrument that applies it. The top layer is practical: how to ask, rewrite, interview, and diagnose. The deeper layer marks where Dervin's own formulations end and this course's teaching syntheses or applied extensions begin. Read at your own pace, or skip to <a href="index.html" style="color:#7a4d22;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px">the rewriter</a> and come back.
+      The site you're on is a reading of her work and a working instrument that applies it. The top layer is practical: how to ask, rewrite, interview, and diagnose. The deeper layer marks where Dervin's own formulations end and this course's teaching syntheses or applied extensions begin. Read at your own pace, or skip to <a href="index.html" class="smm-text-link">the rewriter</a> and come back.
     </p>
   </div>
 
