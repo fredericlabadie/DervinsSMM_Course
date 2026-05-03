@@ -23,7 +23,31 @@ A five-page interactive site covering Sense-Making Methodology in full — orien
 - **Method** (`method.qmd`) — practitioner gap labels, MMTLI, neutral questioning, analysis protocol, analytics applications
 - **Fieldwork** (`fieldwork.qmd`) — worked scenarios, practice projects, ethics, applied examples
 
-**The Question Rewriter** — paste any survey or UX question, get it rewritten using SMM principles. Three-tier system: local example matching → HuggingFace Zephyr-7B proxy → heuristic fallback. Works without any login or setup. The rewriter's gap labels are practitioner prompts for analysis, not a canonical Dervin taxonomy.
+**The Question Rewriter** — paste any survey or UX question, get it rewritten using SMM principles. The frontend uses local example matching first, then calls the dedicated SMM API, then falls back to an offline heuristic if the API fails. The rewriter's gap labels are practitioner prompts for analysis, not a canonical Dervin taxonomy.
+
+---
+
+## Current Architecture
+
+```text
+smm.fredericlabadie.com      → GitHub Pages static Quarto course
+smm-api.fredericlabadie.com  → Vercel API project, root directory smm-api/
+```
+
+The static site renders through GitHub Actions. Runtime AI and feedback are handled by the dedicated Vercel API under `smm-api/`.
+
+Key runtime files:
+
+```text
+js/smm-rewriter.js          frontend rewriter + opt-in rewriter feedback
+_includes/footer.html       footer, attribution, site-wide academic issue feedback
+smm-api/api/rewrite.js      SMM rewrite API using Hugging Face Inference Providers router
+smm-api/api/feedback.js     feedback endpoint with Neon/Postgres storage and Vercel-log fallback
+smm-api/sql/feedback.sql    feedback table schema
+CODEX_VIBE_ROOM_HANDOFF.md  engineering handoff for Codex / vibe-room work
+```
+
+Feedback is explicit and opt-in. Rewriter feedback and academic issue reports are stored in Neon/Postgres when the Vercel database env var is available; Vercel runtime logs remain the fallback.
 
 ---
 
@@ -78,7 +102,7 @@ The live site is intentionally modular. `theory.qmd` is now a small wrapper that
 
 ## Technical
 
-Built with [Quarto](https://quarto.org). Renders to static HTML via GitHub Actions on every push to main. The Question Rewriter proxies HuggingFace Zephyr-7B through a serverless function in the separate Writers Room/Vercel project — no credentials are stored in this repo or needed to use the site.
+Built with [Quarto](https://quarto.org). Renders to static HTML via GitHub Actions on every push to main. The course itself is served by GitHub Pages. The runtime rewriter and feedback endpoints live in the Vercel `smm-api` project.
 
 ```bash
 # Render locally
@@ -86,7 +110,14 @@ quarto render
 
 # Preview
 quarto preview
+
+# API local check
+cd smm-api
+npm install
+npm run lint
 ```
+
+For the next technical handoff, start with `CODEX_VIBE_ROOM_HANDOFF.md`.
 
 ---
 
