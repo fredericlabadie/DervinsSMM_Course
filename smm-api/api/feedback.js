@@ -84,6 +84,7 @@ function normalizePayload(payload, req) {
     question: clean(payload.question),
     rewrite: clean(payload.rewrite),
     gap: clean(payload.gap, 80),
+    category: clean(payload.category, 120),
     comment: clean(payload.comment, 2000),
     model: clean(payload.model, 160),
     prompt_version: clean(payload.prompt_version, 80),
@@ -103,6 +104,7 @@ async function ensureSchema(client) {
       question text,
       rewrite text,
       gap text,
+      category text,
       comment text,
       model text,
       prompt_version text,
@@ -114,8 +116,11 @@ async function ensureSchema(client) {
       reviewer_note text
     )
   `);
+  await client.query(`ALTER TABLE smm_feedback ADD COLUMN IF NOT EXISTS category text`);
   await client.query(`CREATE INDEX IF NOT EXISTS smm_feedback_created_at_idx ON smm_feedback (created_at DESC)`);
   await client.query(`CREATE INDEX IF NOT EXISTS smm_feedback_status_idx ON smm_feedback (status)`);
+  await client.query(`CREATE INDEX IF NOT EXISTS smm_feedback_source_idx ON smm_feedback (source)`);
+  await client.query(`CREATE INDEX IF NOT EXISTS smm_feedback_category_idx ON smm_feedback (category)`);
   schemaReady = true;
 }
 
@@ -128,9 +133,9 @@ async function storeFeedback(feedback) {
     await ensureSchema(client);
     await client.query(
       `INSERT INTO smm_feedback (
-        id, created_at, type, question, rewrite, gap, comment,
+        id, created_at, type, question, rewrite, gap, category, comment,
         model, prompt_version, page, user_agent, source
-      ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)`,
+      ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13)`,
       [
         feedback.id,
         feedback.created_at,
@@ -138,6 +143,7 @@ async function storeFeedback(feedback) {
         feedback.question,
         feedback.rewrite,
         feedback.gap,
+        feedback.category,
         feedback.comment,
         feedback.model,
         feedback.prompt_version,
