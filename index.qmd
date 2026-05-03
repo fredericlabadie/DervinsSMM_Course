@@ -1,5 +1,7 @@
 ---
-pagetitle: "Practice — SMM Question Rewriter"
+title: "Sense-Making Methodology — A Practitioner Guide to Brenda Dervin’s Work"
+pagetitle: "Sense-Making Methodology — Practitioner Guide & Question Rewriter"
+description: "A public study guide and working instrument for applying Brenda Dervin’s Sense-Making Methodology to UX research, analytics, interviews, and better research questions."
 ---
 
 ```{=html}
