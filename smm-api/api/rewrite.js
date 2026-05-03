@@ -1,4 +1,5 @@
-const DEFAULT_MODEL = 'HuggingFaceH4/zephyr-7b-beta';
+const DEFAULT_MODEL = 'deepseek-ai/DeepSeek-V3-0324:fastest';
+const ROUTER_URL = 'https://router.huggingface.co/v1/chat/completions';
 const DEFAULT_ALLOWED_ORIGINS = [
   'https://smm.fredericlabadie.com',
   'http://localhost:4200',
@@ -112,14 +113,6 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
 {"diagnosis":["...","...","..."],"rewrite":"...","gap":"decision|barrier|problematic|role|spinout|washout","why":"...","diff":[{"kind":"cut","text":"..."},{"kind":"add","text":"..."},{"kind":"add","text":"..."}]}`;
 }
 
-function buildModelPrompt(question) {
-  return `<|system|>\n${buildSystemPrompt()}\n<|user|>\n${question}\n<|assistant|>\n`;
-}
-
-function getHuggingFaceUrl(model) {
-  return `https://api-inference.huggingface.co/models/${encodeURIComponent(model)}`;
-}
-
 async function callHuggingFace(question) {
   const token = process.env.HF_TOKEN;
   if (!token) {
@@ -130,22 +123,21 @@ async function callHuggingFace(question) {
 
   const model = process.env.HF_MODEL || DEFAULT_MODEL;
   const started = Date.now();
-  const response = await fetch(getHuggingFaceUrl(model), {
+  const response = await fetch(ROUTER_URL, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      inputs: buildModelPrompt(question),
-      parameters: {
-        max_new_tokens: 650,
-        temperature: 0.2,
-        return_full_text: false,
-      },
-      options: {
-        wait_for_model: true,
-      },
+      model,
+      stream: false,
+      temperature: 0.2,
+      max_tokens: 650,
+      messages: [
+        { role: 'system', content: buildSystemPrompt() },
+        { role: 'user', content: question },
+      ],
     }),
   });
 
@@ -157,19 +149,17 @@ async function callHuggingFace(question) {
   }
 
   if (!response.ok) {
-    const err = new Error('Hugging Face request failed.');
-    err.code = 'MODEL_ERROR';
+    const err = new Error('Hugging Face router request failed.');
+    err.code = response.status === 401 ? 'HF_UNAUTHORIZED' : 'MODEL_ERROR';
     err.status = response.status;
     err.payload = payload;
     throw err;
   }
 
-  const generatedText = Array.isArray(payload)
-    ? payload[0]?.generated_text
-    : payload?.generated_text || payload?.text || payload?.output || '';
+  const generatedText = payload?.choices?.[0]?.message?.content || '';
 
   if (!generatedText) {
-    const err = new Error('Model returned no generated text.');
+    const err = new Error('Model returned no chat completion text.');
     err.code = 'EMPTY_MODEL_RESPONSE';
     err.payload = payload;
     throw err;
@@ -259,6 +249,14 @@ function publicError(code, message, started, extra = {}) {
   };
 }
 
+function summarizeProviderPayload(payload) {
+  if (!payload) return undefined;
+  if (typeof payload === 'string') return payload.slice(0, 240);
+  if (payload.error) return String(payload.error).slice(0, 240);
+  if (payload.message) return String(payload.message).slice(0, 240);
+  return undefined;
+}
+
 export default async function handler(req, res) {
   const started = Date.now();
   applyCors(req, res);
@@ -304,6 +302,7 @@ export default async function handler(req, res) {
       result,
       meta: {
         model: modelResponse.model,
+        provider: 'huggingface-router',
         prompt_version: PROMPT_VERSION,
         latency_ms: Date.now() - started,
       },
@@ -320,7 +319,12 @@ export default async function handler(req, res) {
       err.code || 'MODEL_ERROR',
       'The model request failed. The course frontend should use its local heuristic fallback.',
       started,
-      { model: process.env.HF_MODEL || DEFAULT_MODEL },
+      {
+        model: process.env.HF_MODEL || DEFAULT_MODEL,
+        provider: 'huggingface-router',
+        provider_status: err.status,
+        provider_message: summarizeProviderPayload(err.payload),
+      },
     ));
   }
 }
