@@ -1,9 +1,13 @@
-// SMM Question Rewriter — vanilla JS, proxied HuggingFace-backed rewrite tool
+// SMM Question Rewriter — vanilla JS, dedicated SMM API backed rewrite tool
 // Renders into a target container. Uses window.SMM_GAPS and window.SMM_REWRITES from smm-data.js.
 // The gap labels are course practitioner labels, not a canonical Dervin taxonomy.
 
 (function() {
   'use strict';
+
+  const API_BASE = 'https://smm-api.fredericlabadie.com';
+  const REWRITE_URL = API_BASE + '/api/rewrite';
+  const FEEDBACK_URL = API_BASE + '/api/feedback';
 
   const GAPS_BY_ID = {};
   (window.SMM_GAPS || []).forEach(g => { GAPS_BY_ID[g.id] = g; });
@@ -34,10 +38,11 @@
 
   function buildFallbackRewrite(input) {
     const gapId = classifyGap(input);
-    const gap = GAPS_BY_ID[gapId];
+    const gap = GAPS_BY_ID[gapId] || { label: gapId };
     return {
       id: 'synth',
-      domain: 'Live rewrite',
+      domain: 'Offline heuristic rewrite',
+      source: 'offline_heuristic',
       original: input.trim(),
       diagnosis: [
         'Asks for an evaluation rather than situating a moment.',
@@ -52,67 +57,79 @@
         { kind: 'add', text: 'Walk me through a specific moment when this came up for you.' },
         { kind: 'add', text: 'What were you trying to do, what did you reach for, and what got in the way?' },
       ],
+      meta: { source: 'offline_heuristic' },
     };
   }
 
   function sanitizeErrorMessage(err) {
     const msg = String(err && err.message ? err.message : err || 'Unknown error');
     if (/Failed to fetch|NetworkError|Load failed/i.test(msg)) return 'network/CORS/preflight failure';
-    if (/Could not parse response/i.test(msg)) return 'model returned non-JSON text';
-    if (/No generated text/i.test(msg)) return 'proxy returned no generated text';
+    if (/BAD_JSON|Could not parse response/i.test(msg)) return 'API returned invalid JSON';
+    if (/HF_UNAUTHORIZED/i.test(msg)) return 'Hugging Face token/provider permission error';
     const status = msg.match(/Rewriter API error:\s*(\d{3})/i);
-    if (status) return 'proxy returned HTTP ' + status[1];
-    return 'proxy/model error';
+    if (status) return 'API returned HTTP ' + status[1];
+    return 'API/model error';
   }
 
-  // Proxy call via writersroom.fredericlabadie.com
-  const PROXY_URL = 'https://writersroom.fredericlabadie.com/api/rewrite';
-
-  function buildSystemPrompt() {
-    const gapList = (window.SMM_GAPS || []).map(g => g.label + ': ' + g.desc).join('; ');
-    return `You are an expert practitioner using Brenda Dervin's Sense-Making Methodology (SMM). A user will give you a research question (survey, UX interview, A/B test hypothesis, etc). Your job:
-
-Important accuracy constraint: use the gap labels below as this course's practitioner heuristic. They are grounded where possible in Dervin's movement-state / stop framing, but they are not a canonical six-part Dervin taxonomy. Do not claim that Dervin herself published these exact six categories.
-
-1. DIAGNOSE: Give exactly 3 bullet points explaining what is wrong with the question from an SMM perspective. Focus on: what it presupposes, whether it asks about a moment or a generality, whether it leaves room for both helps and hurts.
-
-2. REWRITE: Rewrite the question using SMM neutral questioning principles — anchor a specific moment, leave the gap type open, probe for both bridge and hurt.
-
-3. GAP_LABEL: Suggest which practitioner gap label the rewrite may help surface: ${gapList}. Treat this as a tentative analytic prompt, not as the respondent's answer and not as a canonical taxonomy.
-
-4. WHY: In 1-2 sentences, explain why the rewrite produces more useful data than the original.
-
-5. DIFF: Show what was cut (the original) and what was added (your rewrite, split into 2-3 short prompt sentences).
-
-Respond ONLY with valid JSON, no markdown, no preamble. Schema:
-{"diagnosis":["...","...","..."],"rewrite":"...","gap":"decision|barrier|problematic|role|spinout|washout","why":"...","diff":[{"kind":"cut","text":"..."},{"kind":"add","text":"..."},{"kind":"add","text":"..."}]}`;
-  }
-
-  async function callProxy(question) {
-    const prompt = '<|system|>\n' + buildSystemPrompt() + '\n<|user|>\n' + question + '\n<|assistant|>\n';
-    const res = await fetch(PROXY_URL, {
+  async function callRewriteApi(question) {
+    const res = await fetch(REWRITE_URL, {
       method: 'POST',
-      body: prompt,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ question: question }),
     });
-    if (!res.ok) {
-      let err = '';
-      try {
-        const payload = await res.json();
-        err = payload && payload.error ? payload.error : JSON.stringify(payload);
-      } catch {
-        err = await res.text();
-      }
-      throw new Error('Rewriter API error: ' + res.status + ' ' + err);
+
+    let payload;
+    try {
+      payload = await res.json();
+    } catch {
+      throw new Error('BAD_JSON: Rewriter API returned non-JSON response.');
     }
-    const data = await res.json();
-    const text = Array.isArray(data) ? data[0].generated_text : data.generated_text || '';
-    if (!text) throw new Error('No generated text returned from proxy');
-    const jsonMatch = text.match(/\{[\s\S]*\}/);
-    if (!jsonMatch) throw new Error('Could not parse response from model');
-    return JSON.parse(jsonMatch[0]);
+
+    if (!res.ok || payload.ok === false) {
+      const code = payload && payload.error && payload.error.code ? payload.error.code : 'API_ERROR';
+      const provider = payload && payload.meta && payload.meta.provider_message ? ' — ' + payload.meta.provider_message : '';
+      throw new Error('Rewriter API error: ' + res.status + ' ' + code + provider);
+    }
+
+    if (!payload.result) throw new Error('BAD_JSON: Rewriter API returned no result.');
+    return {
+      original: question,
+      diagnosis: payload.result.diagnosis || [],
+      rewrite: payload.result.rewrite || '',
+      gap: payload.result.gap || 'washout',
+      why: payload.result.why || '',
+      diff: payload.result.diff || [{ kind: 'cut', text: question }, { kind: 'add', text: payload.result.rewrite || '' }],
+      source: payload.source || 'ai',
+      meta: payload.meta || {},
+    };
   }
 
-  // ── DOM Builder ────────────────────────────────
+  async function submitFeedback(result, type, comment) {
+    const payload = {
+      type: type,
+      question: result.original || '',
+      rewrite: result.rewrite || '',
+      gap: result.gap || '',
+      comment: comment || '',
+      model: result.meta && result.meta.model ? result.meta.model : '',
+      prompt_version: result.meta && result.meta.prompt_version ? result.meta.prompt_version : '',
+      page: window.location.href,
+      source: result.source || (result.meta && result.meta.source) || '',
+    };
+
+    const res = await fetch(FEEDBACK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || data.ok === false) {
+      const msg = data && data.error && data.error.message ? data.error.message : 'Feedback request failed.';
+      throw new Error(msg);
+    }
+    return data;
+  }
 
   const EXAMPLES = [
     { label: 'Pricing clarity', text: 'Did you find the pricing information clear?' },
@@ -137,7 +154,6 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
     const root = document.getElementById(containerId);
     if (!root) return;
 
-    // ── Input section ──
     const shell = el('div', 'rewriter-shell');
     const inputWrap = el('div');
     inputWrap.style.cssText = 'display:flex;flex-direction:column;gap:8px';
@@ -166,7 +182,6 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
 
     inputWrap.append(label, textarea, controls, chipWrap);
 
-    // ── Output section ──
     const output = el('div', 'rewriter-output');
     output.id = 'rewriter-output';
 
@@ -197,27 +212,17 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
 
       let result;
       try {
-        // Try local match first
         const local = findLocalRewrite(q);
         if (local) {
-          result = local;
+          result = Object.assign({}, local, { source: 'local_example', meta: { source: 'local_example' } });
         } else {
-          // Call proxy
-          const aiResult = await callProxy(q);
-          result = {
-            original: q,
-            diagnosis: aiResult.diagnosis || [],
-            rewrite: aiResult.rewrite || '',
-            gap: aiResult.gap || 'washout',
-            why: aiResult.why || '',
-            diff: aiResult.diff || [{ kind: 'cut', text: q }, { kind: 'add', text: aiResult.rewrite }],
-          };
+          result = await callRewriteApi(q);
         }
       } catch (err) {
         console.error('Rewriter error:', err);
         result = buildFallbackRewrite(q);
         const reason = sanitizeErrorMessage(err);
-        const errHint = el('div', 'rewriter-label', { text: 'AI unavailable — showing heuristic rewrite. Reason: ' + reason + '.' });
+        const errHint = el('div', 'rewriter-label', { text: 'Using offline heuristic mode. Reason: ' + reason + '.' });
         errHint.style.cssText = 'color:#7c2424;font-size:10px;margin-bottom:8px';
         output.appendChild(errHint);
       }
@@ -246,11 +251,77 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
       });
     };
 
+    function renderFeedback(r) {
+      const wrap = el('div', 'reveal-step');
+      const head = el('div', 'step-head');
+      head.append(el('span', 'step-n', { text: '06 · Feedback' }), el('span', 'step-title', { text: 'Help improve the tool' }));
+
+      const note = el('p', null, { text: 'Feedback is optional. If you submit it, the original question, rewrite, label, and your comment are sent to the SMM API logs for review. Do not include personal or sensitive information.' });
+      note.style.cssText = 'font-family:var(--serif);font-size:13px;line-height:1.5;color:var(--muted);margin:0 0 10px';
+
+      const buttons = el('div', 'rewriter-controls');
+      const useful = el('button', 'btn-ghost-smm', { text: 'Useful' });
+      const inaccurate = el('button', 'btn-ghost-smm', { text: 'Inaccurate' });
+      const issue = el('button', 'btn-ghost-smm', { text: 'Report issue' });
+      buttons.append(useful, inaccurate, issue);
+
+      const form = el('div');
+      form.style.cssText = 'display:none;flex-direction:column;gap:8px;margin-top:10px';
+      const comment = el('textarea', 'rewriter-textarea');
+      comment.rows = 2;
+      comment.placeholder = 'What seems wrong? For example: label is wrong, rewrite is too leading, academic framing overstates Dervin, etc.';
+      const submit = el('button', 'btn-primary-smm', { text: 'Submit feedback' });
+      const cancel = el('button', 'btn-ghost-smm', { text: 'Cancel' });
+      const formControls = el('div', 'rewriter-controls');
+      formControls.append(submit, cancel);
+      form.append(comment, formControls);
+
+      const status = el('div', 'rewriter-label');
+      status.style.cssText = 'font-size:10px;margin-top:8px;color:var(--muted)';
+
+      let selectedType = null;
+      function openForm(type) {
+        selectedType = type;
+        form.style.display = 'flex';
+        comment.focus();
+        status.textContent = '';
+      }
+
+      useful.onclick = async () => {
+        status.textContent = 'Sending…';
+        try {
+          await submitFeedback(r, 'useful', '');
+          status.textContent = 'Thanks — feedback recorded.';
+        } catch (err) {
+          status.textContent = 'Feedback could not be sent.';
+        }
+      };
+      inaccurate.onclick = () => openForm('inaccuracy');
+      issue.onclick = () => openForm('issue');
+      cancel.onclick = () => { form.style.display = 'none'; comment.value = ''; selectedType = null; status.textContent = ''; };
+      submit.onclick = async () => {
+        status.textContent = 'Sending…';
+        submit.disabled = true;
+        try {
+          await submitFeedback(r, selectedType || 'issue', comment.value);
+          status.textContent = 'Thanks — feedback recorded.';
+          form.style.display = 'none';
+          comment.value = '';
+        } catch (err) {
+          status.textContent = 'Feedback could not be sent.';
+        } finally {
+          submit.disabled = false;
+        }
+      };
+
+      wrap.append(head, note, buttons, form, status);
+      output.appendChild(wrap);
+    }
+
     function renderResult(r) {
       const gap = GAPS_BY_ID[r.gap];
       const gapColor = gap ? gap.color : '#666';
 
-      // Step 1: Diagnosis
       const s1 = el('div', 'reveal-step');
       const s1h = el('div', 'step-head');
       s1h.append(el('span', 'step-n', { text: '02 · Diagnosis' }), el('span', 'step-title', { text: 'What\u2019s wrong with the question' }));
@@ -259,7 +330,6 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
       s1.append(s1h, s1list);
       output.appendChild(s1);
 
-      // Step 2: Diff
       const s2 = el('div', 'reveal-step');
       const s2h = el('div', 'step-head');
       s2h.append(el('span', 'step-n', { text: '03 · Transformation' }), el('span', 'step-title', { text: 'Old → new' }));
@@ -272,7 +342,6 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
       s2.append(s2h, diffBlock);
       output.appendChild(s2);
 
-      // Step 3: Rewrite + gap tag
       const s3 = el('div', 'reveal-step');
       const s3h = el('div', 'step-head');
       s3h.append(el('span', 'step-n', { text: '04 · Rewrite' }), el('span', 'step-title', { text: 'SMM-neutral framing' }));
@@ -291,7 +360,6 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
       s3.append(s3h, rBox, gapMeta);
       output.appendChild(s3);
 
-      // Step 4: Why
       const s4 = el('div', 'reveal-step');
       const s4h = el('div', 'step-head');
       s4h.append(el('span', 'step-n', { text: '05 · Why this works' }));
@@ -300,7 +368,8 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
       s4.append(s4h, whyP);
       output.appendChild(s4);
 
-      // Stagger reveal
+      renderFeedback(r);
+
       const steps = output.querySelectorAll('.reveal-step');
       steps.forEach((step, i) => {
         setTimeout(() => step.classList.add('visible'), 320 * (i + 1));

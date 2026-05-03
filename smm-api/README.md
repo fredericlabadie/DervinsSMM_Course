@@ -2,7 +2,7 @@
 
 Dedicated Vercel API for the SMM Question Rewriter on `smm.fredericlabadie.com`.
 
-This project is intentionally small and separate from the static Quarto course site. It owns the runtime model call, CORS policy, prompt, response validation, and response contract.
+This project is intentionally small and separate from the static Quarto course site. It owns the runtime model call, CORS policy, prompt, response validation, feedback capture, and response contract.
 
 ## Deploy as a Vercel project
 
@@ -41,7 +41,7 @@ https://router.huggingface.co/v1/chat/completions
 
 This replaced the earlier prototype call to `https://api-inference.huggingface.co/models/...`, which is brittle for chat workloads and many larger LLMs.
 
-## Request contract
+## Rewrite request contract
 
 Preferred request:
 
@@ -69,7 +69,7 @@ https://smm-api.fredericlabadie.com/api/rewrite?question=Did%20you%20find%20the%
 
 The browser test route exists for phone/debug convenience. The production course frontend should still use POST.
 
-## Response contract
+## Rewrite response contract
 
 Success:
 
@@ -113,6 +113,58 @@ Failure:
 }
 ```
 
+## Feedback endpoint
+
+The course frontend can submit explicit, opt-in feedback to:
+
+```text
+POST /api/feedback
+```
+
+Accepted feedback types:
+
+```text
+useful
+inaccuracy
+issue
+```
+
+Example payload:
+
+```json
+{
+  "type": "inaccuracy",
+  "question": "Did you find the pricing information clear?",
+  "rewrite": "Think about the last time you needed to use our pricing information to make a decision...",
+  "gap": "decision",
+  "comment": "This label should probably be washout, not decision.",
+  "model": "deepseek-ai/DeepSeek-V3-0324:fastest",
+  "prompt_version": "smm-rewriter-2026-05",
+  "page": "https://smm.fredericlabadie.com/index.html",
+  "source": "ai"
+}
+```
+
+Current storage strategy:
+
+```text
+Vercel runtime logs only
+```
+
+Search Vercel logs for:
+
+```text
+smm-feedback
+```
+
+Upgrade path:
+
+```text
+Vercel Postgres / Neon table with id, created_at, type, question, rewrite, gap, comment, model, prompt_version, page, status.
+```
+
+Privacy rule: feedback is only sent after a user explicitly clicks a feedback action. The frontend warns users not to include personal or sensitive information.
+
 ## Local test
 
 ```bash
@@ -149,16 +201,17 @@ http://localhost:3000/api/rewrite?question=Did%20you%20find%20the%20pricing%20in
 
 ## Frontend migration plan
 
-After deployment, update `js/smm-rewriter.js` in the course site:
+The course frontend should call:
 
 ```js
-const PROXY_URL = 'https://smm-api.fredericlabadie.com/api/rewrite';
+const REWRITE_URL = 'https://smm-api.fredericlabadie.com/api/rewrite';
+const FEEDBACK_URL = 'https://smm-api.fredericlabadie.com/api/feedback';
 ```
 
-and call it with JSON:
+Rewrite requests use JSON:
 
 ```js
-fetch(PROXY_URL, {
+fetch(REWRITE_URL, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ question })
