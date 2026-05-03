@@ -61,6 +61,14 @@ Compatibility request, useful while migrating from the old frontend:
 
 Raw `text/plain` bodies are also accepted for legacy compatibility.
 
+Browser-only test URL:
+
+```text
+https://smm-api.fredericlabadie.com/api/rewrite?question=Did%20you%20find%20the%20pricing%20information%20clear%3F
+```
+
+The browser test route exists for phone/debug convenience. The production course frontend should still use POST.
+
 ## Response contract
 
 Success:
@@ -131,6 +139,12 @@ Invoke-RestMethod `
   -Method Post `
   -ContentType "application/json" `
   -Body '{"question":"Did you find the pricing information clear?"}'
+```
+
+Browser:
+
+```text
+http://localhost:3000/api/rewrite?question=Did%20you%20find%20the%20pricing%20information%20clear%3F
 ```
 
 ## Frontend migration plan

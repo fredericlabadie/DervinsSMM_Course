@@ -21,7 +21,7 @@ function applyCors(req, res) {
   const allowOrigin = allowed.includes(origin) ? origin : allowed[0];
   res.setHeader('Access-Control-Allow-Origin', allowOrigin);
   res.setHeader('Vary', 'Origin');
-  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Cache-Control', 'no-store');
 }
@@ -55,6 +55,17 @@ function extractQuestionFromPrompt(prompt) {
 }
 
 async function parseRequest(req) {
+  if (req.method === 'GET') {
+    const host = req.headers.host ? `https://${req.headers.host}` : 'https://smm-api.fredericlabadie.com';
+    const url = new URL(req.url || '/', host);
+    const question = String(url.searchParams.get('question') || '').trim();
+    if (question) return { question, browserTest: true };
+    const err = new Error('Use POST, or provide ?question=... for browser testing.');
+    err.code = 'METHOD_NOT_ALLOWED';
+    err.status = 405;
+    throw err;
+  }
+
   const body = await readBody(req);
   const contentType = String(req.headers['content-type'] || '').toLowerCase();
 
@@ -267,8 +278,8 @@ export default async function handler(req, res) {
     return;
   }
 
-  if (req.method !== 'POST') {
-    sendJson(res, 405, publicError('METHOD_NOT_ALLOWED', 'Use POST.', started));
+  if (req.method !== 'POST' && req.method !== 'GET') {
+    sendJson(res, 405, publicError('METHOD_NOT_ALLOWED', 'Use POST, or provide ?question=... for browser testing.', started));
     return;
   }
 
@@ -276,7 +287,7 @@ export default async function handler(req, res) {
   try {
     request = await parseRequest(req);
   } catch (err) {
-    sendJson(res, 400, publicError(err.code || 'BAD_REQUEST', err.message, started));
+    sendJson(res, err.status || 400, publicError(err.code || 'BAD_REQUEST', err.message, started));
     return;
   }
 
@@ -305,6 +316,7 @@ export default async function handler(req, res) {
         provider: 'huggingface-router',
         prompt_version: PROMPT_VERSION,
         latency_ms: Date.now() - started,
+        browser_test: Boolean(request.browserTest),
       },
     });
   } catch (err) {
@@ -324,6 +336,7 @@ export default async function handler(req, res) {
         provider: 'huggingface-router',
         provider_status: err.status,
         provider_message: summarizeProviderPayload(err.payload),
+        browser_test: Boolean(request?.browserTest),
       },
     ));
   }
