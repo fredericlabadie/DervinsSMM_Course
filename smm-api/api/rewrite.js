@@ -152,11 +152,12 @@ async function callHuggingFace(question) {
     }),
   });
 
+  const responseText = await response.text();
   let payload;
   try {
-    payload = await response.json();
+    payload = responseText ? JSON.parse(responseText) : {};
   } catch {
-    payload = await response.text();
+    payload = responseText;
   }
 
   if (!response.ok) {
@@ -206,7 +207,8 @@ function normalizeResult(candidate, originalQuestion) {
   const rewrite = String(candidate?.rewrite || '').trim() ||
     'Walk me through a specific moment when this came up for you. What were you trying to do, what did you reach for, and what got in the way?';
 
-  const gap = GAP_VALUES.includes(candidate?.gap) ? candidate.gap : 'washout';
+  const candidateGap = String(candidate?.gap || '').trim().toLowerCase();
+  const gap = GAP_VALUES.includes(candidateGap) ? candidateGap : 'washout';
 
   const why = String(candidate?.why || '').trim() ||
     'This anchors the question in a specific micro-moment and leaves room for the participant to describe helps, hurts, and bridges in their own terms.';
