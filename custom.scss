@@ -712,6 +712,11 @@ body {
   align-items: center;
   gap: 8px;
 }
+.metaphor-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .metaphor-caption {
   font-family: $display-font;
   font-style: italic;
@@ -917,6 +922,7 @@ body {
   margin-bottom: 4px;
 }
 .card-specimen { margin: 8px auto 12px; display: block; }
+.card-specimen img { display: block; margin: 0 auto; }
 .card-name {
   font-family: $display-font;
   font-style: italic;
