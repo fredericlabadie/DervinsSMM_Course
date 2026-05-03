@@ -21,6 +21,16 @@ ALLOWED_ORIGINS=https://smm.fredericlabadie.com,http://localhost:4200,http://127
 PROMPT_VERSION=smm-rewriter-2026-05
 ```
 
+If Neon/Vercel Postgres is connected, also make sure one of these is available to the deployment:
+
+```text
+DATABASE_URL=postgres://...
+POSTGRES_URL=postgres://...
+POSTGRES_PRISMA_URL=postgres://...
+```
+
+The feedback endpoint checks those names in that order. If no database URL is available, feedback is still accepted and logged in Vercel runtime logs.
+
 The Hugging Face token must include permission to make calls to **Inference Providers**. A token that can only read models may authenticate but still fail on chat-completion execution.
 
 Recommended production domain:
@@ -148,19 +158,33 @@ Example payload:
 Current storage strategy:
 
 ```text
-Vercel runtime logs only
+Neon/Postgres when DATABASE_URL or POSTGRES_URL is present; Vercel runtime logs as fallback.
+```
+
+The endpoint creates the `smm_feedback` table automatically on first successful database-backed feedback submission. The same schema is available at:
+
+```text
+smm-api/sql/feedback.sql
 ```
 
 Search Vercel logs for:
 
 ```text
 smm-feedback
+smm-feedback-db-error
 ```
 
-Upgrade path:
+Useful SQL:
 
-```text
-Vercel Postgres / Neon table with id, created_at, type, question, rewrite, gap, comment, model, prompt_version, page, status.
+```sql
+select created_at, type, gap, model, source, left(question, 80) as question, left(comment, 120) as comment
+from smm_feedback
+order by created_at desc
+limit 25;
+
+update smm_feedback
+set status = 'reviewed', reviewed_at = now(), reviewer_note = 'Reviewed in Neon console.'
+where id = '<feedback-id>';
 ```
 
 Privacy rule: feedback is only sent after a user explicitly clicks a feedback action. The frontend warns users not to include personal or sensitive information.
@@ -171,7 +195,7 @@ Privacy rule: feedback is only sent after a user explicitly clicks a feedback ac
 cd smm-api
 npm install
 cp .env.example .env.local
-# edit .env.local with HF_TOKEN
+# edit .env.local with HF_TOKEN and optional DATABASE_URL
 npm run dev
 ```
 

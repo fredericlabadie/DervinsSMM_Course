@@ -1,3 +1,7 @@
+import pg from 'pg';
+
+const { Pool } = pg;
+
 const DEFAULT_ALLOWED_ORIGINS = [
   'https://smm.fredericlabadie.com',
   'http://localhost:4200',
@@ -5,6 +9,23 @@ const DEFAULT_ALLOWED_ORIGINS = [
 ];
 
 const VALID_TYPES = new Set(['useful', 'inaccuracy', 'issue']);
+const DATABASE_URL = process.env.DATABASE_URL || process.env.POSTGRES_URL || process.env.POSTGRES_PRISMA_URL;
+
+let pool;
+let schemaReady = false;
+
+function getPool() {
+  if (!DATABASE_URL) return null;
+  if (!pool) {
+    pool = new Pool({
+      connectionString: DATABASE_URL,
+      ssl: DATABASE_URL.includes('localhost') ? false : { rejectUnauthorized: false },
+      max: 1,
+      idleTimeoutMillis: 10_000,
+    });
+  }
+  return pool;
+}
 
 function getAllowedOrigins() {
   const configured = process.env.ALLOWED_ORIGINS;
@@ -66,10 +87,69 @@ function normalizePayload(payload, req) {
     comment: clean(payload.comment, 2000),
     model: clean(payload.model, 160),
     prompt_version: clean(payload.prompt_version, 80),
-    page: clean(payload.page, 240),
+    page: clean(payload.page, 500),
     user_agent: clean(req.headers['user-agent'], 500),
     source: clean(payload.source, 80),
   };
+}
+
+async function ensureSchema(client) {
+  if (schemaReady) return;
+  await client.query(`
+    CREATE TABLE IF NOT EXISTS smm_feedback (
+      id uuid PRIMARY KEY,
+      created_at timestamptz NOT NULL DEFAULT now(),
+      type text NOT NULL CHECK (type IN ('useful', 'inaccuracy', 'issue')),
+      question text,
+      rewrite text,
+      gap text,
+      comment text,
+      model text,
+      prompt_version text,
+      page text,
+      user_agent text,
+      source text,
+      status text NOT NULL DEFAULT 'new',
+      reviewed_at timestamptz,
+      reviewer_note text
+    )
+  `);
+  await client.query(`CREATE INDEX IF NOT EXISTS smm_feedback_created_at_idx ON smm_feedback (created_at DESC)`);
+  await client.query(`CREATE INDEX IF NOT EXISTS smm_feedback_status_idx ON smm_feedback (status)`);
+  schemaReady = true;
+}
+
+async function storeFeedback(feedback) {
+  const db = getPool();
+  if (!db) return { stored: false, storage: 'logs', reason: 'NO_DATABASE_URL' };
+
+  const client = await db.connect();
+  try {
+    await ensureSchema(client);
+    await client.query(
+      `INSERT INTO smm_feedback (
+        id, created_at, type, question, rewrite, gap, comment,
+        model, prompt_version, page, user_agent, source
+      ) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)`,
+      [
+        feedback.id,
+        feedback.created_at,
+        feedback.type,
+        feedback.question,
+        feedback.rewrite,
+        feedback.gap,
+        feedback.comment,
+        feedback.model,
+        feedback.prompt_version,
+        feedback.page,
+        feedback.user_agent,
+        feedback.source,
+      ],
+    );
+    return { stored: true, storage: 'neon' };
+  } finally {
+    client.release();
+  }
 }
 
 export default async function handler(req, res) {
@@ -112,13 +192,24 @@ export default async function handler(req, res) {
     return;
   }
 
-  // Temporary storage strategy: explicit feedback is logged in Vercel runtime logs.
-  // Upgrade path: write this object to Vercel Postgres / Neon with review status fields.
   console.log('smm-feedback', feedback);
+
+  let storage;
+  try {
+    storage = await storeFeedback(feedback);
+  } catch (err) {
+    console.error('smm-feedback-db-error', {
+      id: feedback.id,
+      code: err.code,
+      message: err.message,
+    });
+    storage = { stored: false, storage: 'logs', reason: 'DB_INSERT_FAILED' };
+  }
 
   sendJson(res, 200, {
     ok: true,
     id: feedback.id,
-    message: 'Feedback recorded.',
+    message: storage.stored ? 'Feedback recorded in database.' : 'Feedback recorded in logs.',
+    storage,
   });
 }

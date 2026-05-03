@@ -6,11 +6,14 @@
   "description": "Dedicated Vercel API for the Dervin SMM Question Rewriter.",
   "scripts": {
     "dev": "vercel dev",
-    "lint": "node --check api/rewrite.js",
+    "lint": "node --check api/rewrite.js && node --check api/feedback.js",
     "test:local": "node scripts/smoke-request.mjs"
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "pg": "^8.13.1"
   },
   "devDependencies": {
     "vercel": "latest"
