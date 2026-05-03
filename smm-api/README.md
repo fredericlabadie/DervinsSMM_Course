@@ -2,7 +2,7 @@
 
 Dedicated Vercel API for the SMM Question Rewriter on `smm.fredericlabadie.com`.
 
-This project is intentionally small and separate from the static Quarto course site. It owns the runtime model call, CORS policy, prompt, response validation, feedback capture, and response contract.
+This project is intentionally small and separate from the static Quarto course site. It owns the runtime model call, CORS policy, prompt, response validation, feedback capture, rate limiting, health checks, and response contract.
 
 ## Deploy as a Vercel project
 
@@ -21,6 +21,14 @@ ALLOWED_ORIGINS=https://smm.fredericlabadie.com,http://localhost:4200,http://127
 PROMPT_VERSION=smm-rewriter-2026-05
 ```
 
+Optional rate-limit env vars:
+
+```text
+RATE_LIMIT_WINDOW_MS=60000
+REWRITE_RATE_LIMIT_MAX=20
+FEEDBACK_RATE_LIMIT_MAX=30
+```
+
 If Neon/Vercel Postgres is connected, also make sure one of these is available to the deployment:
 
 ```text
@@ -29,7 +37,7 @@ POSTGRES_URL=postgres://...
 POSTGRES_PRISMA_URL=postgres://...
 ```
 
-The feedback endpoint checks those names in that order. If no database URL is available, feedback is still accepted and logged in Vercel runtime logs.
+The feedback endpoint checks those database URL names in that order. If no database URL is available, feedback is still accepted and logged in Vercel runtime logs.
 
 The Hugging Face token must include permission to make calls to **Inference Providers**. A token that can only read models may authenticate but still fail on chat-completion execution.
 
@@ -39,7 +47,16 @@ Recommended production domain:
 smm-api.fredericlabadie.com
 ```
 
-The static course frontend should not be switched to this API until the endpoint is deployed and tested.
+## Endpoints
+
+```text
+GET  /api/health
+POST /api/rewrite
+GET  /api/rewrite?question=...   # browser-only debug path
+POST /api/feedback
+```
+
+`/api/health` reports whether key configuration is present without revealing secrets.
 
 ## Runtime provider
 
@@ -122,6 +139,8 @@ Failure:
   }
 }
 ```
+
+Rate-limited responses return HTTP `429` with `X-RateLimit-*` headers.
 
 ## Feedback endpoint
 
@@ -220,25 +239,23 @@ npm run dev
 Then in another terminal:
 
 ```bash
-curl -i http://localhost:3000/api/rewrite \
-  -H 'Content-Type: application/json' \
-  -d '{"question":"Did you find the pricing information clear?"}'
+npm run lint
+npm run test:local
+```
+
+`npm run test:local` calls `/api/health`, `/api/rewrite`, and `/api/feedback`. It posts a `source = smoke_test` feedback row if a database is connected.
+
+To target production explicitly:
+
+```bash
+SMM_API_BASE_URL=https://smm-api.fredericlabadie.com npm run test:local
 ```
 
 PowerShell:
 
 ```powershell
-Invoke-RestMethod `
-  -Uri "http://localhost:3000/api/rewrite" `
-  -Method Post `
-  -ContentType "application/json" `
-  -Body '{"question":"Did you find the pricing information clear?"}'
-```
-
-Browser:
-
-```text
-http://localhost:3000/api/rewrite?question=Did%20you%20find%20the%20pricing%20information%20clear%3F
+$env:SMM_API_BASE_URL="https://smm-api.fredericlabadie.com"
+npm run test:local
 ```
 
 ## Frontend migration plan

@@ -43,11 +43,15 @@ js/smm-rewriter.js          frontend rewriter + opt-in rewriter feedback
 _includes/footer.html       footer, attribution, site-wide academic issue feedback
 smm-api/api/rewrite.js      SMM rewrite API using Hugging Face Inference Providers router
 smm-api/api/feedback.js     feedback endpoint with Neon/Postgres storage and Vercel-log fallback
+smm-api/api/health.js       lightweight API health/configuration endpoint
+smm-api/lib/rate-limit.js   in-memory per-instance rate-limit helper
 smm-api/sql/feedback.sql    feedback table schema
 CODEX_VIBE_ROOM_HANDOFF.md  engineering handoff for Codex / vibe-room work
 ```
 
 Feedback is explicit and opt-in. Rewriter feedback and academic issue reports are stored in Neon/Postgres when the Vercel database env var is available; Vercel runtime logs remain the fallback.
+
+The API includes a lightweight health endpoint and per-instance rate limiting. These are guardrails for a small public tool, not a full abuse-prevention system.
 
 ---
 
@@ -110,12 +114,50 @@ quarto render
 
 # Preview
 quarto preview
+```
 
-# API local check
+API checks:
+
+```bash
 cd smm-api
 npm install
 npm run lint
+npm run test:local
 ```
+
+`npm run test:local` calls:
+
+```text
+GET  /api/health
+POST /api/rewrite
+POST /api/feedback
+```
+
+To smoke-test production deliberately:
+
+```bash
+cd smm-api
+SMM_API_BASE_URL=https://smm-api.fredericlabadie.com npm run test:local
+```
+
+PowerShell:
+
+```powershell
+cd smm-api
+$env:SMM_API_BASE_URL="https://smm-api.fredericlabadie.com"
+npm run test:local
+```
+
+Production API endpoints:
+
+```text
+GET  https://smm-api.fredericlabadie.com/api/health
+POST https://smm-api.fredericlabadie.com/api/rewrite
+GET  https://smm-api.fredericlabadie.com/api/rewrite?question=...
+POST https://smm-api.fredericlabadie.com/api/feedback
+```
+
+The `GET /api/rewrite?question=...` route is retained for browser/mobile debugging; the course frontend uses POST.
 
 For the next technical handoff, start with `CODEX_VIBE_ROOM_HANDOFF.md`.
 

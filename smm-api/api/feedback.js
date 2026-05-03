@@ -1,4 +1,5 @@
 import pg from 'pg';
+import { applyRateLimitHeaders, checkRateLimit } from '../lib/rate-limit.js';
 
 const { Pool } = pg;
 
@@ -171,6 +172,16 @@ export default async function handler(req, res) {
     sendJson(res, 405, {
       ok: false,
       error: { code: 'METHOD_NOT_ALLOWED', message: 'Use POST.' },
+    });
+    return;
+  }
+
+  const rate = checkRateLimit(req, { namespace: 'feedback', limit: Number(process.env.FEEDBACK_RATE_LIMIT_MAX || 30) });
+  applyRateLimitHeaders(res, rate);
+  if (!rate.allowed) {
+    sendJson(res, 429, {
+      ok: false,
+      error: { code: 'RATE_LIMITED', message: 'Too many feedback submissions. Please try again shortly.' },
     });
     return;
   }

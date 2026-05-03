@@ -1,3 +1,5 @@
+import { applyRateLimitHeaders, checkRateLimit } from '../lib/rate-limit.js';
+
 const DEFAULT_MODEL = 'deepseek-ai/DeepSeek-V3-0324:fastest';
 const ROUTER_URL = 'https://router.huggingface.co/v1/chat/completions';
 const DEFAULT_ALLOWED_ORIGINS = [
@@ -282,6 +284,13 @@ export default async function handler(req, res) {
 
   if (req.method !== 'POST' && req.method !== 'GET') {
     sendJson(res, 405, publicError('METHOD_NOT_ALLOWED', 'Use POST, or provide ?question=... for browser testing.', started));
+    return;
+  }
+
+  const rate = checkRateLimit(req, { namespace: 'rewrite', limit: Number(process.env.REWRITE_RATE_LIMIT_MAX || 20) });
+  applyRateLimitHeaders(res, rate);
+  if (!rate.allowed) {
+    sendJson(res, 429, publicError('RATE_LIMITED', 'Too many rewrite requests. Please try again shortly.', started));
     return;
   }
 
