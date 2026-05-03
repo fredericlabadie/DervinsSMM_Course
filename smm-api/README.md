@@ -16,10 +16,12 @@ Add environment variables in Vercel:
 
 ```text
 HF_TOKEN=hf_...
-HF_MODEL=HuggingFaceH4/zephyr-7b-beta
+HF_MODEL=deepseek-ai/DeepSeek-V3-0324:fastest
 ALLOWED_ORIGINS=https://smm.fredericlabadie.com,http://localhost:4200,http://127.0.0.1:4200
 PROMPT_VERSION=smm-rewriter-2026-05
 ```
+
+The Hugging Face token must include permission to make calls to **Inference Providers**. A token that can only read models may authenticate but still fail on chat-completion execution.
 
 Recommended production domain:
 
@@ -28,6 +30,16 @@ smm-api.fredericlabadie.com
 ```
 
 The static course frontend should not be switched to this API until the endpoint is deployed and tested.
+
+## Runtime provider
+
+The API uses Hugging Face's Inference Providers OpenAI-compatible chat-completions router:
+
+```text
+https://router.huggingface.co/v1/chat/completions
+```
+
+This replaced the earlier prototype call to `https://api-inference.huggingface.co/models/...`, which is brittle for chat workloads and many larger LLMs.
 
 ## Request contract
 
@@ -68,7 +80,8 @@ Success:
     ]
   },
   "meta": {
-    "model": "HuggingFaceH4/zephyr-7b-beta",
+    "model": "deepseek-ai/DeepSeek-V3-0324:fastest",
+    "provider": "huggingface-router",
     "prompt_version": "smm-rewriter-2026-05",
     "latency_ms": 1234
   }
@@ -85,7 +98,9 @@ Failure:
     "message": "Model request failed."
   },
   "meta": {
-    "prompt_version": "smm-rewriter-2026-05"
+    "prompt_version": "smm-rewriter-2026-05",
+    "provider_status": 401,
+    "provider_message": "Invalid username or password."
   }
 }
 ```
@@ -106,6 +121,16 @@ Then in another terminal:
 curl -i http://localhost:3000/api/rewrite \
   -H 'Content-Type: application/json' \
   -d '{"question":"Did you find the pricing information clear?"}'
+```
+
+PowerShell:
+
+```powershell
+Invoke-RestMethod `
+  -Uri "http://localhost:3000/api/rewrite" `
+  -Method Post `
+  -ContentType "application/json" `
+  -Body '{"question":"Did you find the pricing information clear?"}'
 ```
 
 ## Frontend migration plan
