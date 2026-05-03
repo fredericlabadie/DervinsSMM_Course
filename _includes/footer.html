@@ -7,6 +7,103 @@
     <a href="theory.html">theory</a> ·
     <a href="method.html">method</a> ·
     <a href="index.html">practice</a> ·
-    <a href="fieldwork.html">fieldwork</a>
+    <a href="fieldwork.html">fieldwork</a> ·
+    <button type="button" id="academic-feedback-open" style="background:none;border:0;color:#c4ff3a;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;cursor:pointer;font:inherit;text-transform:lowercase;padding:0;">report academic issue</button>
   </span>
 </div>
+
+<div id="academic-feedback-panel" aria-hidden="true" style="display:none;position:fixed;right:18px;bottom:18px;z-index:9999;max-width:420px;width:calc(100vw - 36px);background:#f5f1e3;color:#0c1410;border:1px solid #a06a3a;box-shadow:0 16px 50px rgba(0,0,0,.25);padding:18px;border-radius:2px;">
+  <div style="display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:10px;">
+    <div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;color:#a06a3a;margin-bottom:6px;">Academic accuracy feedback</div>
+      <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;line-height:1.05;font-style:italic;">Report an issue</div>
+    </div>
+    <button type="button" id="academic-feedback-close" aria-label="Close academic feedback" style="background:none;border:0;font-size:22px;line-height:1;cursor:pointer;color:#0c1410;">×</button>
+  </div>
+  <p style="font-family:'IBM Plex Serif',Georgia,serif;font-size:13px;line-height:1.5;color:#4f5a4b;margin:0 0 10px;">Use this for academic or citation concerns: misstated Dervin concepts, overclaiming, wrong source framing, broken bibliography links, or unclear practitioner-vs-academic distinctions. Do not include personal or sensitive information.</p>
+  <label for="academic-feedback-kind" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:#a06a3a;margin-bottom:6px;">Issue type</label>
+  <select id="academic-feedback-kind" style="width:100%;margin-bottom:10px;padding:8px;border:1px solid #c8bea7;background:#fffaf0;color:#0c1410;font-family:'IBM Plex Serif',Georgia,serif;">
+    <option value="Academic inaccuracy">Academic inaccuracy</option>
+    <option value="Citation/source issue">Citation/source issue</option>
+    <option value="Practitioner framing overclaim">Practitioner framing overclaim</option>
+    <option value="Broken or missing source link">Broken or missing source link</option>
+    <option value="Other content issue">Other content issue</option>
+  </select>
+  <label for="academic-feedback-comment" style="display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:#a06a3a;margin-bottom:6px;">What should be reviewed?</label>
+  <textarea id="academic-feedback-comment" rows="5" placeholder="Example: On the Theory page, the SGBO section sounds like Dervin's exact canonical formula. It may need to be marked more clearly as course shorthand." style="width:100%;box-sizing:border-box;margin-bottom:10px;padding:9px;border:1px solid #c8bea7;background:#fffaf0;color:#0c1410;font-family:'IBM Plex Serif',Georgia,serif;font-size:14px;line-height:1.45;"></textarea>
+  <div style="display:flex;gap:8px;align-items:center;justify-content:flex-end;">
+    <span id="academic-feedback-status" style="margin-right:auto;font-family:'IBM Plex Mono',monospace;font-size:10px;color:#4f5a4b;"></span>
+    <button type="button" id="academic-feedback-submit" style="background:#0c1410;color:#f5f1e3;border:0;padding:9px 12px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:1.3px;text-transform:uppercase;cursor:pointer;">Submit</button>
+  </div>
+</div>
+
+<script>
+(function() {
+  var API_URL = 'https://smm-api.fredericlabadie.com/api/feedback';
+  var openBtn = document.getElementById('academic-feedback-open');
+  var panel = document.getElementById('academic-feedback-panel');
+  var closeBtn = document.getElementById('academic-feedback-close');
+  var submitBtn = document.getElementById('academic-feedback-submit');
+  var status = document.getElementById('academic-feedback-status');
+  var comment = document.getElementById('academic-feedback-comment');
+  var kind = document.getElementById('academic-feedback-kind');
+
+  if (!openBtn || !panel || !closeBtn || !submitBtn || !status || !comment || !kind) return;
+
+  function openPanel() {
+    panel.style.display = 'block';
+    panel.setAttribute('aria-hidden', 'false');
+    status.textContent = '';
+    setTimeout(function() { comment.focus(); }, 20);
+  }
+
+  function closePanel() {
+    panel.style.display = 'none';
+    panel.setAttribute('aria-hidden', 'true');
+    status.textContent = '';
+  }
+
+  openBtn.addEventListener('click', openPanel);
+  closeBtn.addEventListener('click', closePanel);
+
+  submitBtn.addEventListener('click', function() {
+    var text = comment.value.trim();
+    if (!text) {
+      status.textContent = 'Add a note first.';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    status.textContent = 'Sending…';
+
+    fetch(API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'inaccuracy',
+        question: document.title || 'Academic content feedback',
+        rewrite: '',
+        gap: kind.value,
+        comment: text,
+        model: '',
+        prompt_version: 'academic-content-feedback',
+        page: window.location.href,
+        source: 'academic_content'
+      })
+    }).then(function(res) {
+      return res.json().catch(function() { return {}; }).then(function(data) {
+        if (!res.ok || data.ok === false) throw new Error('Feedback failed');
+        return data;
+      });
+    }).then(function() {
+      status.textContent = 'Thanks — recorded.';
+      comment.value = '';
+      setTimeout(closePanel, 900);
+    }).catch(function() {
+      status.textContent = 'Could not send feedback.';
+    }).finally(function() {
+      submitBtn.disabled = false;
+    });
+  });
+})();
+</script>
