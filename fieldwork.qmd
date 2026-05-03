@@ -114,6 +114,11 @@ pagetitle: "Fieldwork — From the Field"
     <div class="plate-body">
       <p>SMM positions participants as active sense-makers, not informants. Research design must protect their ability to make sense of the research process itself — informed consent, power transparency, and benefit reciprocity are structural requirements, not procedural formalities.</p>
 
+      <div class="smm-callout-box warn">
+        <strong>Method limit: SMM is not culturally neutral</strong>
+        In cross-cultural, Indigenous, or minoritised-knowledge contexts, do not assume gaps are visible, nameable, individual, or safe to narrate. Use SMM with community review, cultural humility, and local epistemic authority; treat silence, refusal, indirectness, and collective knowledge protocols as part of the situation rather than as missing data.
+      </div>
+
       <div class="ethics-card">
         <div class="ethics-head"><strong>01 · Healthcare Navigation Study</strong><p>Interview patients about moments of uncertainty navigating care systems — especially relevant in cross-national or expat contexts.</p></div>
         <div class="ethics-grid">

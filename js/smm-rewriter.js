@@ -256,7 +256,7 @@
       const head = el('div', 'step-head');
       head.append(el('span', 'step-n', { text: '06 · Feedback' }), el('span', 'step-title', { text: 'Help improve the tool' }));
 
-      const note = el('p', null, { text: 'Feedback is optional. If you submit it, the original question, rewrite, label, and your comment are sent to the SMM API logs for review. Do not include personal or sensitive information.' });
+      const note = el('p', null, { text: 'Feedback is optional. If you submit it, the original question, rewrite, label, and your comment are sent to the SMM API for review and may be stored in the feedback database. Do not include personal or sensitive information.' });
       note.style.cssText = 'font-family:var(--serif);font-size:13px;line-height:1.5;color:var(--muted);margin:0 0 10px';
 
       const buttons = el('div', 'rewriter-controls');

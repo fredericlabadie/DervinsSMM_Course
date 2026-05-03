@@ -63,7 +63,7 @@ pagetitle: "Method — Gap Pictures for Practice"
 
   <div class="smm-callout-box smm-callout-box-spaced-top">
     <strong>Academic note</strong>
-    Dervin's primary texts describe movement states or stops — including decision, barrier, problematic, spin-out, and wash-out — as ways people experience discontinuity while moving through time-space. This course keeps the six-label display because it is useful for practice, but treats it as a teaching heuristic. The role label is an applied extension for organisational, UX, and product work, not a documented canonical Dervin category.
+    Dervin's primary texts and later SMM teaching materials describe people as encountering situated stops, discontinuities, muddles, and gap-facing moments while moving through time-space. This course's labels echo that movement-state framing but should be treated as applied teaching prompts, not as Dervin's canonical taxonomy. The role label is an applied extension for organisational, UX, and product work, not a documented canonical Dervin category.
   </div>
 
   <!-- CTA Band -->
