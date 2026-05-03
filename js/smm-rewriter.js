@@ -92,7 +92,6 @@ Respond ONLY with valid JSON, no markdown, no preamble. Schema:
     const prompt = '<|system|>\n' + buildSystemPrompt() + '\n<|user|>\n' + question + '\n<|assistant|>\n';
     const res = await fetch(PROXY_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
       body: prompt,
     });
     if (!res.ok) {
