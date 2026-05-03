@@ -6,7 +6,7 @@
   "description": "Dedicated Vercel API for the Dervin SMM Question Rewriter.",
   "scripts": {
     "dev": "npx vercel dev",
-    "lint": "node --check api/rewrite.js && node --check api/feedback.js",
+    "lint": "node --check api/rewrite.js && node --check api/feedback.js && node --check api/health.js && node --check lib/rate-limit.js",
     "test:local": "node scripts/smoke-request.mjs"
   },
   "engines": {
