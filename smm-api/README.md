@@ -139,7 +139,7 @@ inaccuracy
 issue
 ```
 
-Example payload:
+Example rewriter payload:
 
 ```json
 {
@@ -147,11 +147,29 @@ Example payload:
   "question": "Did you find the pricing information clear?",
   "rewrite": "Think about the last time you needed to use our pricing information to make a decision...",
   "gap": "decision",
+  "category": "gap-label",
   "comment": "This label should probably be washout, not decision.",
   "model": "deepseek-ai/DeepSeek-V3-0324:fastest",
   "prompt_version": "smm-rewriter-2026-05",
   "page": "https://smm.fredericlabadie.com/index.html",
   "source": "ai"
+}
+```
+
+Example academic-content payload:
+
+```json
+{
+  "type": "inaccuracy",
+  "question": "Theory — Foundations",
+  "rewrite": "",
+  "gap": "",
+  "category": "Practitioner framing overclaim",
+  "comment": "This section makes a course shorthand sound like Dervin's canonical wording.",
+  "model": "",
+  "prompt_version": "academic-content-feedback",
+  "page": "https://smm.fredericlabadie.com/theory.html",
+  "source": "academic_content"
 }
 ```
 
@@ -161,7 +179,7 @@ Current storage strategy:
 Neon/Postgres when DATABASE_URL or POSTGRES_URL is present; Vercel runtime logs as fallback.
 ```
 
-The endpoint creates the `smm_feedback` table automatically on first successful database-backed feedback submission. The same schema is available at:
+The endpoint creates the `smm_feedback` table automatically on first successful database-backed feedback submission. It also runs `ALTER TABLE ... ADD COLUMN IF NOT EXISTS category text` so existing tables are upgraded safely. The same schema is available at:
 
 ```text
 smm-api/sql/feedback.sql
@@ -177,7 +195,7 @@ smm-feedback-db-error
 Useful SQL:
 
 ```sql
-select created_at, type, gap, model, source, left(question, 80) as question, left(comment, 120) as comment
+select created_at, type, gap, category, model, source, left(question, 80) as question, left(comment, 120) as comment
 from smm_feedback
 order by created_at desc
 limit 25;
